@@ -241,27 +241,31 @@
       <a class="btn btn-ghost" href="#tulisan">Lihat semua tulisan</a>
     </div>
     <div class="book-row">
-      <div class="book-card">
+      
+      <div class="book-card" data-href="book01.html">
         <div>
           <div class="book-badge live">tersedia</div>
           <div class="book-title">Obat Toxic dari Ibnul Jauzi</div>
         </div>
         <div class="book-meta">15 refleksi anti-toxic — gratis / seikhlasnya</div>
       </div>
-      <div class="book-card dim">
+      
+      <div class="book-card" data-href="book02.html">
         <div>
-          <div class="book-badge soon">segera terbit</div>
-          <div class="book-title">Obat Overthinking</div>
+          <div class="book-badge soon">tersedia</div>
+          <div class="book-title">Obat Toxic dari Ibnul Jauzi Resep kedua</div>
         </div>
         <div class="book-meta">buku ke-2</div>
       </div>
-      <div class="book-card dim">
+      
+      <div class="book-card" data-href="book03.html">
         <div>
-          <div class="book-badge soon">segera terbit</div>
-          <div class="book-title">Obat Toxic Relationship</div>
+          <div class="book-badge soon">tersedia</div>
+          <div class="book-title">Obat Toxic dari Ibnul Jauzi Resep ketiga</div>
         </div>
         <div class="book-meta">buku ke-3</div>
       </div>
+      
       <div class="book-card dim">
         <div>
           <div class="book-badge soon">segera terbit</div>
@@ -420,5 +424,16 @@
   }
 </script>
 
+
+  <script>
+  document.querySelectorAll('.book-card[data-href]').forEach(card => {
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', () => {
+      window.location.href = card.dataset.href;
+    });
+  });
+</script>
+
+  
 </body>
 </html>
