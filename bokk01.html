@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Obat Toxic dari Ibnul Jauzi — Resep Pertama</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,450;0,9..144,600;0,9..144,700;1,9..144,450;1,9..144,600&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* palette pulled directly from the book cover */
+    --bg: #182722;
+    --bg-alt: #1f342d;
+    --panel: #24413a;
+    --line: rgba(242,241,235,0.14);
+    --ink: #f4f3ee;
+    --ink-dim: #b7c7c0;
+    --ink-faint: #76897f;
+    --blue: #EC6A4F;
+    --blue-light: #F2967D;
+    --blue-deep: #B23B24;
+    --mint: #E7A93E;
+    --mint-deep: #74896B;
+    --amber: #E9805F;      /* repointed to cover blue for label/accent text */
+    --amber-dim: #B23B24;  /* repointed to cover blue-deep */
+    --navy: #241D18;       /* the dark stamp/title-bar navy from the cover */
+    --radius: 2px;
+    --wrap: 760px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Plus Jakarta Sans', sans-serif;
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--amber); color:#1a1108;}
+
+  h1,h2,h3,.display{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    color:var(--ink);
+    margin:0;
+  }
+
+  .label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--amber);
+  }
+
+  a{color:inherit;}
+  img{max-width:100%;}
+
+  /* ===== background texture ===== */
+  body::before{
+    content:"";
+    position:fixed; inset:0;
+    background:
+      radial-gradient(ellipse 900px 500px at 15% -5%, rgba(93,145,182,0.22), transparent 60%),
+      radial-gradient(ellipse 700px 600px at 100% 20%, rgba(158,203,198,0.12), transparent 55%);
+    pointer-events:none;
+    z-index:0;
+  }
+
+  /* ===== top nav ===== */
+  .topbar{
+    position:fixed; top:0; left:0; right:0;
+    z-index:50;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 28px;
+    background:linear-gradient(180deg, rgba(30,42,40,0.55), rgba(30,42,40,0.28) 70%, transparent);
+    backdrop-filter:blur(6px);
+  }
+  .topbar .brand{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:1rem;
+    letter-spacing:0.02em;
+  }
+  .topbar .brand span{color:var(--amber);}
+  .topbar .nav-toggle{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    border:1px solid var(--line);
+    padding:8px 14px;
+    border-radius:20px;
+    color:var(--ink-dim);
+    cursor:pointer;
+    background:rgba(255,255,255,0.02);
+    transition:border-color .2s, color .2s;
+  }
+  .nav-toggle:hover{border-color:var(--amber); color:var(--amber);}
+
+  /* ===== side index (desktop) ===== */
+  .index-panel{
+    position:fixed;
+    top:0; right:-320px;
+    width:300px; height:100%;
+    background:var(--bg-alt);
+    border-left:1px solid var(--line);
+    z-index:60;
+    padding:90px 26px 40px;
+    overflow-y:auto;
+    transition:right .35s cubic-bezier(.6,0,.2,1);
+  }
+  .index-panel.open{right:0;}
+  .index-panel .label{margin-bottom:18px; display:block;}
+  .index-list{list-style:none; margin:0; padding:0;}
+  .index-list li{border-bottom:1px solid var(--line);}
+  .index-list a{
+    display:flex; gap:12px; align-items:baseline;
+    padding:11px 2px;
+    font-size:0.88rem;
+    color:var(--ink-dim);
+    text-decoration:none;
+    transition:color .2s, padding-left .2s;
+  }
+  .index-list a:hover{color:var(--mint); padding-left:6px;}
+  .index-list .num{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    color:var(--amber-dim);
+    flex-shrink:0;
+  }
+  .index-backdrop{
+    position:fixed; inset:0; background:rgba(0,0,0,0.4);
+    z-index:55; opacity:0; pointer-events:none; transition:opacity .3s;
+  }
+  .index-backdrop.open{opacity:1; pointer-events:auto;}
+
+  /* ===== hero ===== */
+  .hero{
+    position:relative; z-index:1;
+    min-height:96vh;
+    display:flex; flex-direction:column; justify-content:center;
+    padding:150px 28px 90px;
+    overflow:hidden;
+    background:linear-gradient(160deg, var(--blue-light) 0%, var(--blue) 45%, var(--blue-deep) 100%);
+    isolation:isolate;
+  }
+  .hero::before, .hero::after{
+    content:"";
+    position:absolute;
+    border-radius:50%;
+    z-index:0;
+    pointer-events:none;
+  }
+  .hero::before{
+    width:640px; height:640px;
+    top:-260px; right:-220px;
+    background:var(--mint);
+    opacity:0.85;
+  }
+  .hero::after{
+    width:360px; height:360px;
+    bottom:-160px; left:-120px;
+    background:var(--mint-deep);
+    opacity:0.55;
+  }
+  .hero-content{
+    position:relative; z-index:2;
+    max-width:var(--wrap);
+    margin:0 auto;
+    width:100%;
+  }
+  .hero .eyebrow{
+    display:flex; align-items:center; gap:16px;
+    margin-bottom:30px;
+    flex-wrap:wrap;
+  }
+  .eyebrow .badge{
+    display:inline-block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.7rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--navy);
+    background:rgba(30,42,40,0.12);
+    border:1px solid rgba(30,42,40,0.35);
+    padding:7px 14px;
+    border-radius:20px;
+  }
+  .hero-grid{
+    display:flex;
+    align-items:flex-end;
+    gap:40px;
+  }
+  .hero-text{flex:1; min-width:260px;}
+  .hero h1{
+    font-size:clamp(2.4rem, 6.4vw, 4.1rem);
+    line-height:1.03;
+    font-weight:600;
+    color:var(--navy);
+  }
+  .hero h1 em{
+    font-style:italic;
+    font-weight:450;
+    color:#fdfdfb;
+  }
+  .hero .sub{
+    margin-top:22px;
+    max-width:480px;
+    color:rgba(30,42,40,0.78);
+    font-size:1.05rem;
+  }
+  .hero .meta-row{
+    margin-top:38px;
+    display:flex; flex-wrap:wrap; gap:10px;
+  }
+  .pill{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.7rem;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    border:1px solid rgba(30,42,40,0.3);
+    padding:7px 13px;
+    border-radius:20px;
+    color:rgba(30,42,40,0.85);
+  }
+
+  /* small book cover thumbnail beside the title */
+  .book-thumb{
+    flex-shrink:0;
+    width:150px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:10px;
+  }
+  .book-thumb img{
+    width:100%;
+    display:block;
+    border-radius:3px;
+    box-shadow:
+      0 2px 0 rgba(30,42,40,0.9),
+      0 22px 40px -12px rgba(10,16,15,0.55),
+      0 4px 14px rgba(10,16,15,0.35);
+    transform:rotate(-3deg);
+    transition:transform .35s ease;
+    border:1px solid rgba(30,42,40,0.25);
+  }
+  .book-thumb:hover img{transform:rotate(0deg) translateY(-4px);}
+  .book-thumb .cap{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.62rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:rgba(30,42,40,0.65);
+    text-align:center;
+  }
+  @media (max-width:640px){
+    .hero-grid{flex-direction:column-reverse; align-items:flex-start; gap:26px;}
+    .book-thumb{width:118px; align-self:flex-start;}
+  }
+
+  /* pulse line */
+  .pulse-wrap{
+    margin-top:56px;
+    width:100%;
+    max-width:560px;
+  }
+  .pulse-wrap svg{width:100%; height:auto; display:block;}
+  .pulse-line{
+    fill:none;
+    stroke:var(--navy);
+    stroke-width:1.6;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+    stroke-dasharray:600;
+    stroke-dashoffset:600;
+    animation:draw 3.2s ease-out forwards .3s;
+  }
+  @keyframes draw{ to{stroke-dashoffset:0;} }
+  .scroll-cue{
+    margin-top:18px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.68rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:rgba(30,42,40,0.6);
+  }
+
+  /* ===== intro / sebelum mulai baca ===== */
+  .intro{
+    position:relative; z-index:1;
+    max-width:var(--wrap);
+    margin:0 auto;
+    padding:60px 28px 100px;
+    border-top:1px solid var(--line);
+  }
+  .intro .label{margin-bottom:22px;}
+  .intro p{
+    font-size:1.08rem;
+    color:var(--ink-dim);
+    max-width:640px;
+  }
+  .intro p + p{margin-top:18px;}
+  .intro strong{color:var(--ink); font-weight:600;}
+
+  /* ===== table of contents ===== */
+  .toc{
+    position:relative; z-index:1;
+    background:var(--bg-alt);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    padding:80px 28px;
+  }
+  .toc-inner{max-width:var(--wrap); margin:0 auto;}
+  .toc .label{margin-bottom:8px;}
+  .toc h2{font-size:2rem; margin-bottom:44px; font-weight:600;}
+  .toc-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    border-top:1px solid var(--line);
+  }
+  .toc-item{
+    display:flex; align-items:center; gap:22px;
+    padding:16px 4px;
+    border-bottom:1px solid var(--line);
+    text-decoration:none;
+    transition:padding-left .25s;
+  }
+  .toc-item:hover{padding-left:10px;}
+  .toc-item:hover .toc-title{color:var(--mint);}
+  .toc-item .toc-num{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.8rem;
+    color:var(--amber-dim);
+    width:26px;
+    flex-shrink:0;
+  }
+  .toc-item .toc-title{
+    font-family:'Fraunces', serif;
+    font-size:1.08rem;
+    color:var(--ink);
+    transition:color .2s;
+    flex:1;
+  }
+  .toc-item .toc-page{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.75rem;
+    color:var(--ink-faint);
+  }
+
+  /* ===== chapters ===== */
+  .chapter{
+    position:relative; z-index:1;
+    max-width:var(--wrap);
+    margin:0 auto;
+    padding:110px 28px 40px;
+    scroll-margin-top:80px;
+    opacity:0; transform:translateY(18px);
+    transition:opacity .7s ease, transform .7s ease;
+  }
+  .chapter.in-view{opacity:1; transform:translateY(0);}
+
+  .chapter-head{
+    display:flex; align-items:flex-start; gap:24px;
+    padding-bottom:34px;
+    border-bottom:1px solid var(--line);
+    margin-bottom:40px;
+  }
+  .chapter-head .big-num{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.95rem;
+    color:var(--amber);
+    padding-top:10px;
+    flex-shrink:0;
+  }
+  .chapter-head h2{
+    font-size:clamp(1.8rem, 4vw, 2.5rem);
+    line-height:1.08;
+    font-weight:600;
+  }
+  .chapter-head .chapter-sub{
+    margin-top:12px;
+    font-style:italic;
+    color:var(--blue);
+    font-family:'Fraunces', serif;
+    font-weight:450;
+    font-size:1.05rem;
+  }
+
+  .chapter-body p{
+    margin:0 0 20px;
+    color:var(--ink-dim);
+    font-size:1.03rem;
+  }
+  .chapter-body p.lede{
+    color:var(--ink);
+    font-size:1.15rem;
+  }
+  .chapter-body p.tight{ margin-bottom:4px; }
+
+  .chapter-body blockquote{
+    margin:36px 0;
+    padding:22px 26px;
+    border-left:2px solid var(--amber);
+    background:rgba(227,177,102,0.06);
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:1.15rem;
+    color:var(--ink);
+    line-height:1.5;
+  }
+
+  /* resep card — the signature element */
+  .resep{
+    margin-top:52px;
+    border:1px solid var(--line);
+    background:
+      repeating-linear-gradient(180deg, transparent, transparent 27px, rgba(242,237,225,0.025) 28px),
+      var(--panel);
+    border-radius:3px;
+    padding:0;
+    position:relative;
+    overflow:hidden;
+  }
+  .resep::before{
+    content:"";
+    position:absolute; left:0; top:0; bottom:0; width:4px;
+    background:var(--amber);
+  }
+  .resep-head{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:20px 26px 16px 30px;
+    border-bottom:1px dashed var(--line);
+  }
+  .resep-head .rx{
+    display:flex; align-items:center; gap:10px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.78rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--amber);
+  }
+  .resep-head .rx svg{width:16px; height:16px;}
+  .resep-head .resep-no{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    color:var(--ink-faint);
+  }
+  .resep-body{
+    padding:22px 30px 28px;
+  }
+  .resep-body p{
+    color:var(--ink);
+    font-size:1.02rem;
+    margin:0 0 14px;
+  }
+  .resep-body p:last-child{margin-bottom:0;}
+  .resep-body strong{color:var(--amber);}
+
+  .chapter-close{
+    margin-top:22px;
+    padding-top:22px;
+    text-align:right;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.68rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--ink-faint);
+  }
+
+  /* ===== closing / about ===== */
+  .closing{
+    position:relative; z-index:1;
+    background:var(--bg-alt);
+    border-top:1px solid var(--line);
+    padding:110px 28px 60px;
+    text-align:center;
+  }
+  .closing-inner{max-width:600px; margin:0 auto;}
+  .closing h2{font-size:1.9rem; margin-bottom:22px;}
+  .closing p{color:var(--ink-dim); font-size:1.05rem; margin-bottom:14px;}
+
+  .about{
+    max-width:var(--wrap);
+    margin:0 auto;
+    padding:70px 28px 90px;
+    position:relative; z-index:1;
+  }
+  .about .label{margin-bottom:16px;}
+  .about h3{font-size:1.3rem; margin-bottom:18px; font-weight:600;}
+  .about p{color:var(--ink-dim); margin-bottom:24px; max-width:560px;}
+  .tags{display:flex; flex-wrap:wrap; gap:10px;}
+
+  footer{
+    padding:34px 28px 50px;
+    text-align:center;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.7rem;
+    letter-spacing:0.08em;
+    color:var(--ink-faint);
+    position:relative; z-index:1;
+  }
+
+  @media (max-width:640px){
+    .topbar{padding:14px 18px;}
+    .hero{padding:120px 20px 60px;}
+    .chapter{padding:80px 20px 20px;}
+    .chapter-head{gap:14px;}
+    .toc, .intro, .closing, .about{padding-left:20px; padding-right:20px;}
+    .resep-head, .resep-body{padding-left:20px; padding-right:20px;}
+    .index-panel{width:82%; right:-100%;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .pulse-line{animation:none; stroke-dashoffset:0;}
+    .chapter{opacity:1; transform:none; transition:none;}
+  }
+
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand">Obat Toxic <span>／</span> Resep Pertama</div>
+  <div class="nav-toggle" id="navToggle">Daftar Isi</div>
+</div>
+
+<div class="index-backdrop" id="indexBackdrop"></div>
+<nav class="index-panel" id="indexPanel">
+  <span class="label">Daftar Isi</span>
+  <ul class="index-list">
+    <li><a href="#ch1"><span class="num">01</span> Toxic Motivasi Sesaat</a></li>
+    <li><a href="#ch2"><span class="num">02</span> Toxic Dunia</a></li>
+    <li><a href="#ch3"><span class="num">03</span> Toxic Kenikmatan Instan</a></li>
+    <li><a href="#ch4"><span class="num">04</span> Toxic Delusion</a></li>
+    <li><a href="#ch5"><span class="num">05</span> Toxic Sok Kuat</a></li>
+    <li><a href="#ch6"><span class="num">06</span> Toxic Haus Pengakuan</a></li>
+    <li><a href="#ch7"><span class="num">07</span> Toxic Nanti Aja</a></li>
+    <li><a href="#ch8"><span class="num">08</span> Toxic Menunda Taubat</a></li>
+    <li><a href="#ch9"><span class="num">09</span> Toxic Menyalahkan Keadaan</a></li>
+    <li><a href="#ch10"><span class="num">10</span> Toxic Overthinking</a></li>
+    <li><a href="#ch11"><span class="num">11</span> Toxic Waktu Bocor</a></li>
+    <li><a href="#ch12"><span class="num">12</span> Toxic Mental Korban</a></li>
+    <li><a href="#ch13"><span class="num">13</span> Toxic FOMO</a></li>
+    <li><a href="#ch14"><span class="num">14</span> Toxic Nafsu</a></li>
+    <li><a href="#ch15"><span class="num">15</span> Toxic Miskin Mental</a></li>
+  </ul>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="eyebrow">
+      <span class="badge">15 Refleksi Anti-Toxic</span>
+      <span class="badge">Gen Zedition</span>
+    </div>
+    <div class="hero-grid">
+      <div class="hero-text">
+        <h1>Obat Toxic<br>dari <em>Ibnul Jauzi</em></h1>
+        <p class="sub">Resep Pertama — 15 racun pikiran anak muda, dan cara Ibnul Jauzi membedahnya satu per satu. Ditulis untuk anak muda yang sedang capek sama isi kepala sendiri.</p>
+        <div class="meta-row">
+          <span class="pill">Motivasi</span>
+          <span class="pill">Self-Improvement</span>
+          <span class="pill">Renungan Islami</span>
+          <span class="pill">Gen Z</span>
+        </div>
+        <div class="pulse-wrap">
+          <svg viewBox="0 0 560 70" xmlns="http://www.w3.org/2000/svg">
+            <path class="pulse-line" d="M0 35 H190 L212 10 L232 60 L250 35 L262 35 L272 22 L282 48 L292 35 H560" />
+          </svg>
+          <div class="scroll-cue">Diagnosa dimulai di bawah ↓</div>
+        </div>
+      </div>
+      <div class="book-thumb">
+        <img src="data:image/jpeg;base64,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" alt="Sampul buku Obat Toxic dari Ibnul Jauzi — Resep Pertama">
+        <span class="cap">Cetakan Digital</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INTRO ============ -->
+<section class="intro">
+  <span class="label">Sebelum Mulai Baca</span>
+  <p>Buku kecil ini bukan buku tebal yang bikin pusing. Isinya adalah 15 tulisan pendek tentang "racun-racun" pikiran yang diam-diam sering kita alami sehari-hari — dari motivasi yang cepat menguap, kebiasaan menunda, FOMO, sampai overthinking.</p>
+  <p>Setiap tulisan mencoba menghubungkan keresahan anak muda hari ini dengan renungan-renungan Ibnul Jauzi, seorang ulama yang jauh sebelum ada media sosial pun sudah membahas bagaimana hati dan pikiran manusia bisa tertipu oleh dirinya sendiri.</p>
+  <p>Setiap bab ditutup dengan bagian "Obatnya?" — bukan teori panjang, tapi satu langkah kecil yang bisa langsung dicoba hari ini juga.</p>
+  <p>Nggak perlu dibaca urut. Buka aja bab yang paling kerasa related sama apa yang lagi kamu alami sekarang.</p>
+  <p>Selamat membaca, dan selamat pelan-pelan membenahi diri.</p>
+</section>
+
+<!-- ============ TOC ============ -->
+<section class="toc">
+  <div class="toc-inner">
+    <span class="label">Isi Buku</span>
+    <h2>Daftar Isi</h2>
+    <div class="toc-grid">
+      <a class="toc-item" href="#ch1"><span class="toc-num">01</span><span class="toc-title">Toxic Motivasi Sesaat</span><span class="toc-page">06</span></a>
+      <a class="toc-item" href="#ch2"><span class="toc-num">02</span><span class="toc-title">Toxic Dunia</span><span class="toc-page">10</span></a>
+      <a class="toc-item" href="#ch3"><span class="toc-num">03</span><span class="toc-title">Toxic Kenikmatan Instan</span><span class="toc-page">15</span></a>
+      <a class="toc-item" href="#ch4"><span class="toc-num">04</span><span class="toc-title">Toxic Delusion</span><span class="toc-page">20</span></a>
+      <a class="toc-item" href="#ch5"><span class="toc-num">05</span><span class="toc-title">Toxic Sok Kuat</span><span class="toc-page">25</span></a>
+      <a class="toc-item" href="#ch6"><span class="toc-num">06</span><span class="toc-title">Toxic Haus Pengakuan</span><span class="toc-page">29</span></a>
+      <a class="toc-item" href="#ch7"><span class="toc-num">07</span><span class="toc-title">Toxic Nanti Aja</span><span class="toc-page">34</span></a>
+      <a class="toc-item" href="#ch8"><span class="toc-num">08</span><span class="toc-title">Toxic Menunda Taubat</span><span class="toc-page">39</span></a>
+      <a class="toc-item" href="#ch9"><span class="toc-num">09</span><span class="toc-title">Toxic Menyalahkan Keadaan</span><span class="toc-page">44</span></a>
+      <a class="toc-item" href="#ch10"><span class="toc-num">10</span><span class="toc-title">Toxic Overthinking</span><span class="toc-page">49</span></a>
+      <a class="toc-item" href="#ch11"><span class="toc-num">11</span><span class="toc-title">Toxic Waktu Bocor</span><span class="toc-page">54</span></a>
+      <a class="toc-item" href="#ch12"><span class="toc-num">12</span><span class="toc-title">Toxic Mental Korban</span><span class="toc-page">59</span></a>
+      <a class="toc-item" href="#ch13"><span class="toc-num">13</span><span class="toc-title">Toxic FOMO</span><span class="toc-page">64</span></a>
+      <a class="toc-item" href="#ch14"><span class="toc-num">14</span><span class="toc-title">Toxic Nafsu</span><span class="toc-page">69</span></a>
+      <a class="toc-item" href="#ch15"><span class="toc-num">15</span><span class="toc-title">Toxic Miskin Mental</span><span class="toc-page">74</span></a>
+    </div>
+  </div>
+</section>
+
+
+<article class="chapter" id="ch1">
+  <div class="chapter-head">
+    <span class="big-num">01 / 15</span>
+    <div>
+      <h2>Toxic Motivasi Sesaat</h2>
+      <div class="chapter-sub">Kenapa kita semangat hari ini, tapi besok udah hilang lagi?</div>
+    </div>
+  </div>
+  <div class="chapter-body">
+    <p>Pernah nggak sih? Habis ikut kajian, rasanya pengen berubah total. Habis nonton video motivasi, langsung bikin target hidup. Habis baca buku, merasa besok bakal jadi versi terbaik diri sendiri. Tapi anehnya...</p>
+    <p>Dua hari kemudian semuanya kembali normal. Target hilang. Semangat menguap. Hidup kembali seperti biasa. Kalau kamu pernah mengalami itu, tenang. Kamu nggak sendirian. Bahkan ratusan tahun lalu, Ibnul Jauzi sudah membahas fenomena ini.</p>
+    <p>Beliau menjelaskan bahwa manusia berbeda-beda dalam menerima nasihat. Ada yang mendengar nasihat lalu berubah cukup lama, ada yang hanya berubah sebentar, dan ada yang bahkan tidak berubah sama sekali. Nasihat memang bisa mengguncang hati, tetapi sering kali pengaruhnya tidak bertahan lama.</p>
+    <p>Masalahnya ternyata bukan karena kita kurang mendengar nasihat. Masalahnya adalah kita terlalu bergantung pada perasaan semangat. Padahal semangat itu seperti baterai HP. Kadang penuh. Kadang tinggal 10%.</p>
+    <p>Kadang mati total. Kalau hidup kita hanya bergerak saat baterai semangat penuh, maka hidup kita juga akan berhenti setiap kali semangat turun. Itulah kenapa banyak orang punya koleksi video motivasi, tapi hidupnya tidak banyak berubah.</p>
+    <p>Banyak yang menyimpan ratusan kutipan inspiratif, tapi kebiasaannya tetap sama. Banyak yang tahu apa yang harus dilakukan, tapi tidak melakukannya. Karena mereka sedang mengejar sensasi semangat, bukan membangun kebiasaan.</p>
+    <p>Ibnul Jauzi seakan ingin mengatakan bahwa perubahan tidak ditentukan oleh seberapa kuat kita tersentuh hari ini, tetapi seberapa konsisten kita bertahan setelah rasa tersentuh itu hilang. Coba lihat orang yang berhasil menghafal Al-Qur'an.</p>
+    <p>Bukan karena setiap hari dia semangat. Lihat orang yang berhasil menulis buku. Bukan karena setiap hari dia terinspirasi. Lihat orang yang berhasil membangun bisnis. Bukan karena setiap hari dia termotivasi.</p>
+    <p>Mereka tetap berjalan bahkan ketika motivasi sedang tidak ada. Karena mereka tidak menggantungkan hidup pada perasaan. Mereka menggantungkan hidup pada kebiasaan. Inilah jebakan toxic yang sering tidak kita sadari.</p>
+    <p>Kita terus mencari video motivasi baru. Kajian baru. Quotes baru. Padahal yang kita butuhkan bukan suntikan semangat baru. Yang kita butuhkan adalah mulai bergerak. Sedikit. Tapi terus-menerus. Karena pada akhirnya, hidup tidak berubah oleh satu malam yang penuh motivasi.</p>
+    <p>Hidup berubah oleh langkah kecil yang dilakukan berulang kali, bahkan ketika tidak ada motivasi sama sekali.</p>
+    
+    <div class="resep">
+      <div class="resep-head">
+        <div class="rx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg> Obatnya?</div>
+        <span class="resep-no">Resep 01</span>
+      </div>
+      <div class="resep-body">
+        <p>Jangan bertanya: <strong>"Gimana caranya supaya gue tetap semangat?"</strong> Tapi bertanyalah: <strong>"Apa yang tetap bisa gue lakukan walaupun gue lagi nggak semangat?"</strong> Karena orang yang hanya bergerak saat termotivasi akan sering berhenti.</p>
+        <p>Sedangkan orang yang bergerak karena komitmen akan terus melangkah, meskipun pelan. Dan sering kali, yang pelan tapi konsisten itulah yang akhirnya sampai tujuan.</p>
+      </div>
+    </div>
+  </div>
+</article>
+
+<article class="chapter" id="ch2">
+  <div class="chapter-head">
+    <span class="big-num">02 / 15</span>
+    <div>
+      <h2>Toxic Dunia</h2>
+      <div class="chapter-sub">Kenapa Jalan Kebaikan Terasa Berat, Tapi Jalan Maksiat Terasa Mudah?</div>
+    </div>
+  </div>
+  <div class="chapter-body">
+    <p>Pernah nggak sih kamu ngerasa begini? Bangun untuk shalat Subuh rasanya berat banget. Mau baca buku 10 halaman saja susah. Mau olahraga harus melawan rasa malas. Tapi... Scroll TikTok satu jam? Nggak terasa.</p>
+    <p>Nonton serial sampai tiga episode? Lancar. Ngobrol nggak jelas sampai tengah malam? Kuat. Lalu muncul pertanyaan:</p>
+    <blockquote>Kenapa sih jalan yang baik selalu terasa berat?</blockquote>
+    <p>Kalau kamu pernah bertanya begitu, ternyata Ibnul Jauzi sudah menjawabnya hampir 900 tahun yang lalu. Dalam salah satu renungannya, beliau menjelaskan bahwa jiwa manusia selalu tertarik kepada dunia dan kesenangan yang dekat. Sedangkan perkara akhirat membutuhkan perjuangan dan pengorbanan.</p>
+    <p>Kalau diibaratkan, dunia itu seperti air yang mengalir ke bawah. Nggak perlu usaha. Nggak perlu tenaga. Nggak perlu perjuangan. Dia akan mengalir sendiri. Sebaliknya, akhirat seperti membawa air naik ke atas bukit.</p>
+    <p>Butuh tenaga. Butuh kesabaran. Butuh konsistensi. Makanya jangan heran kalau rebahan lebih mudah daripada olahraga. Jangan heran kalau gibah lebih mudah daripada berdzikir. Jangan heran kalau scrolling lebih mudah daripada membaca.</p>
+    <p>Karena memang seperti itulah cara kerja hawa nafsu. Masalahnya, banyak orang menganggap beratnya jalan kebaikan sebagai tanda bahwa jalan itu salah. Padahal justru sebaliknya. Karena beratnya perjuangan sering kali menjadi tanda bahwa kita sedang melawan sesuatu yang memang perlu dilawan.</p>
+    <p>Bayangkan kalau seorang atlet berhenti latihan setiap kali capek. Atau mahasiswa berhenti belajar setiap kali bosan. Atau petani berhenti menanam karena tanahnya keras. Mereka tidak akan pernah sampai ke hasil yang mereka inginkan.</p>
+    <p>Begitu juga dengan kehidupan. Kadang kita terlalu berharap bahwa kebaikan akan terasa nyaman. Padahal tidak selalu begitu. Kadang shalat terasa berat. Kadang membaca Al-Qur'an terasa berat. Kadang menjaga pandangan terasa berat.</p>
+    <p>Kadang memaafkan terasa berat. Tapi berat bukan berarti buruk. Justru banyak hal berharga lahir dari perjuangan yang berat. Ibnul Jauzi seolah ingin mengingatkan bahwa masalahnya bukan karena kita lemah.</p>
+    <p>Masalahnya karena kita sedang melawan arus. Dan siapa pun yang melawan arus pasti akan merasakan berat. Yang berbahaya adalah ketika kita mulai menganggap bahwa segala sesuatu yang terasa mudah pasti baik.</p>
+    <p>Karena tidak semua yang mudah membawa kita ke tempat yang benar. Air selalu memilih jalan yang paling mudah. Tapi manusia tidak diciptakan untuk hidup seperti air. Manusia diciptakan untuk memilih. Untuk berjuang.</p>
+    <p>Untuk mengendalikan dirinya. Untuk berkata "tidak" ketika hawa nafsunya berkata "iya". Maka lain kali ketika kamu merasa berat melakukan kebaikan, jangan langsung berpikir: "Mungkin gue nggak cocok." Bisa jadi justru itu tanda bahwa kamu sedang berada di jalan yang benar.</p>
+    <p>Karena tidak semua jalan yang benar terasa nyaman. Dan tidak semua jalan yang nyaman berakhir dengan kebaikan.</p>
+    
+    <div class="resep">
+      <div class="resep-head">
+        <div class="rx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg> Obatnya?</div>
+        <span class="resep-no">Resep 02</span>
+      </div>
+      <div class="resep-body">
+        <p>Jangan jadikan rasa berat sebagai alasan untuk berhenti. Jadikan rasa berat sebagai bukti bahwa kamu sedang bertumbuh. Karena setiap kali kamu memilih kebaikan meskipun berat, sebenarnya kamu sedang melatih sesuatu yang lebih kuat daripada motivasi:</p>
+        <p>Karakter. Dan karakter yang kuat akan membawa seseorang jauh lebih jauh daripada sekadar semangat yang datang dan pergi.</p>
+      </div>
+    </div>
+  </div>
+</article>
+
+<article class="chapter" id="ch3">
+  <div class="chapter-head">
+    <span class="big-num">03 / 15</span>
+    <div>
+      <h2>Toxic Kenikmatan Instan</h2>
+      <div class="chapter-sub">Jangan Tertipu oleh yang Enak di Awal</div>
+    </div>
+  </div>
+  <div class="chapter-body">
+    <p>Ada satu kalimat yang sering bikin orang menyesal:</p>
+    <blockquote>Gue pikir bakal baik-baik aja.</blockquote>
+    <p>Awalnya cuma coba-coba. Awalnya cuma sekali. Awalnya cuma pengen senang sebentar. Tapi ternyata yang terlihat manis di awal sering menyimpan pahit di akhir. Inilah yang dibahas Ibnul Jauzi tentang: melihat akibat sebelum bertindak.</p>
+    <p>Beliau menjelaskan bahwa banyak manusia tertipu karena matanya hanya melihat kenikmatan yang ada di depan, sementara pikirannya gagal melihat konsekuensi yang ada di belakangnya. Masalahnya, otak manusia memang suka hadiah yang cepat.</p>
+    <p>Mau bukti? Mana yang lebih menarik? Menonton video 30 detik. Membaca buku 30 halaman. Mana yang lebih menggoda? Jajan sekarang. Menabung untuk masa depan. Mana yang lebih mudah? Tidur lagi. Bangun Subuh. Hampir semua pilihan instan terasa lebih menyenangkan.</p>
+    <p>Karena otak kita langsung mendapat hadiah. Langsung dapat rasa nyaman. Langsung dapat kesenangan. Tapi hidup tidak ditentukan oleh apa yang terjadi hari ini. Hidup ditentukan oleh akibat dari pilihan-pilihan kecil yang kita ulang setiap hari.</p>
+    <p>Ibnul Jauzi mengingatkan bahwa orang yang bijak tidak hanya melihat apa yang sedang dia nikmati. Dia juga melihat ke mana kenikmatan itu akan membawanya. Karena tidak semua yang enak adalah baik. Dan tidak semua yang berat adalah buruk.</p>
+    <p>Coba pikirkan. Kenapa banyak orang menyesal karena utang? Karena saat meminjam, yang terlihat adalah barang yang bisa dibeli. Yang tidak terlihat adalah cicilan berbulan-bulan. Kenapa banyak orang menyesal karena hubungan yang salah?</p>
+    <p>Karena saat memulai, yang terlihat adalah rasa senang. Yang tidak terlihat adalah luka yang datang kemudian. Kenapa banyak orang gagal mencapai cita-cita? Karena setiap hari mereka memilih kesenangan kecil yang instan dibanding manfaat besar yang datang belakangan.</p>
+    <p>Mereka tidak gagal dalam satu hari. Mereka gagal sedikit demi sedikit. Sebaliknya, orang-orang hebat juga tidak sukses dalam satu hari. Mereka hanya terbiasa melihat akibat jangka panjang. Saat orang lain melihat rasa malas hari ini, mereka melihat hasil setahun ke depan.</p>
+    <p>Saat orang lain melihat sulitnya belajar, mereka melihat ilmu yang akan mereka miliki. Saat orang lain melihat capeknya olahraga, mereka melihat kesehatan yang akan mereka nikmati. Itulah perbedaan cara berpikir.</p>
+    <p>Yang satu hidup untuk hari ini. Yang satu hidup untuk masa depan. Ibnul Jauzi seakan sedang berkata:</p>
+    <blockquote>Jangan nilai sebuah pilihan dari awalnya. Nilailah dari akhirnya.</blockquote>
+    <p>Karena racun paling berbahaya sering datang dengan rasa manis. Sedangkan obat paling ampuh sering terasa pahit. Maka sebelum melakukan sesuatu, biasakan bertanya kepada diri sendiri:</p>
+    <blockquote>Kalau gue terus melakukan ini selama setahun, hidup gue akan jadi seperti apa?</blockquote>
+    <p>Pertanyaan sederhana itu bisa menyelamatkanmu dari banyak penyesalan.</p>
+    
+    <div class="resep">
+      <div class="resep-head">
+        <div class="rx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg> Obatnya?</div>
+        <span class="resep-no">Resep 03</span>
+      </div>
+      <div class="resep-body">
+        <p>Jangan hanya bertanya: "Ini enak nggak?" Tapi bertanyalah: <strong>"Ini akan membawa gue ke mana?"</strong> Karena orang yang hanya mengejar kenikmatan sesaat akan sering berakhir dengan penyesalan panjang. Sedangkan orang yang berani menunda kesenangan sesaat sering mendapatkan kebahagiaan yang jauh lebih besar di masa depan.</p>
+        <p>Dan itulah salah satu tanda kedewasaan yang sesungguhnya: Mampu melihat akhir ketika orang lain hanya melihat awal.</p>
+      </div>
+    </div>
+  </div>
+</article>
+
+<article class="chapter" id="ch4">
+  <div class="chapter-head">
+    <span class="big-num">04 / 15</span>
+    <div>
+      <h2>Toxic Delusion</h2>
+      <div class="chapter-sub">Merasa Masih Punya Banyak Waktu</div>
+    </div>
+  </div>
+  <div class="chapter-body">
+    <p>Kalau ada satu kalimat yang paling sering menipu manusia, mungkin kalimat itu adalah:</p>
+    <blockquote>Santai aja, masih ada waktu.</blockquote>
+    <p>Masih muda. Masih sehat. Masih panjang umur. Masih bisa besok. Masih bisa tahun depan. Masih bisa nanti. Dan anehnya, kata "nanti" sering berubah menjadi "terlambat". Ibnul Jauzi membahas salah satu ilusi terbesar yang membuat manusia lalai: merasa hidup ini masih panjang. Beliau menggambarkan bagaimana manusia sering tertipu oleh angan-angan, sampai lupa bahwa kematian tidak pernah memberi jadwal terlebih dahulu.</p>
+    <p>Kalau dipikir-pikir, hampir semua penundaan berawal dari satu asumsi: Gue masih punya banyak waktu. Makanya ada yang menunda taubat. Ada yang menunda belajar. Ada yang menunda memperbaiki diri. Ada yang menunda meminta maaf.</p>
+    <p>Ada yang menunda berbuat baik. Bukan karena tidak tahu. Tapi karena merasa masih sempat. Padahal tidak ada satu pun dari kita yang tahu berapa episode kehidupan yang tersisa. Lucunya, kita sadar akan ketidakpastian itu.</p>
+    <p>Tapi tetap hidup seolah-olah kita punya garansi umur panjang. Kita membeli tiket pulang pergi untuk perjalanan yang belum tentu selesai. Kita membuat rencana lima tahun ke depan, tetapi lupa mempersiapkan diri untuk kemungkinan yang bisa datang malam ini.</p>
+    <p>Bukan berarti kita tidak boleh punya mimpi. Bukan berarti kita harus hidup dalam ketakutan. Yang Ibnul Jauzi kritik adalah ketika angan-angan membuat seseorang berhenti bertindak hari ini. Karena masa depan yang terlalu banyak dipikirkan sering mencuri kesempatan yang ada sekarang.</p>
+    <p>Kita hari ini hidup di era yang penuh perencanaan. Vision board. Life goals. Target umur 25. Target umur 30. Target pensiun dini. Semua itu bagus. Tapi ada satu pertanyaan yang sering terlupakan: Apa yang sudah gue lakukan hari ini?</p>
+    <p>Karena banyak orang punya mimpi besar tentang masa depan, tetapi tidak punya tindakan nyata di masa sekarang. Mereka sibuk membangun istana dalam pikiran. Tapi lupa meletakkan batu pertamanya. Ibnul Jauzi seolah ingin membangunkan kita dari mimpi panjang itu.</p>
+    <p>Bahwa hidup bukan tentang berapa lama kita berharap. Hidup adalah tentang apa yang kita lakukan sebelum waktu habis. Lihatlah orang yang berhasil memperbaiki hidupnya. Mereka bukan orang yang yakin akan hidup lama.</p>
+    <p>Mereka justru orang yang sadar bahwa waktu bisa berakhir kapan saja. Karena kesadaran itulah yang membuat mereka bergerak. Mereka meminta maaf hari ini. Mereka belajar hari ini. Mereka beribadah hari ini.</p>
+    <p>Mereka berkarya hari ini. Mereka tidak menunggu versi masa depan dari diri mereka untuk berubah. Mereka mulai sekarang. Dan di situlah letak perbedaannya. Orang yang tertipu oleh angan-angan selalu berkata:</p>
+    <blockquote>Suatu hari nanti gue akan berubah.</blockquote>
+    <p>Sedangkan orang yang sadar akan singkatnya hidup berkata:</p>
+    <blockquote>Kalau bukan hari ini, kapan lagi?</blockquote>
+    
+    <div class="resep">
+      <div class="resep-head">
+        <div class="rx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg> Obatnya?</div>
+        <span class="resep-no">Resep 04</span>
+      </div>
+      <div class="resep-body">
+        <p>Jangan terlalu sering menghitung berapa banyak waktu yang mungkin masih kamu miliki. Mulailah menghitung apa yang sudah kamu lakukan dengan waktu yang sudah diberikan. Karena masalah terbesar manusia bukan kekurangan waktu.</p>
+        <p>Masalah terbesar manusia adalah merasa masih punya terlalu banyak waktu. Dan sering kali, hidup berubah bukan ketika kita menemukan lebih banyak waktu. Tetapi ketika kita sadar bahwa waktu itu ternyata tidak sebanyak yang kita kira.</p>
+      </div>
+    </div>
+  </div>
+</article>
+
+<article class="chapter" id="ch5">
+  <div class="chapter-head">
+    <span class="big-num">05 / 15</span>
+    <div>
+      <h2>Toxic Sok Kuat</h2>
+      <div class="chapter-sub">Jangan Main-Main di Dekat Godaan</div>
+    </div>
+  </div>
+  <div class="chapter-body">
+    <p>Ada satu kalimat yang sering menjadi awal dari banyak penyesalan:</p>
+    <blockquote>Tenang aja, gue bisa kontrol diri.</blockquote>
+    <p>Awalnya cuma lihat-lihat. Awalnya cuma coba-coba. Awalnya cuma pengen tahu. Awalnya cuma bercanda. Tapi banyak dosa besar dalam hidup manusia tidak dimulai dari niat untuk jatuh. Mereka dimulai dari rasa percaya diri yang berlebihan.</p>
+    <p>Dalam hal ini, Ibnul Jauzi membahas tentang pentingnya menjauhi wilayah-wilayah yang bisa menyeret seseorang ke dalam keburukan. Beliau mengingatkan bahwa keselamatan sering kali bukan karena seseorang kuat melawan godaan, tetapi karena ia cukup cerdas untuk tidak mendekatinya sejak awal.</p>
+    <p>Masalahnya, banyak dari kita lebih suka menguji kekuatan diri daripada menjaga keselamatan diri. Kita suka berkata: "Gue tahu batas kok." Padahal hampir semua orang yang tenggelam juga awalnya merasa bisa berenang.</p>
+    <p>Tidak ada orang yang kecanduan sejak hari pertama. Tidak ada orang yang hancur dalam satu malam. Tidak ada orang yang kehilangan dirinya dalam satu langkah. Semuanya terjadi sedikit demi sedikit. Satu klik.</p>
+    <p>Satu chat. Satu pertemuan. Satu tontonan. Satu kompromi. Lalu satu lagi. Dan satu lagi. Sampai akhirnya batas yang dulu terlihat jelas menjadi kabur. Ibnul Jauzi seakan sedang mengajarkan satu prinsip sederhana:</p>
+    <p>Jangan mengandalkan kekuatanmu ketika kamu bisa mengandalkan jarak. Karena semakin dekat seseorang dengan godaan, semakin besar peluangnya untuk jatuh. Lucunya, kita sering melakukan kebalikannya. Kita sengaja mendekati api, lalu berdoa agar tidak terbakar.</p>
+    <p>Kita sengaja bermain di pinggir jurang, lalu berharap tidak terpeleset. Kita sengaja memberi makan hawa nafsu, lalu heran kenapa hawa nafsu semakin kuat. Padahal masalahnya bukan karena kita kurang tahu.</p>
+    <p>Sering kali kita sudah tahu. Kita hanya terlalu yakin pada diri sendiri. Dan sejarah manusia penuh dengan orang-orang pintar yang jatuh bukan karena kebodohan. Mereka jatuh karena merasa dirinya kebal. Merasa dirinya kuat.</p>
+    <p>Merasa dirinya berbeda. Padahal godaan tidak memilih korban berdasarkan kecerdasan. Godaan memilih korban berdasarkan kelengahan. Orang bijak tidak bangga karena mampu berada dekat fitnah. Orang bijak bangga karena berhasil menjauh dari fitnah.</p>
+    <p>Karena tujuan hidup bukan membuktikan bahwa kita kuat. Tujuan hidup adalah sampai ke garis akhir dengan selamat. Bayangkan ada dua orang. Yang pertama berdiri satu meter dari jurang lalu berkata: "Lihat, gue nggak jatuh."</p>
+    <p>Yang kedua memilih berjalan jauh dari jurang. Siapa yang lebih aman? Tentu yang kedua. Tapi anehnya, banyak orang justru lebih kagum kepada yang pertama. Padahal keselamatan bukan soal seberapa dekat kita dengan bahaya.</p>
+    <p>Keselamatan adalah soal seberapa jauh kita menjaganya.</p>
+    
+    <div class="resep">
+      <div class="resep-head">
+        <div class="rx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg> Obatnya?</div>
+        <span class="resep-no">Resep 05</span>
+      </div>
+      <div class="resep-body">
+        <p>Jangan bertanya: <strong>"Seberapa dekat gue bisa mendekati godaan tanpa jatuh?"</strong> Tapi bertanyalah: <strong>"Seberapa jauh gue bisa menjauh dari sesuatu yang bisa menjatuhkan gue?"</strong> Karena sering kali kemenangan terbesar bukan ketika kita berhasil melawan godaan.</p>
+        <p>Melainkan ketika kita cukup bijak untuk tidak memberi godaan kesempatan masuk sejak awal. Dan itu bukan tanda kelemahan. Itu tanda kecerdasan.</p>
+      </div>
+    </div>
+  </div>
+</article>
+
+<article class="chapter" id="ch6">
+  <div class="chapter-head">
+    <span class="big-num">06 / 15</span>
+    <div>
+      <h2>Toxic Haus Pengakuan</h2>
+      <div class="chapter-sub">Ketika Hidup Terlalu Bergantung pada Penilaian Orang</div>
+    </div>
+  </div>
+  <div class="chapter-body">
+    <p>Pernah nggak sih kamu membuka media sosial bukan untuk berbagi, tapi untuk mengecek: "Udah berapa yang like?" "Kok sepi ya?"</p>
+    <blockquote>Kenapa postingan dia lebih rame?</blockquote>
+    <p>Atau mungkin kamu pernah melakukan sesuatu yang sebenarnya baik, tapi diam-diam berharap orang lain melihatnya. Kalau iya, tenang. Kamu manusia. Tapi hati-hati. Karena ada satu racun yang sangat halus. Dia tidak terlihat.</p>
+    <p>Dia sering menyamar sebagai kebaikan. Tapi diam-diam menggerogoti hati dari dalam. Namanya: haus pengakuan. Ibnul Jauzi menulis sesuatu yang cukup mengagetkan. Setelah merenungi keadaan banyak ahli ilmu dan orang-orang yang tampak saleh, beliau menemukan bahwa salah satu penyakit terbesar mereka adalah keinginan untuk menjadi pemimpin dan mendapatkan kedudukan di hati manusia.</p>
+    <p>Bayangkan. Bukan orang awam. Bukan orang yang jauh dari agama. Bahkan orang berilmu pun bisa jatuh ke lubang ini. Karena keinginan untuk dihargai adalah naluri manusia. Masalahnya bukan pada ingin dihargai.</p>
+    <p>Masalahnya adalah ketika penghargaan manusia menjadi bahan bakar utama hidup kita. Saat itulah kita mulai kehilangan arah. Kita menjadi bahagia jika dipuji. Lalu hancur ketika dicela. Kita berani berkarya jika didukung.</p>
+    <p>Lalu berhenti ketika tidak diperhatikan. Kita merasa bernilai jika dilihat. Lalu merasa tidak berarti ketika dilupakan. Tanpa sadar, kebahagiaan kita dipindahkan dari tangan sendiri ke tangan orang lain.</p>
+    <p>Dan itu berbahaya. Karena manusia itu berubah. Hari ini memuji. Besok mengkritik. Hari ini mendukung. Besok meninggalkan. Kalau harga diri kita bergantung pada manusia, maka ketenangan kita juga akan ikut naik turun bersama penilaian mereka.</p>
+    <p>Ibnul Jauzi bahkan menyebut bahwa salah satu hukuman tersembunyi bagi orang yang terlalu mengejar kedudukan adalah hilangnya manisnya ibadah dan kenikmatan bermunajat kepada Allah. Ini menarik. Karena ternyata tidak semua hukuman datang dalam bentuk kesulitan hidup.</p>
+    <p>Kadang hukumannya justru lebih halus: Hati terasa kosong. Ibadah terasa hambar. Sulit khusyuk. Sulit menikmati kebaikan. Kenapa? Karena hati itu seperti gelas. Kalau terlalu penuh dengan keinginan dipandang manusia, semakin sedikit ruang untuk merasakan kedekatan dengan Allah.</p>
+    <p>Lihat media sosial hari ini. Kita hidup di zaman ketika angka bisa memengaruhi suasana hati. Seratus likes terasa sedikit. Seribu views terasa kurang. Padahal beberapa tahun lalu, angka-angka itu mungkin sudah terasa luar biasa.</p>
+    <p>Masalahnya bukan pada angkanya. Masalahnya adalah hati manusia tidak pernah kenyang jika makanannya adalah pengakuan. Hari ini ingin dikenal. Besok ingin lebih dikenal. Lusa ingin viral. Dan setelah viral?</p>
+    <p>Sering kali tetap merasa kosong. Karena ada lubang dalam hati yang tidak bisa diisi oleh pujian manusia. Lubang itu hanya bisa diisi oleh tujuan yang lebih besar daripada sekadar dilihat orang.</p>
+    
+    <div class="resep">
+      <div class="resep-head">
+        <div class="rx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg> Obatnya?</div>
+        <span class="resep-no">Resep 06</span>
+      </div>
+      <div class="resep-body">
+        <p>Sesekali, lakukan kebaikan yang tidak diketahui siapa pun. Bantu seseorang tanpa menceritakannya. Berdoa untuk orang lain tanpa mereka tahu. Berbuat baik tanpa kamera. Karena salah satu tanda hati yang sehat adalah: Tetap semangat berbuat baik, meskipun tidak ada yang melihat.</p>
+        <p>Sebab pada akhirnya, hidup ini terlalu berharga jika hanya dihabiskan untuk mengejar tepuk tangan manusia. Karena tepuk tangan itu sebentar. Sedangkan nilai sebuah amal jauh lebih panjang daripada suara pujian yang cepat menghilang.</p>
+      </div>
+    </div>
+  </div>
+</article>
+
+<article class="chapter" id="ch7">
+  <div class="chapter-head">
+    <span class="big-num">07 / 15</span>
+    <div>
+      <h2>Toxic Nanti Aja</h2>
+      <div class="chapter-sub">Bahaya Menunda Perubahan Sampai Waktu yang Tidak Pernah Datang</div>
+    </div>
+  </div>
+  <div class="chapter-body">
+    <p>Ada dua kata yang kelihatannya sepele, tapi diam-diam telah menghancurkan banyak mimpi, banyak amal, bahkan banyak kehidupan. Dua kata itu adalah: "Nanti aja." Nanti aja mulai belajar. Nanti aja olahraga.</p>
+    <p>Nanti aja baca buku. Nanti aja minta maaf. Nanti aja berubah. Nanti aja taubat. Masalahnya, "nanti" sering kali tidak pernah datang. Ibnul Jauzi menyinggung salah satu jebakan yang bahkan bisa menimpa orang berilmu. Beliau menggambarkan seseorang yang berkata kepada dirinya:</p>
+    <blockquote>Hari ini aku belajar dulu, nanti diamalkan.</blockquote>
+    <p>Kelihatannya masuk akal. Bahkan terdengar bijak. Tapi justru di situlah bahayanya. Karena penundaan jarang datang dengan wajah buruk. Dia datang dengan alasan yang terlihat masuk akal. "Sekarang lagi sibuk."</p>
+    <p>"Lagi capek."</p>
+    <blockquote>Nanti kalau kondisi lebih baik.</blockquote>
+    <blockquote>Nanti kalau hati sudah siap.</blockquote>
+    <p>Padahal sering kali masalahnya bukan pada waktu. Masalahnya adalah kebiasaan menunda. Dan kebiasaan menunda itu seperti bunga utang. Semakin lama ditunda, semakin mahal harganya. Coba pikirkan. Berapa banyak buku yang belum selesai dibaca?</p>
+    <p>Berapa banyak target yang belum dimulai? Berapa banyak percakapan penting yang belum dilakukan? Berapa banyak perubahan yang terus ditunda? Bukan karena tidak tahu. Bukan karena tidak mampu. Tapi karena selalu merasa masih ada waktu.</p>
+    <p>Padahal tidak ada seorang pun yang dijamin akan bertemu dengan versi dirinya di masa depan. Ibnul Jauzi mengingatkan bahwa kematian bisa datang secara tiba-tiba. Karena itu, orang yang berakal adalah orang yang memberikan hak setiap waktu sesuai kewajibannya. Jika kematian datang mendadak, ia berada dalam keadaan siap. Dan jika umur masih panjang, ia justru bertambah dalam kebaikan.</p>
+    <p>Kalimat ini dalam banget. Karena orang bijak hidup dengan dua kemungkinan sekaligus: Kalau hidup masih panjang, dia untung. Kalau hidup ternyata singkat, dia juga siap. Sementara orang yang suka menunda hidup dalam satu asumsi:</p>
+    <p>"Gue masih punya waktu." Padahal waktu tidak pernah memberi pemberitahuan. Kita sering membayangkan perubahan besar. Padahal hidup biasanya berubah melalui keputusan kecil yang diambil hari ini. Satu halaman dibaca hari ini.</p>
+    <p>Satu ayat dihafal hari ini. Satu permintaan maaf diucapkan hari ini. Satu kebiasaan buruk dihentikan hari ini. Karena masa depan sebenarnya dibangun dari hari ini yang diulang berkali-kali. Masalahnya, kita sering terlalu sibuk merancang masa depan sampai lupa memulai masa depan itu sekarang.</p>
+    <p>Dan inilah racun yang paling halus: Kita tidak menolak perubahan. Kita hanya terus menundanya. Sampai suatu hari kita sadar bahwa yang habis bukan pekerjaan. Yang habis adalah waktu.</p>
+    
+    <div class="resep">
+      <div class="resep-head">
+        <div class="rx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg> Obatnya?</div>
+        <span class="resep-no">Resep 07</span>
+      </div>
+      <div class="resep-body">
+        <p>Kalau ada satu hal baik yang bisa kamu lakukan hari ini, lakukan hari ini. Jangan tunggu motivasi. Jangan tunggu suasana hati. Jangan tunggu waktu yang sempurna. Karena waktu yang sempurna sering kali tidak pernah ada. Mulailah kecil.</p>
+        <p>Mulailah pelan. Tapi mulailah. Karena sering kali yang mengubah hidup bukan langkah besar yang sesekali dilakukan. Melainkan langkah kecil yang tidak ditunda. Dan mungkin, salah satu keputusan terpenting dalam hidup adalah berhenti berkata:</p>
+        <p>"Nanti aja." Lalu mulai berkata: "Hari ini."</p>
+      </div>
+    </div>
+  </div>
+</article>
+
+<article class="chapter" id="ch8">
+  <div class="chapter-head">
+    <span class="big-num">08 / 15</span>
+    <div>
+      <h2>Toxic Menunda Taubat</h2>
+      <div class="chapter-sub">Ketika Kita Terlalu Yakin Masih Punya Kesempatan</div>
+    </div>
+  </div>
+  <div class="chapter-body">
+    <p>Ada satu kebiasaan yang hampir semua manusia pernah lakukan. Bukan mencuri. Bukan berbohong. Bukan bermalas-malasan. Tapi sesuatu yang jauh lebih halus. Yaitu: Menunda menjadi lebih baik. Bukan karena tidak tahu.</p>
+    <p>Bukan karena tidak mau. Tapi karena merasa: "Nanti aja." Nanti kalau sudah mapan. Nanti kalau sudah menikah. Nanti kalau sudah tua. Nanti kalau suasana hati lagi bagus. Nanti kalau hidup sudah lebih tenang. Padahal masalahnya, hidup hampir tidak pernah benar-benar tenang.</p>
+    <p>Dan "nanti" sering kali hanyalah nama lain dari penundaan. Dalam salah satu renungannya, Ibnul Jauzi menceritakan bahwa bahkan orang berilmu pun bisa terjebak dalam jebakan ini. Ada yang berkata kepada dirinya:</p>
+    <blockquote>Hari ini aku sibuk belajar, besok baru aku amalkan.</blockquote>
+    <p>Kelihatannya masuk akal. Bahkan terdengar mulia. Tapi justru di situlah bahayanya. Karena setan jarang menyuruh orang baik untuk berhenti total. Setan cukup berkata: "Nggak usah sekarang." Dan sering kali itu sudah cukup.</p>
+    <p>Karena dosa tidak selalu membuat seseorang menjauh dari kebaikan. Kadang dosa hanya membuat seseorang menunda kebaikan. Hari ini ditunda. Besok ditunda. Minggu depan ditunda. Tahun depan ditunda. Sampai akhirnya yang habis bukan alasan.</p>
+    <p>Yang habis adalah umur. Ibnul Jauzi mengingatkan bahwa kematian bisa datang secara tiba-tiba. Karena itu, orang yang berakal adalah orang yang memberikan setiap waktu haknya. Jika kematian datang mendadak, ia dalam keadaan siap. Dan jika umur masih panjang, ia justru bertambah dalam kebaikan.</p>
+    <p>Coba renungkan. Kalau seseorang berkata:</p>
+    <blockquote>Gue mau berubah tahun depan.</blockquote>
+    <p>Pertanyaannya bukan: "Mau berubah apa?" Tapi:</p>
+    <blockquote>Siapa yang menjamin dia sampai tahun depan?</blockquote>
+    <p>Ini bukan tentang pesimis. Ini tentang realistis. Karena tidak ada seorang pun yang pernah diberi tahu berapa sisa umurnya. Lucunya, kita tahu kenyataan itu. Kita melihat berita kematian. Kita mengantar orang ke pemakaman.</p>
+    <p>Kita kehilangan orang yang kita kenal. Tapi entah kenapa, hati kita selalu berbisik: "Kalau gue masih lama." Padahal semua orang yang meninggal juga pernah berpikir hal yang sama. Dan mungkin inilah salah satu ilusi terbesar manusia:</p>
+    <p>Merasa kematian selalu lebih dekat kepada orang lain daripada kepada dirinya sendiri. Gen Z hidup di zaman penuh kesempatan. Kursus ada. Kajian ada. Buku ada. Video pembelajaran ada. Akses ilmu tidak pernah semudah hari ini.</p>
+    <p>Tapi anehnya, penundaan juga tidak pernah semudah hari ini. Karena sekarang kita bisa menunda sambil merasa produktif. Buka video motivasi. Simpan konten edukasi. Masukkan ke bookmark. Lalu berkata: "Nanti gue pelajari."</p>
+    <p>Padahal yang mengubah hidup bukan konten yang disimpan. Yang mengubah hidup adalah ilmu yang diamalkan. Karena pengetahuan tanpa tindakan hanyalah koleksi informasi. Sedangkan perubahan selalu dimulai dari langkah kecil yang dilakukan.</p>
+    
+    <div class="resep">
+      <div class="resep-head">
+        <div class="rx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg> Obatnya?</div>
+        <span class="resep-no">Resep 08</span>
+      </div>
+      <div class="resep-body">
+        <p>Kalau ada satu kebiasaan baik yang bisa dimulai hari ini, mulailah. Kalau ada satu dosa yang bisa ditinggalkan hari ini, tinggalkanlah. Kalau ada satu orang yang perlu dimintai maaf hari ini, hubungilah. Karena hidup tidak berubah saat kita berniat berubah.</p>
+        <p>Hidup berubah saat kita mulai berubah. Dan sering kali, perbedaan antara orang yang berubah dan yang tidak berubah hanyalah satu kata: Sekarang. Bukan besok. Bukan nanti. Tapi sekarang.</p>
+      </div>
+    </div>
+  </div>
+</article>
+
+<article class="chapter" id="ch9">
+  <div class="chapter-head">
+    <span class="big-num">09 / 15</span>
+    <div>
+      <h2>Toxic Menyalahkan Keadaan</h2>
+      <div class="chapter-sub">Kalau Mau Hidup Berubah, Mulailah dari Diri Sendiri</div>
+    </div>
+  </div>
+  <div class="chapter-body">
+    <p>Pernah nggak sih kamu berpikir:</p>
+    <blockquote>Kalau lingkungan gue lebih baik, mungkin hidup gue lebih baik.</blockquote>
+    <blockquote>Kalau keluarga gue beda, mungkin gue lebih sukses.</blockquote>
+    <blockquote>Kalau sekolah gue lebih bagus, mungkin gue lebih berkembang.</blockquote>
+    <blockquote>Kalau keadaan gue lebih mudah, mungkin gue lebih rajin.</blockquote>
+    <p>Jujur aja. Hampir semua orang pernah berpikir seperti itu. Karena menyalahkan keadaan memang lebih mudah daripada mengevaluasi diri sendiri. Dan di situlah jebakannya. Ibnul Jauzi mengutip firman Allah:</p>
+    <blockquote>Sesungguhnya Allah tidak akan mengubah keadaan suatu kaum hingga mereka mengubah apa yang ada pada diri mereka sendiri.</blockquote>
+    <p>Kalimat ini sederhana. Tapi kalau dipikir dalam-dalam, isinya sangat menampar. Karena ayat ini seolah berkata:</p>
+    <blockquote>Kalau ingin hidup berubah, mulai dari dirimu.</blockquote>
+    <p>Bukan berarti keadaan tidak berpengaruh. Tentu berpengaruh. Ada orang yang lahir dalam keluarga yang lebih sulit. Ada yang hidup dengan keterbatasan. Ada yang memulai hidup dari titik yang tidak sama. Tapi sejarah juga menunjukkan bahwa keadaan bukan satu-satunya penentu.</p>
+    <p>Karena ada orang yang lahir dari keterbatasan lalu berhasil. Dan ada yang hidup dalam kelimpahan tapi tetap gagal. Yang membedakan sering kali bukan keadaan luar. Tetapi apa yang terjadi di dalam diri. Ibnul Jauzi menjelaskan bahwa siapa pun yang ingin memperbaiki keadaannya, hendaknya bersungguh-sungguh memperbaiki amalnya.</p>
+    <p>Perhatikan. Beliau tidak berkata: "Perbaiki nasibmu." Beliau berkata: "Perbaiki amalmu." Karena sering kali kita ingin hasil berubah tanpa mau mengubah kebiasaan. Ingin tubuh sehat. Tapi pola hidup tetap sama.</p>
+    <p>Ingin hidup lebih tenang. Tapi hati tetap dipenuhi iri dan amarah. Ingin rezeki lebih baik. Tapi malas belajar dan bekerja. Ingin dekat dengan Allah. Tapi ibadah dilakukan sekadarnya. Kita ingin panen berbeda dengan benih yang sama.</p>
+    <p>Padahal hidup punya hukum sebab akibat. Ibnul Jauzi juga mengutip perkataan para ulama bahwa siapa yang membersihkan dirinya, Allah akan membersihkannya. Dan siapa yang mengotori dirinya, ia akan menuai akibat dari kekotorannya sendiri.</p>
+    <p>Ini bukan berarti setiap masalah adalah hukuman. Tetapi ini mengajarkan satu hal penting: Jangan buru-buru mencari kambing hitam. Mulailah dengan bertanya:</p>
+    <blockquote>Apa yang perlu gue perbaiki dari diri gue?</blockquote>
+    <p>Karena jujur saja. Lebih mudah menyalahkan algoritma daripada mengakui kecanduan scroll. Lebih mudah menyalahkan lingkungan daripada mengubah kebiasaan. Lebih mudah menyalahkan takdir daripada memperbaiki usaha.</p>
+    <p>Padahal perubahan besar hampir selalu dimulai dari perubahan kecil yang tidak terlihat. Bangun lebih pagi. Mengurangi keluhan. Menambah disiplin. Menjaga lisan. Memperbaiki niat. Hal-hal kecil. Tapi dilakukan terus-menerus.</p>
+    <p>Karena hidup tidak berubah dalam satu malam. Hidup berubah sedikit demi sedikit. Dan sering kali perubahan terbesar bukan terjadi ketika keadaan di luar berubah. Tetapi ketika sesuatu di dalam diri mulai berubah.</p>
+    
+    <div class="resep">
+      <div class="resep-head">
+        <div class="rx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg> Obatnya?</div>
+        <span class="resep-no">Resep 09</span>
+      </div>
+      <div class="resep-body">
+        <p>Setiap kali hidup terasa berat, jangan langsung bertanya: "Kenapa dunia begini ke gue?" Coba tanya juga: <strong>"Apa yang perlu gue perbaiki dari diri gue?"</strong> Karena orang yang terus menyalahkan keadaan akan selalu merasa sebagai korban.</p>
+        <p>Tapi orang yang berani mengevaluasi dirinya sendiri akan menemukan pintu perubahan. Dan mungkin, perubahan terbesar dalam hidup dimulai ketika kita berhenti menunjuk ke luar, lalu mulai bercermin ke dalam.</p>
+      </div>
+    </div>
+  </div>
+</article>
+
+<article class="chapter" id="ch10">
+  <div class="chapter-head">
+    <span class="big-num">10 / 15</span>
+    <div>
+      <h2>Toxic Overthinking</h2>
+      <div class="chapter-sub">Ketika Akal Ingin Memahami Semua Hal</div>
+    </div>
+  </div>
+  <div class="chapter-body">
+    <p>Pernah nggak sih kamu kepikiran pertanyaan seperti ini: "Kenapa hidup gue begini?"</p>
+    <blockquote>Kenapa orang baik justru sering susah?</blockquote>
+    <blockquote>Kenapa ada orang jahat yang hidupnya enak?</blockquote>
+    <blockquote>Kalau Allah Maha Penyayang, kenapa ada penderitaan?</blockquote>
+    <p>Kalau pernah, tenang. Kamu bukan orang pertama yang memikirkan itu. Dan hampir pasti bukan orang terakhir. Karena sejak dulu, manusia memang suka bertanya. Masalahnya, ada perbedaan antara bertanya untuk mencari kebenaran dan bertanya karena ingin menguasai semua jawaban.</p>
+    <p>Ibnul Jauzi membahas hal ini dengan cara yang sangat dalam: ada perkara-perkara dalam hidup yang membuat akal manusia kebingungan. Ada orang saleh yang hidup susah. Ada orang fasik yang justru hidup berkecukupan. Ada penderitaan yang tampaknya sulit dipahami. Dan semua ini bisa membuat sebagian orang goyah jika tidak memiliki fondasi yang kuat.</p>
+    <p>Jujur saja. Kadang hidup memang tidak selalu masuk akal. Ada orang yang sudah berusaha keras, tapi hasilnya belum terlihat. Ada orang yang terlihat santai, tapi justru berhasil. Ada doa yang belum terkabul.</p>
+    <p>Ada kehilangan yang belum dipahami. Dan di titik inilah overthinking sering dimulai. Kita terus bertanya: "Kenapa?" Lalu bertanya lagi: "Kenapa begini?" Lalu bertanya: "Kenapa bukan begitu?" Sampai akhirnya bukan jawaban yang didapat.</p>
+    <p>Yang didapat justru lelah. Karena tidak semua pertanyaan memiliki jawaban yang bisa dijangkau oleh akal manusia. Ibnul Jauzi menjelaskan bahwa salah satu tugas akal adalah mengetahui batas dirinya. Ada perkara yang memang mengajarkan akal untuk tunduk dan berserah kepada kebijaksanaan Allah. Jika prinsip ini dipahami, seseorang akan memperoleh keselamatan dan ketenangan.</p>
+    <p>Perhatikan. Beliau tidak mengatakan: "Jangan berpikir." Beliau juga tidak mengatakan: "Jangan bertanya." Justru Islam mendorong manusia untuk berpikir. Tetapi ada perbedaan antara berpikir dan memaksa akal memahami segala sesuatu.</p>
+    <p>Karena akal manusia itu luar biasa. Tapi tidak tanpa batas. Kita bisa memahami cara kerja internet. Kita bisa mengirim pesan ke seluruh dunia dalam hitungan detik. Kita bisa mempelajari bintang-bintang. Tapi tetap saja, ada hal-hal yang tidak bisa sepenuhnya kita pahami.</p>
+    <p>Dan itu bukan kelemahan. Itu bagian dari menjadi manusia. Masalah overthinking sering kali bukan karena terlalu banyak masalah. Tetapi karena kita ingin semua hal menjadi jelas sebelum melangkah. Padahal hidup tidak bekerja seperti itu.</p>
+    <p>Kadang kita baru paham alasan sebuah kejadian bertahun-tahun kemudian. Kadang bahkan tidak pernah benar-benar paham. Dan tidak apa-apa. Karena ketenangan tidak selalu lahir dari mengetahui semua jawaban.</p>
+    <p>Kadang ketenangan lahir dari menerima bahwa tidak semua hal harus dijawab hari ini. Lihatlah seorang anak kecil yang naik kendaraan bersama ayahnya. Dia tidak tahu jalan. Dia tidak tahu arah. Dia tidak tahu tujuan secara rinci.</p>
+    <p>Tapi dia tenang. Kenapa? Karena dia percaya kepada siapa yang mengemudikan. Begitu pula hidup. Ada saatnya akal bekerja. Ada saatnya hati percaya. Dan keduanya bukan musuh. Mereka saling melengkapi.</p>
+    
+    <div class="resep">
+      <div class="resep-head">
+        <div class="rx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg> Obatnya?</div>
+        <span class="resep-no">Resep 10</span>
+      </div>
+      <div class="resep-body">
+        <p>Ketika pikiran mulai berputar tanpa henti, cobalah bertanya: <strong>"Apakah ini sesuatu yang bisa gue usahakan, atau sesuatu yang harus gue serahkan?"</strong> Kalau bisa diusahakan, kerjakan. Kalau tidak bisa dikendalikan, lepaskan.</p>
+        <p>Karena kedewasaan bukan berarti memiliki jawaban untuk semua pertanyaan. Kadang kedewasaan justru berarti menerima bahwa ada hal-hal yang tidak kita ketahui dan tetap bisa hidup dengan tenang karenanya.</p>
+      </div>
+    </div>
+  </div>
+</article>
+
+<article class="chapter" id="ch11">
+  <div class="chapter-head">
+    <span class="big-num">11 / 15</span>
+    <div>
+      <h2>Toxic Waktu Bocor</h2>
+      <div class="chapter-sub">Kenapa Kita Sibuk Sepanjang Hari, Tapi Tetap Merasa Tidak Punya Waktu?</div>
+    </div>
+  </div>
+  <div class="chapter-body">
+    <p>Pernah nggak sih kamu merasa seperti ini: "Perasaan baru pagi deh." Tahu-tahu sudah malam. Tahu-tahu seminggu berlalu. Tahu-tahu sudah masuk bulan baru. Dan yang paling menakutkan: Tahu-tahu umur bertambah, tapi hidup terasa jalan di tempat.</p>
+    <p>Padahal kita sibuk. Sangat sibuk. Ada chat yang dibalas. Ada video yang ditonton. Ada timeline yang discroll. Ada notifikasi yang dicek. Tapi anehnya, di akhir hari kita sering berkata:</p>
+    <blockquote>Hari ini gue ngapain aja ya?</blockquote>
+    <p>Dalam hal ini, Ibnul Jauzi berbicara tentang sesuatu yang sangat mahal tetapi sering dianggap murah: waktu. Beliau menegaskan bahwa seseorang harus mengetahui kemuliaan zamannya dan nilai waktunya, sehingga tidak menyia-nyiakan satu momen pun untuk hal yang tidak mendekatkannya kepada kebaikan.</p>
+    <p>Coba renungkan. Kalau uang seratus ribu jatuh, kita langsung cari. Kalau HP hilang, panik setengah mati. Tapi kalau satu jam hilang karena scroll tanpa arah? Sering kali kita santai. Padahal uang bisa dicari lagi.</p>
+    <p>HP bisa dibeli lagi. Tapi waktu? Tidak pernah kembali. Dan inilah racun zaman sekarang: Bukan kekurangan waktu. Tapi kebocoran waktu. Sedikit demi sedikit. Lima menit di sini. Sepuluh menit di sana. Satu video lagi.</p>
+    <p>Satu episode lagi. Satu scroll lagi. Sampai akhirnya berjam-jam hilang tanpa terasa. Lucunya, kita sering berkata: "Gue nggak punya waktu." Padahal kadang yang kurang bukan waktu. Yang kurang adalah kesadaran tentang nilai waktu.</p>
+    <p>Ibnul Jauzi menceritakan bagaimana para ulama terdahulu sangat menjaga waktu mereka. Ada yang ketika diajak berbicara menjawab: "Tahanlah matahari." Maksudnya sederhana: Kalau matahari bisa dihentikan, baru aku punya waktu lebih.</p>
+    <p>Kalimat itu terdengar ekstrem. Tapi justru menunjukkan cara pandang mereka. Mereka sadar bahwa waktu terus berjalan. Tidak peduli kita siap atau tidak. Tidak peduli kita produktif atau tidak. Waktu tetap berjalan.</p>
+    <p>Dan setiap detik yang lewat sebenarnya sedang membawa sebagian hidup kita pergi. Ibnul Jauzi juga mengingatkan bahwa karena kematian akan memutus amal, maka orang yang berakal berusaha mengerjakan sesuatu yang pahalanya terus mengalir setelah ia meninggal.</p>
+    <p>Ini menarik. Karena ternyata ukuran sukses bukan hanya:</p>
+    <blockquote>Apa yang kita lakukan hari ini?</blockquote>
+    <p>Tetapi juga:</p>
+    <blockquote>Apa yang masih memberi manfaat setelah kita tiada?</blockquote>
+    <p>Buku yang ditulis. Ilmu yang diajarkan. Anak yang dididik. Pohon yang ditanam. Kebaikan yang diwariskan. Karena hidup yang panjang bukan selalu tentang umur. Kadang tentang manfaat yang tetap hidup setelah kita pergi.</p>
+    <p>Gen Z hidup di era paling canggih dalam sejarah manusia. Tapi juga hidup di era paling mudah untuk kehilangan waktu. Satu perangkat kecil di tangan bisa menjadi alat belajar terbaik. Atau menjadi mesin pembunuh waktu paling efektif.</p>
+    <p>Semua tergantung bagaimana kita menggunakannya. Karena masalahnya bukan teknologi. Masalahnya adalah apakah kita mengendalikan teknologi, atau justru dikendalikan olehnya.</p>
+    
+    <div class="resep">
+      <div class="resep-head">
+        <div class="rx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg> Obatnya?</div>
+        <span class="resep-no">Resep 11</span>
+      </div>
+      <div class="resep-body">
+        <p>Jangan hanya membuat daftar pekerjaan. Buat juga daftar: <strong>"Hal apa yang sebenarnya menghabiskan waktu gue tanpa memberi nilai?"</strong> Karena hidup tidak hancur dalam satu hari. Hidup sering bocor sedikit demi sedikit.</p>
+        <p>Dan orang yang berhasil bukan selalu orang yang punya lebih banyak waktu. Sering kali mereka hanyalah orang yang lebih sadar bahwa waktunya terbatas. Karena pada akhirnya, hidup ini tidak diukur dari berapa lama kita hidup.</p>
+        <p>Tetapi dari apa yang kita lakukan dengan waktu yang telah diberikan.</p>
+      </div>
+    </div>
+  </div>
+</article>
+
+<article class="chapter" id="ch12">
+  <div class="chapter-head">
+    <span class="big-num">12 / 15</span>
+    <div>
+      <h2>Toxic Mental Korban</h2>
+      <div class="chapter-sub">Ketika Hidup Selalu Terasa Salah di Mata Kita</div>
+    </div>
+  </div>
+  <div class="chapter-body">
+    <p>Pernah nggak sih kamu merasa: "Kenapa hidup gue begini?"</p>
+    <blockquote>Kenapa orang lain kayaknya lebih mudah?</blockquote>
+    <blockquote>Kenapa masalah gue nggak selesai-selesai?</blockquote>
+    <blockquote>Kenapa Allah kasih ujian seberat ini?</blockquote>
+    <p>Kalau pernah, kamu tidak sendiri. Setiap manusia pasti pernah berada di titik lelah. Pernah merasa hidup tidak adil. Pernah bertanya-tanya mengapa dirinya harus menghadapi hal-hal yang berat. Masalahnya bukan pada pertanyaan itu.</p>
+    <p>Masalah muncul ketika kita mulai melihat diri sendiri hanya sebagai korban keadaan. Ketika semua kesalahan ada di luar diri. Lingkungan salah. Orang lain salah. Keadaan salah. Takdir salah. Sementara kita merasa tidak punya bagian apa pun dalam masalah yang terjadi.</p>
+    <p>Dalam masalah ini Ibnul Jauzi memulai dengan mengutip firman Allah:</p>
+    <blockquote>Sesungguhnya Allah tidak akan mengubah keadaan suatu kaum hingga mereka mengubah apa yang ada pada diri mereka sendiri.</blockquote>
+    <p>Ayat ini bukan sekadar motivasi. Ayat ini adalah pengingat bahwa perubahan besar sering kali dimulai dari tempat yang paling dekat: Diri sendiri. Ibnul Jauzi juga menukil perkataan para ulama:</p>
+    <blockquote>Barang siapa membersihkan dirinya, maka ia akan dibersihkan. Dan barang siapa mengotorinya, maka ia akan menuai akibatnya.</blockquote>
+    <p>Artinya apa? Artinya hidup tidak selalu terjadi kepada kita. Sering kali hidup juga terjadi karena pilihan-pilihan kita. Tentu, tidak semua musibah adalah akibat kesalahan. Ada ujian yang memang murni ujian.</p>
+    <p>Ada kehilangan yang tidak kita pilih. Ada luka yang datang tanpa kita undang. Islam tidak mengajarkan untuk menyalahkan korban. Tetapi Islam juga mengajarkan bahwa manusia memiliki tanggung jawab atas dirinya.</p>
+    <p>Dan di situlah letak kekuatan terbesar manusia. Karena kalau semua masalah berasal dari luar diri, maka kita tidak punya kuasa untuk berubah. Tapi kalau sebagian masalah berasal dari kebiasaan kita sendiri, berarti ada sesuatu yang bisa kita perbaiki.</p>
+    <p>Dan itu kabar baik. Misalnya: Mungkin bukan rezeki yang kurang. Mungkin cara mengelola uang yang perlu diperbaiki. Mungkin bukan waktu yang kurang. Mungkin cara menggunakan waktu yang perlu diperbaiki. Mungkin bukan hidup yang terlalu berat.</p>
+    <p>Mungkin diri kita yang terlalu lama memikul hal-hal yang sebenarnya bisa dilepaskan. Ibnul Jauzi bahkan mengingatkan bahwa ketika seseorang melihat kekacauan dalam hidupnya, hendaknya ia mengingat nikmat yang belum disyukuri atau kesalahan yang pernah dilakukan.</p>
+    <p>Ini bukan untuk membuat kita merasa bersalah terus-menerus. Justru sebaliknya. Ini mengajarkan bahwa setiap masalah bisa menjadi cermin. Bukan hanya untuk bertanya:</p>
+    <blockquote>Kenapa ini terjadi pada gue?</blockquote>
+    <p>Tetapi juga:</p>
+    <blockquote>Apa yang bisa gue pelajari dari ini?</blockquote>
+    <p>Karena ada dua cara melihat ujian. Cara pertama: "Kenapa hidup sejahat ini?" Cara kedua:</p>
+    <blockquote>Apa yang sedang hidup ajarkan kepada gue?</blockquote>
+    <p>Dua pertanyaan. Dua sudut pandang. Dua hasil yang sangat berbeda. Mental korban membuat seseorang menunggu dunia berubah. Mental bertumbuh membuat seseorang mulai berubah meski dunia belum berubah. Dan sering kali, perubahan terbesar dalam hidup dimulai dari satu keberanian sederhana:</p>
+    <p>Berani mengevaluasi diri sendiri.</p>
+    
+    <div class="resep">
+      <div class="resep-head">
+        <div class="rx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg> Obatnya?</div>
+        <span class="resep-no">Resep 12</span>
+      </div>
+      <div class="resep-body">
+        <p>Setiap kali menghadapi masalah, biasakan bertanya dua hal: <strong>"Apa yang berada di luar kendali gue?"</strong> Lalu: <strong>"Apa yang masih bisa gue perbaiki?"</strong> Karena kedewasaan bukan berarti hidup tanpa masalah.</p>
+        <p>Kedewasaan adalah kemampuan membedakan mana yang harus diterima, dan mana yang harus diubah. Dan mungkin, langkah pertama untuk mengubah hidup bukanlah mengubah dunia. Tetapi mengubah diri sendiri terlebih dahulu.</p>
+      </div>
+    </div>
+  </div>
+</article>
+
+<article class="chapter" id="ch13">
+  <div class="chapter-head">
+    <span class="big-num">13 / 15</span>
+    <div>
+      <h2>Toxic FOMO</h2>
+      <div class="chapter-sub">Kenapa Kita Sulit Bahagia Melihat Orang Lain Bahagia?</div>
+    </div>
+  </div>
+  <div class="chapter-body">
+    <p>Buka media sosial lima menit saja. Teman lama baru beli rumah. Teman kuliah naik jabatan. Ada yang menikah. Ada yang umrah. Ada yang bisnisnya berkembang. Ada yang liburan ke luar negeri. Lalu tanpa sadar muncul satu bisikan halus:</p>
+    <blockquote>Kok hidup orang lain lebih cepat ya?</blockquote>
+    <p>Atau lebih jujur lagi: "Kenapa bukan gue?" Selamat datang di salah satu racun paling umum di zaman ini: FOMO. Fear of Missing Out. Takut tertinggal. Takut kalah cepat. Takut hidup orang lain lebih baik. Padahal sering kali yang kita lihat hanyalah potongan-potongan terbaik dari hidup mereka.</p>
+    <p>Ibnul Jauzi membahas ini sebagai sesuatu yang sangat manusiawi: rasa sedih melihat orang lain mendapatkan sesuatu yang tidak kita miliki. Beliau menceritakan bagaimana sebagian orang saleh pun merasa berat ketika melihat orang lain memperoleh bagian dunia yang tidak mereka dapatkan.</p>
+    <p>Artinya apa? Artinya rasa itu manusiawi. Masalahnya bukan pada munculnya rasa. Masalah muncul ketika rasa itu menguasai hati. Ketika kebahagiaan kita mulai bergantung pada perbandingan. Karena perbandingan itu seperti garis finish yang terus bergerak.</p>
+    <p>Hari ini iri pada motor. Besok iri pada mobil. Lusa iri pada rumah. Minggu depan iri pada karier. Bulan depan iri pada kehidupan orang lain. Dan anehnya, semakin banyak yang dimiliki, kadang semakin banyak yang dibandingkan.</p>
+    <p>Karena masalah FOMO bukan kekurangan nikmat. Masalah FOMO adalah kesulitan merasa cukup. Ibnul Jauzi memberikan nasihat yang sangat tajam. Beliau berkata bahwa jika seseorang ingin dunia, maka bersungguh-sungguhlah mencarinya. Tetapi duduk sambil menyesali apa yang dimiliki orang lain padahal usahanya sendiri kurang, itulah puncak kelemahan.</p>
+    <p>Kalimat ini keras. Tapi jujur. Karena kadang kita iri pada hasil yang tidak pernah kita perjuangkan. Kita iri pada tubuh sehat, tapi malas olahraga. Iri pada orang yang berilmu, tapi enggan membaca. Iri pada bisnis orang lain, tapi takut memulai.</p>
+    <p>Padahal iri tanpa usaha hanyalah bentuk lain dari mengkhayal. Di sisi lain, Ibnul Jauzi juga mengingatkan bahwa dunia bukan tempat menetap, melainkan tempat singgah. Dunia diciptakan untuk dilalui, bukan dijadikan tujuan akhir.</p>
+    <p>Ini penting. Karena kadang kita terlalu serius membandingkan kendaraan, sampai lupa arah perjalanan. Padahal tujuan hidup bukan menjadi yang paling kaya. Bukan yang paling terkenal. Bukan yang paling cepat.</p>
+    <p>Tapi menjadi manusia yang sampai tujuan dengan selamat. Bayangkan ada dua pelari. Yang satu terus melihat lintasan orang lain. Yang satu fokus pada jalurnya sendiri. Menurutmu siapa yang lebih mungkin mencapai garis akhir?</p>
+    <p>Hampir pasti yang kedua. Karena hidup bukan perlombaan siapa paling cepat. Hidup adalah perjalanan yang setiap orang punya waktu dan jalurnya masing-masing. Ada yang mekar di usia 20. Ada yang baru bersinar di usia 40.</p>
+    <p>Ada yang kaya muda. Ada yang tenang di masa tua. Dan semuanya tidak harus sama.</p>
+    
+    <div class="resep">
+      <div class="resep-head">
+        <div class="rx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg> Obatnya?</div>
+        <span class="resep-no">Resep 13</span>
+      </div>
+      <div class="resep-body">
+        <p>Setiap kali melihat pencapaian orang lain, biasakan berkata: <strong>"Semoga Allah memberkahi mereka, dan semoga Allah memberi yang terbaik untuk gue."</strong> Karena hati yang sehat tidak merasa terancam oleh keberhasilan orang lain.</p>
+        <p>Justru ia ikut bahagia. Sebab rezeki bukan perlombaan. Dan hidup bukan tentang siapa yang lebih cepat. Tetapi siapa yang paling baik memanfaatkan perjalanan yang diberikan kepadanya. Karena sering kali, kebahagiaan bukan datang ketika kita memiliki lebih banyak.</p>
+        <p>Tetapi ketika kita berhenti membandingkan.</p>
+      </div>
+    </div>
+  </div>
+</article>
+
+<article class="chapter" id="ch14">
+  <div class="chapter-head">
+    <span class="big-num">14 / 15</span>
+    <div>
+      <h2>Toxic Nafsu</h2>
+      <div class="chapter-sub">Ketika Tahu Itu Salah, Tapi Tetap Dilakukan</div>
+    </div>
+  </div>
+  <div class="chapter-body">
+    <p>Ada satu pengalaman yang hampir semua manusia pernah rasakan. Kamu tahu itu salah. Tapi tetap dilakukan. Kamu tahu itu merusak. Tapi tetap diulangi. Kamu tahu itu tidak baik untuk masa depanmu. Tapi entah kenapa, kakimu tetap melangkah ke sana.</p>
+    <p>Pernah? Kalau pernah, selamat datang di salah satu pertarungan tertua dalam sejarah manusia: Pertarungan antara akal dan nafsu. Untuk ini, Ibnul Jauzi menjelaskan bahwa, manusia yang terjatuh ke dalam kesalahan tidak semuanya sama. Ada yang tidak tahu. Ada yang keliru memahami. Tapi ada juga yang sebenarnya tahu bahwa sesuatu itu haram atau berbahaya, namun syahwat dan keinginan sesaat membuatnya lupa pada apa yang ia ketahui.</p>
+    <p>Perhatikan baik-baik. Masalahnya bukan kurang ilmu. Masalahnya bukan tidak tahu. Masalahnya adalah: Nafsu sering kali lebih keras suaranya daripada akal. Makanya jangan heran. Ada orang yang tahu merokok berbahaya, tapi tetap merokok.</p>
+    <p>Tahu begadang merusak kesehatan, tapi tetap begadang. Tahu scroll berjam-jam merusak fokus, tapi tetap melakukannya. Tahu hubungan yang dijalani tidak sehat, tapi sulit melepaskannya. Karena masalah manusia sering kali bukan kekurangan informasi.</p>
+    <p>Masalahnya adalah kekurangan kendali diri. Kita hidup di zaman yang aneh. Ilmu ada di mana-mana. Ceramah ada. Podcast ada. Buku ada. Video edukasi ada. Tapi kenapa manusia tetap sulit berubah? Karena pengetahuan tidak otomatis mengubah perilaku.</p>
+    <p>Kalau ilmu saja cukup, semua orang yang tahu olahraga itu sehat pasti sudah bugar. Kalau ilmu saja cukup, semua orang yang tahu pentingnya tidur pasti sudah tidur tepat waktu. Faktanya tidak begitu. Karena ada musuh lain yang lebih halus:</p>
+    <p>Nafsu. Ibnul Jauzi memberi gambaran yang sangat tajam. Beliau menjelaskan bahwa ketika syahwat menguasai seseorang, apa yang dilihat oleh matanya dapat membuatnya lupa pada apa yang diketahui oleh akalnya. Seorang pencuri lupa pada hukuman, dan pelaku maksiat lupa pada akibat, karena keinginan sesaat menutupi pengetahuan yang dimilikinya.</p>
+    <p>Ini menjelaskan kenapa manusia sering berkata setelah melakukan kesalahan: "Padahal gue tahu." Kalimat itu menunjukkan bahwa masalahnya bukan pada otak. Masalahnya ada pada hati dan kendali diri. Maka jangan heran kalau perang terbesar dalam hidup sering kali bukan melawan orang lain.</p>
+    <p>Tapi melawan diri sendiri. Melawan rasa malas. Melawan keinginan sesaat. Melawan dorongan yang ingin mengambil jalan pintas. Karena musuh yang paling sulit dikalahkan sering kali tinggal di dalam diri. Dan inilah salah satu pelajaran penting dari Ibnul Jauzi:</p>
+    <p>Jangan terlalu percaya diri pada dirimu sendiri. Karena manusia bukan jatuh saat tidak tahu. Sering kali manusia jatuh justru ketika merasa dirinya kuat. Merasa aman. Merasa bisa mengendalikan semuanya. Padahal hati manusia bisa berubah lebih cepat daripada yang ia kira.</p>
+    
+    <div class="resep">
+      <div class="resep-head">
+        <div class="rx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg> Obatnya?</div>
+        <span class="resep-no">Resep 14</span>
+      </div>
+      <div class="resep-body">
+        <p>Kalau ada kebiasaan buruk yang ingin ditinggalkan, jangan hanya mengandalkan niat. Ubah juga lingkungannya. Kurangi pemicunya. Jauhkan aksesnya. Karena kadang kemenangan bukan soal seberapa kuat kita melawan godaan. Tetapi seberapa cerdas kita mengurangi kesempatan untuk tergoda.</p>
+        <p>Sebab nafsu itu seperti api. Semakin sering diberi bahan bakar, semakin besar nyalanya. Tapi ketika bahan bakarnya dikurangi, perlahan ia akan melemah. Dan mungkin, salah satu tanda kedewasaan bukanlah tidak memiliki nafsu.</p>
+        <p>Melainkan mampu berkata: <strong>"Gue pengen, tapi gue tahu ini bukan yang terbaik buat gue."</strong> Lalu memilih yang benar, meskipun sulit.</p>
+      </div>
+    </div>
+  </div>
+</article>
+
+<article class="chapter" id="ch15">
+  <div class="chapter-head">
+    <span class="big-num">15 / 15</span>
+    <div>
+      <h2>Toxic Miskin Mental</h2>
+      <div class="chapter-sub">Ketika Kita Bangga Menjadi Tidak Produktif</div>
+    </div>
+  </div>
+  <div class="chapter-body">
+    <p>Pernah nggak sih kamu mendengar kalimat seperti ini: "Yang penting sederhana."</p>
+    <blockquote>Nggak usah terlalu ngejar dunia.</blockquote>
+    <blockquote>Orang kaya itu dekat sama dunia.</blockquote>
+    <blockquote>Biar miskin asal masuk surga.</blockquote>
+    <p>Sekilas terdengar religius. Terdengar bijak. Bahkan terdengar saleh. Tapi tunggu dulu. Bagaimana kalau ternyata sebagian cara berpikir seperti itu justru perlu diluruskan? Ibnul Jauzi membahas sesuatu yang cukup mengejutkan: beliau mengkritik pemahaman zuhud yang salah. Beliau menjelaskan bahwa salah satu tipu daya setan adalah membuat orang menjauhi usaha dan penghasilan dengan alasan agama.</p>
+    <p>Ini menarik. Karena ternyata setan tidak selalu mengajak manusia mencintai dunia. Kadang setan justru mendorong manusia meninggalkan dunia dengan cara yang keliru. Lho, kok bisa? Karena meninggalkan dunia secara salah juga bisa merusak hidup.</p>
+    <p>Ibnul Jauzi menggambarkan bagaimana ada orang yang meninggalkan usaha dan pekerjaan atas nama zuhud. Tapi ketika hartanya habis, ia justru bergantung pada orang lain dan kehilangan kemuliaannya. Perhatikan.</p>
+    <p>Masalahnya bukan pada hidup sederhana. Islam tidak melarang kesederhanaan. Masalahnya adalah ketika seseorang menjadikan ketidakmampuan sebagai seolah-olah sebuah prestasi. Padahal berbeda antara: hidup sederhana karena pilihan, dan</p>
+    <p>hidup susah karena malas berusaha. Yang pertama adalah kemuliaan. Yang kedua bisa jadi masalah. Kita hidup di zaman yang aneh. Kadang produktif dianggap terlalu duniawi. Kadang sukses dianggap kurang spiritual.</p>
+    <p>Padahal para nabi bekerja. Para sahabat berdagang. Orang-orang saleh mencari nafkah. Ibnul Jauzi mengingatkan bahwa banyak nabi dan sahabat memiliki harta, namun mereka tetap menjadi orang-orang terbaik. Bahkan beliau menyebut bahwa para sahabat bersabar ketika kekurangan, tetapi tidak meninggalkan usaha mencari rezeki yang halal ketika ada kesempatan.</p>
+    <p>Ini penting. Karena Islam tidak mengajarkan kita untuk menjadi beban. Islam mengajarkan kita untuk menjadi manfaat. Bayangkan ada dua orang. Yang pertama berkata:</p>
+    <blockquote>Gue nggak punya apa-apa, jadi nggak bisa bantu siapa-siapa.</blockquote>
+    <p>Yang kedua bekerja keras agar bisa berkata:</p>
+    <blockquote>Siapa yang bisa gue bantu hari ini?</blockquote>
+    <p>Kira-kira, siapa yang lebih banyak memberi manfaat? Ibnul Jauzi bahkan mengatakan bahwa orang yang bekerja agar menjadi pemberi, bukan penerima, termasuk golongan orang-orang mulia dan pemberani. Kalimat ini dalam banget.</p>
+    <p>Karena tujuan mencari rezeki bukan sekadar memperkaya diri. Tapi agar kita punya kemampuan untuk memberi. Memberi nafkah. Memberi sedekah. Memberi lapangan pekerjaan. Memberi manfaat. Masalah terbesar bukan ketika seseorang memiliki harta.</p>
+    <p>Masalah terbesar adalah ketika harta memiliki dirinya. Karena dunia itu seperti air laut. Kalau berada di bawah kapal, ia membantu kapal berlayar. Tapi kalau masuk ke dalam kapal, ia bisa menenggelamkannya.</p>
+    <p>Begitu juga harta. Kalau berada di tangan, ia bisa menjadi alat kebaikan. Tapi kalau masuk ke hati, ia bisa menjadi sumber kehancuran.</p>
+    
+    <div class="resep">
+      <div class="resep-head">
+        <div class="rx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg> Obatnya?</div>
+        <span class="resep-no">Resep 15</span>
+      </div>
+      <div class="resep-body">
+        <p>Jangan bercita-cita sekadar kaya. Tapi bercita-citalah menjadi orang yang bermanfaat. Bekerjalah bukan hanya untuk mengumpulkan. Tetapi juga untuk memberi. Karena kemuliaan bukan terletak pada seberapa sedikit yang kita miliki.</p>
+        <p>Kemuliaan terletak pada seberapa banyak manfaat yang bisa kita berikan. Dan mungkin, salah satu bentuk ibadah yang sering terlupakan adalah: Menjadi kuat agar bisa menguatkan orang lain.</p>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- ============ CLOSING ============ -->
+<section class="closing">
+  <div class="closing-inner">
+    <span class="label">Terima Kasih Sudah Membaca</span>
+    <h2>Perubahan Nggak Harus Besar dan Instan</h2>
+    <p>Kadang cukup satu kesadaran kecil yang dipegang terus-menerus.</p>
+    <p>Kalau salah satu bab di buku ini kerasa "nampol", coba tulis ulang satu kalimat yang paling nempel, taruh di tempat yang sering kamu lihat — dan mulai hari ini.</p>
+  </div>
+</section>
+
+<section class="about">
+  <span class="label">Tentang Buku Ini</span>
+  <h3>15 Racun Pikiran Anak Muda &amp; Cara Ibnul Jauzi Membedahnya</h3>
+  <p>15 racun pikiran. 15 cara pandang baru. Ditulis santai, dibahas dalam, biar gampang nempel di kepala — dan mulai dipraktikkan hari ini juga.</p>
+  <div class="tags">
+    <span class="pill">Motivasi</span>
+    <span class="pill">Self-Improvement</span>
+    <span class="pill">Renungan Islami</span>
+    <span class="pill">Gen Z</span>
+  </div>
+</section>
+
+<footer>Obat Toxic dari Ibnul Jauzi — Resep Pertama · Hamzah Elvin · Gen Zedition · 2026</footer>
+
+<script>
+  // side index toggle
+  const toggle = document.getElementById('navToggle');
+  const panel = document.getElementById('indexPanel');
+  const backdrop = document.getElementById('indexBackdrop');
+  function closeIndex(){ panel.classList.remove('open'); backdrop.classList.remove('open'); }
+  toggle.addEventListener('click', () => {
+    panel.classList.toggle('open');
+    backdrop.classList.toggle('open');
+  });
+  backdrop.addEventListener('click', closeIndex);
+  panel.querySelectorAll('a').forEach(a => a.addEventListener('click', closeIndex));
+
+  // chapter reveal on scroll
+  const chapters = document.querySelectorAll('.chapter');
+  if('IntersectionObserver' in window){
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if(e.isIntersecting){ e.target.classList.add('in-view'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -60px 0px' });
+    chapters.forEach(c => io.observe(c));
+  } else {
+    chapters.forEach(c => c.classList.add('in-view'));
+  }
+
+</script>
+
+</body>
+</html>
