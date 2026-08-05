@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>inibukugue.com — Buku untuk Setiap Bab Kehidupanmu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --charcoal: #241E1B;
+    --charcoal-soft: #2F2622;
+    --terracotta: #D9603F;
+    --terracotta-deep: #B84A2E;
+    --mustard: #E3A23D;
+    --sage: #8B9574;
+    --cream: #F7F1E6;
+    --cream-dim: #EDE4D3;
+    --ink: #241E1B;
+    --muted: #6B5F53;
+    --muted-on-dark: #C9BFB2;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+  }
+  h1, h2, h3, .display {
+    font-family: 'Anton', sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+  }
+  .eyebrow {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  a { color: inherit; }
+  button { font-family: 'Inter', sans-serif; cursor: pointer; }
+
+  /* ---------- NAV ---------- */
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 56px;
+    background: var(--charcoal);
+    color: var(--cream);
+  }
+  .nav .logo { font-family: 'Anton', sans-serif; font-size: 22px; letter-spacing: 0.02em; }
+  .nav .logo span { color: var(--terracotta); }
+  .nav .links { display: flex; gap: 32px; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
+  .nav .links a:hover { color: var(--terracotta); }
+
+  /* ---------- HERO / TOP HALF ---------- */
+  .hero {
+    position: relative;
+    background: var(--charcoal);
+    color: var(--cream);
+    padding: 64px 56px 56px;
+    overflow: hidden;
+    min-height: 46vh;
+  }
+  .hero-circle-1 {
+    position: absolute; top: -140px; right: -100px;
+    width: 340px; height: 340px; border-radius: 50%;
+    background: var(--mustard); opacity: 0.9;
+  }
+  .hero-circle-2 {
+    position: absolute; bottom: -180px; left: -80px;
+    width: 260px; height: 260px; border-radius: 50%;
+    background: var(--sage); opacity: 0.5;
+  }
+  .hero-circle-dash {
+    position: absolute; top: 46px; right: 96px;
+    width: 84px; height: 84px; border-radius: 50%;
+    border: 2px dashed rgba(247,241,230,0.5);
+  }
+  .hero-inner { position: relative; z-index: 2; }
+  .hero-tag {
+    display: inline-block;
+    background: var(--terracotta);
+    color: var(--charcoal);
+    font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
+    padding: 7px 16px; border-radius: 100px; margin-bottom: 22px;
+  }
+  .hero h1 {
+    font-size: clamp(34px, 5.2vw, 64px);
+    line-height: 1.02;
+    max-width: 780px;
+    margin-bottom: 20px;
+  }
+  .hero p.sub {
+    font-size: 16px; line-height: 1.6; color: var(--muted-on-dark);
+    max-width: 480px; margin-bottom: 28px;
+  }
+  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 44px; }
+  .btn {
+    font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;
+    padding: 13px 24px; border-radius: 6px; border: none; display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn-primary { background: var(--terracotta); color: var(--charcoal); }
+  .btn-primary:hover { background: var(--mustard); }
+  .btn-ghost { background: transparent; color: var(--cream); border: 1.5px solid rgba(247,241,230,0.4); }
+  .btn-ghost:hover { border-color: var(--cream); }
+
+  .book-row {
+    display: flex; gap: 16px; overflow-x: auto; padding-bottom: 8px;
+  }
+  .book-card {
+    min-width: 168px; flex-shrink: 0;
+    background: var(--cream);
+    color: var(--ink);
+    border-radius: 10px;
+    padding: 16px;
+    height: 220px;
+    display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .book-card.dim { opacity: 0.42; }
+  .book-badge {
+    display: inline-block;
+    font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em;
+    padding: 3px 9px; border-radius: 100px; margin-bottom: 10px;
+  }
+  .book-badge.live { background: var(--terracotta); color: var(--cream); }
+  .book-badge.soon { background: var(--cream-dim); color: var(--muted); }
+  .book-title { font-family: 'Anton', sans-serif; font-size: 17px; line-height: 1.15; text-transform: uppercase; }
+  .book-meta { font-size: 11px; color: var(--muted); }
+  .book-more {
+    min-width: 130px; flex-shrink: 0; height: 220px;
+    display: flex; align-items: center; justify-content: center; text-align: center;
+    color: var(--cream); font-size: 13px; font-weight: 600;
+    border: 1.5px dashed rgba(247,241,230,0.4); border-radius: 10px;
+  }
+
+  /* ---------- BOTTOM HALF ---------- */
+  .bottom {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 54vh;
+  }
+  .panel { padding: 56px 48px; }
+  .panel-left { background: var(--cream); }
+  .panel-right { background: var(--terracotta-deep); color: var(--cream); position: relative; overflow: hidden; }
+  .panel-right .dash-ring {
+    position: absolute; bottom: -60px; right: -60px;
+    width: 200px; height: 200px; border-radius: 50%;
+    border: 2px dashed rgba(247,241,230,0.35);
+  }
+  .panel-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 28px; }
+  .panel-head h2 { font-size: 22px; }
+  .panel-right .panel-head h2 { color: var(--cream); }
+
+  .quote-item { display: flex; gap: 16px; padding: 18px 0; border-bottom: 1px solid var(--cream-dim); }
+  .quote-item:last-of-type { border-bottom: none; }
+  .quote-num { font-family: 'Anton', sans-serif; font-size: 20px; color: var(--terracotta); min-width: 32px; }
+  .quote-text { font-size: 16px; font-weight: 500; line-height: 1.4; margin-bottom: 6px; }
+  .quote-src { font-size: 12px; color: var(--muted); }
+  .quote-src b { color: var(--ink); font-weight: 600; }
+  .shuffle-btn {
+    margin-top: 20px;
+    background: var(--charcoal); color: var(--cream);
+    font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;
+    padding: 11px 20px; border-radius: 6px; border: none;
+  }
+  .shuffle-btn:hover { background: var(--terracotta); }
+
+  .q-box { position: relative; z-index: 2; }
+  .q-title { font-size: 20px; font-weight: 600; margin-bottom: 18px; line-height: 1.3; }
+  .q-opt {
+    display: block; width: 100%; text-align: left;
+    background: rgba(247,241,230,0.08);
+    color: var(--cream);
+    border: 1.5px solid rgba(247,241,230,0.25);
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 14px; font-weight: 500;
+    margin-bottom: 10px;
+  }
+  .q-opt:hover { background: rgba(247,241,230,0.18); border-color: var(--cream); }
+  .q-back {
+    background: none; border: none; color: var(--cream); opacity: 0.75;
+    font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;
+    margin-bottom: 18px; padding: 0;
+  }
+  .q-result {
+    background: var(--charcoal);
+    border-radius: 10px;
+    padding: 22px;
+  }
+  .q-result-eyebrow { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--mustard); font-weight: 700; margin-bottom: 8px; }
+  .q-result-title { font-family: 'Anton', sans-serif; font-size: 20px; text-transform: uppercase; margin-bottom: 10px; }
+  .q-result-teaser { font-size: 14px; line-height: 1.5; color: var(--muted-on-dark); margin-bottom: 12px; }
+  .q-result-src { font-size: 11px; color: var(--muted-on-dark); text-transform: uppercase; letter-spacing: 0.04em; }
+
+  /* ---------- FOOTER ---------- */
+  .footer {
+    background: var(--charcoal); color: var(--muted-on-dark);
+    padding: 28px 56px;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 12px;
+  }
+  .footer a { text-decoration: underline; }
+
+  @media (max-width: 860px) {
+    .nav { padding: 18px 24px; }
+    .nav .links { display: none; }
+    .hero { padding: 44px 24px 40px; }
+    .bottom { grid-template-columns: 1fr; }
+    .panel { padding: 40px 24px; }
+    .footer { flex-direction: column; gap: 8px; text-align: center; padding: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="logo">inibukugue<span>.</span>com</div>
+  <div class="links">
+    <a href="#buku">buku</a>
+    <a href="#tulisan">tulisan</a>
+    <a href="#roadmap">roadmap</a>
+  </div>
+</nav>
+
+<section class="hero" id="buku">
+  <div class="hero-circle-1"></div>
+  <div class="hero-circle-2"></div>
+  <div class="hero-circle-dash"></div>
+  <div class="hero-inner">
+    <div class="hero-tag">15 refleksi anti-toxic</div>
+    <h1>Racun pikiran yang lo alami tiap hari</h1>
+    <p class="sub">Dibedah pelan-pelan lewat pemikiran Ibnul Jauzi. Baca gratis dengan kirim satu doa buat gue &amp; keluarga — atau bayar seikhlasnya, lo yang nentuin harganya.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#roadmap">Mulai dari roadmap <i>&rarr;</i></a>
+      <a class="btn btn-ghost" href="#tulisan">Lihat semua tulisan</a>
+    </div>
+    <div class="book-row">
+      <div class="book-card">
+        <div>
+          <div class="book-badge live">tersedia</div>
+          <div class="book-title">Obat Toxic dari Ibnul Jauzi</div>
+        </div>
+        <div class="book-meta">15 refleksi anti-toxic — gratis / seikhlasnya</div>
+      </div>
+      <div class="book-card dim">
+        <div>
+          <div class="book-badge soon">segera terbit</div>
+          <div class="book-title">Obat Overthinking</div>
+        </div>
+        <div class="book-meta">buku ke-2</div>
+      </div>
+      <div class="book-card dim">
+        <div>
+          <div class="book-badge soon">segera terbit</div>
+          <div class="book-title">Obat Toxic Relationship</div>
+        </div>
+        <div class="book-meta">buku ke-3</div>
+      </div>
+      <div class="book-card dim">
+        <div>
+          <div class="book-badge soon">segera terbit</div>
+          <div class="book-title">Obat Insecure</div>
+        </div>
+        <div class="book-meta">buku ke-4</div>
+      </div>
+      <div class="book-more">lihat semua<br>buku &rarr;</div>
+    </div>
+  </div>
+</section>
+
+<div class="bottom">
+
+  <div class="panel panel-left" id="tulisan">
+    <div class="panel-head">
+      <h2>Tulisan hari ini</h2>
+    </div>
+    <div id="quote-list"></div>
+    <button class="shuffle-btn" onclick="shuffleQuotes()">Acak tulisan lain</button>
+  </div>
+
+  <div class="panel panel-right" id="roadmap">
+    <div class="dash-ring"></div>
+    <div class="panel-head">
+      <h2>Nemuin bacaan yang pas</h2>
+    </div>
+
+    <div class="q-box" id="q-step1">
+      <div class="q-title">Lagi ngerasain apa sih sekarang?</div>
+      <button class="q-opt" onclick="goStep2('galau')">Galau sama hidup</button>
+      <button class="q-opt" onclick="goStep2('nafsu')">Susah nolak godaan / kebiasaan buruk</button>
+      <button class="q-opt" onclick="goStep2('nunda')">Suka nunda-nunda</button>
+      <button class="q-opt" onclick="goStep2('gagal')">Ngerasa gagal terus</button>
+    </div>
+
+    <div class="q-box" id="q-step2" style="display:none;">
+      <button class="q-back" onclick="goStep1()">&larr; balik</button>
+      <div class="q-title" id="q2-title"></div>
+      <div id="q2-options"></div>
+    </div>
+
+    <div class="q-box" id="q-step3" style="display:none;">
+      <button class="q-back" onclick="goStep1()">&larr; mulai lagi</button>
+      <div class="q-result">
+        <div class="q-result-eyebrow">coba baca ini dulu</div>
+        <div class="q-result-title" id="q3-chapter"></div>
+        <div class="q-result-teaser" id="q3-teaser"></div>
+        <div class="q-result-src">dari buku obat toxic dari ibnul jauzi</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer class="footer">
+  <div>&copy; 2026 inibukugue.com — dirangkum oleh Hamzah Elvin</div>
+  <div>Gratis dengan doa, atau <a href="#">bayar seikhlasnya</a></div>
+</footer>
+
+<script>
+  var allQuotes = [
+    { text: "Nggak ada orang yang bangun pagi terus bilang, \"hari ini gue mau hancurin hidup gue.\"", chapter: "Toxic Sok Kuat" },
+    { text: "Kenapa jalan kebaikan terasa berat, tapi jalan maksiat terasa mudah?", chapter: "Toxic Dunia" },
+    { text: "Kalau ingin hidup berubah, mulailah dari diri sendiri.", chapter: "Toxic Menyalahkan Keadaan" },
+    { text: "Jangan nilai sebuah pilihan dari awalnya. Nilailah dari akhirnya.", chapter: "Toxic Kenikmatan Instan" },
+    { text: "\"Nanti\" sering kali tidak pernah benar-benar datang.", chapter: "Toxic Nanti Aja" },
+    { text: "Hidup tidak berubah oleh satu malam yang penuh motivasi.", chapter: "Toxic Motivasi Sesaat" },
+    { text: "Bukan kekurangan waktu. Tapi kebocoran waktu, sedikit demi sedikit.", chapter: "Toxic Waktu Bocor" },
+    { text: "Hati yang sehat tidak merasa terancam oleh keberhasilan orang lain.", chapter: "Toxic FOMO" },
+    { text: "Manusia jarang jatuh saat tidak tahu. Sering kali jatuh justru ketika merasa dirinya kuat.", chapter: "Toxic Nafsu" },
+    { text: "Kemuliaan bukan soal sedikit yang dimiliki, tapi seberapa banyak manfaat yang bisa diberikan.", chapter: "Toxic Miskin Mental" }
+  ];
+
+  function renderQuotes(list) {
+    var wrap = document.getElementById('quote-list');
+    wrap.innerHTML = '';
+    list.forEach(function(q, i) {
+      var num = String(i + 1).padStart(2, '0');
+      var el = document.createElement('div');
+      el.className = 'quote-item';
+      el.innerHTML = '<div class="quote-num">' + num + '</div><div><div class="quote-text">' + q.text + '</div><div class="quote-src">dari buku <b>obat toxic dari ibnul jauzi</b> — bab ' + q.chapter + '</div></div>';
+      wrap.appendChild(el);
+    });
+  }
+
+  function shuffleQuotes() {
+    var shuffled = allQuotes.slice().sort(function() { return Math.random() - 0.5; });
+    renderQuotes(shuffled.slice(0, 3));
+  }
+
+  renderQuotes(allQuotes.slice(0, 3));
+
+  var qData = {
+    galau: {
+      title: "Galau soal apa tepatnya?",
+      options: [
+        { label: "Iri liat hidup orang lain", chapter: "Toxic FOMO", teaser: "Rasa itu manusiawi, masalahnya kalau sudah menguasai hati." },
+        { label: "Ngerasa hidup ini nggak adil", chapter: "Toxic Mental Korban", teaser: "Mental korban bikin nunggu dunia berubah, bukan mulai berubah." },
+        { label: "Kepikiran hal yang nggak ada jawabannya", chapter: "Toxic Overthinking", teaser: "Nggak semua pertanyaan harus dijawab hari ini." }
+      ]
+    },
+    nafsu: {
+      title: "Susahnya di bagian mana?",
+      options: [
+        { label: "Kalau udah deket godaan, susah mundur", chapter: "Toxic Sok Kuat", teaser: "Keselamatan bukan soal kuat lawan godaan, tapi soal jarak." },
+        { label: "Tau ini salah, tapi tetap dilakuin", chapter: "Toxic Nafsu", teaser: "Masalahnya bukan kurang ilmu, tapi kalah sama nafsu sendiri." },
+        { label: "Kepancing sama kesenangan instan", chapter: "Toxic Kenikmatan Instan", teaser: "Nilai sebuah pilihan dari akhirnya, bukan dari awalnya." }
+      ]
+    },
+    nunda: {
+      title: "Nundanya soal apa?",
+      options: [
+        { label: "Nunda mulai kebiasaan baik", chapter: "Toxic Nanti Aja", teaser: "\"Nanti\" sering kali tidak pernah benar-benar datang." },
+        { label: "Nunda buat berubah / taubat", chapter: "Toxic Menunda Taubat", teaser: "Yang habis bukan alasan, yang habis adalah umur." },
+        { label: "Waktu abis buat scroll doang", chapter: "Toxic Waktu Bocor", teaser: "Bukan kekurangan waktu, tapi kebocoran waktu sedikit demi sedikit." }
+      ]
+    },
+    gagal: {
+      title: "Gagalnya kerasa gimana?",
+      options: [
+        { label: "Ngerasa semua salah keadaan", chapter: "Toxic Menyalahkan Keadaan", teaser: "Kalau ingin hidup berubah, mulai dari diri sendiri." },
+        { label: "Insecure, haus validasi orang", chapter: "Toxic Haus Pengakuan", teaser: "Hati yang bahagia jika dipuji, akan hancur ketika dicela." },
+        { label: "Minder, ngerasa nggak berdaya", chapter: "Toxic Miskin Mental", teaser: "Kemuliaan bukan soal sedikit yang dimiliki, tapi manfaat yang dikasih." }
+      ]
+    }
+  };
+
+  function showStep(step) {
+    document.getElementById('q-step1').style.display = step === 1 ? 'block' : 'none';
+    document.getElementById('q-step2').style.display = step === 2 ? 'block' : 'none';
+    document.getElementById('q-step3').style.display = step === 3 ? 'block' : 'none';
+  }
+
+  function goStep1() { showStep(1); }
+
+  function goStep2(key) {
+    var d = qData[key];
+    document.getElementById('q2-title').textContent = d.title;
+    var wrap = document.getElementById('q2-options');
+    wrap.innerHTML = '';
+    d.options.forEach(function(opt) {
+      var btn = document.createElement('button');
+      btn.className = 'q-opt';
+      btn.textContent = opt.label;
+      btn.onclick = function() { goStep3(opt); };
+      wrap.appendChild(btn);
+    });
+    showStep(2);
+  }
+
+  function goStep3(opt) {
+    document.getElementById('q3-chapter').textContent = opt.chapter;
+    document.getElementById('q3-teaser').textContent = opt.teaser;
+    showStep(3);
+  }
+</script>
+
+</body>
+</html>

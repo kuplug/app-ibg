@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Obat Toxic dari Ibnul Jauzi — Resep Kedua</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,450;0,9..144,600;0,9..144,700;1,9..144,450;1,9..144,600&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* palette pulled directly from the book cover */
+    --bg: #182722;
+    --bg-alt: #1f342d;
+    --panel: #24413a;
+    --line: rgba(242,241,235,0.14);
+    --ink: #f4f3ee;
+    --ink-dim: #b7c7c0;
+    --ink-faint: #76897f;
+    --blue: #5d91b6;
+    --blue-light: #79aecf;
+    --blue-deep: #3d6482;
+    --mint: #9ecbc6;
+    --mint-deep: #7fb09f;
+    --amber: #79aecf;      /* repointed to cover blue for label/accent text */
+    --amber-dim: #4c7692;  /* repointed to cover blue-deep */
+    --navy: #1e2a28;       /* the dark stamp/title-bar navy from the cover */
+    --radius: 2px;
+    --wrap: 760px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Plus Jakarta Sans', sans-serif;
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--amber); color:#1a1108;}
+
+  h1,h2,h3,.display{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    color:var(--ink);
+    margin:0;
+  }
+
+  .label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--amber);
+  }
+
+  a{color:inherit;}
+  img{max-width:100%;}
+
+  /* ===== background texture ===== */
+  body::before{
+    content:"";
+    position:fixed; inset:0;
+    background:
+      radial-gradient(ellipse 900px 500px at 15% -5%, rgba(93,145,182,0.22), transparent 60%),
+      radial-gradient(ellipse 700px 600px at 100% 20%, rgba(158,203,198,0.12), transparent 55%);
+    pointer-events:none;
+    z-index:0;
+  }
+
+  /* ===== top nav ===== */
+  .topbar{
+    position:fixed; top:0; left:0; right:0;
+    z-index:50;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 28px;
+    background:linear-gradient(180deg, rgba(30,42,40,0.55), rgba(30,42,40,0.28) 70%, transparent);
+    backdrop-filter:blur(6px);
+  }
+  .topbar .brand{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:1rem;
+    letter-spacing:0.02em;
+  }
+  .topbar .brand span{color:var(--amber);}
+  .topbar .nav-toggle{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    border:1px solid var(--line);
+    padding:8px 14px;
+    border-radius:20px;
+    color:var(--ink-dim);
+    cursor:pointer;
+    background:rgba(255,255,255,0.02);
+    transition:border-color .2s, color .2s;
+  }
+  .nav-toggle:hover{border-color:var(--amber); color:var(--amber);}
+
+  /* ===== side index (desktop) ===== */
+  .index-panel{
+    position:fixed;
+    top:0; right:-320px;
+    width:300px; height:100%;
+    background:var(--bg-alt);
+    border-left:1px solid var(--line);
+    z-index:60;
+    padding:90px 26px 40px;
+    overflow-y:auto;
+    transition:right .35s cubic-bezier(.6,0,.2,1);
+  }
+  .index-panel.open{right:0;}
+  .index-panel .label{margin-bottom:18px; display:block;}
+  .index-list{list-style:none; margin:0; padding:0;}
+  .index-list li{border-bottom:1px solid var(--line);}
+  .index-list a{
+    display:flex; gap:12px; align-items:baseline;
+    padding:11px 2px;
+    font-size:0.88rem;
+    color:var(--ink-dim);
+    text-decoration:none;
+    transition:color .2s, padding-left .2s;
+  }
+  .index-list a:hover{color:var(--mint); padding-left:6px;}
+  .index-list .num{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    color:var(--amber-dim);
+    flex-shrink:0;
+  }
+  .index-backdrop{
+    position:fixed; inset:0; background:rgba(0,0,0,0.4);
+    z-index:55; opacity:0; pointer-events:none; transition:opacity .3s;
+  }
+  .index-backdrop.open{opacity:1; pointer-events:auto;}
+
+  /* ===== hero ===== */
+  .hero{
+    position:relative; z-index:1;
+    min-height:96vh;
+    display:flex; flex-direction:column; justify-content:center;
+    padding:150px 28px 90px;
+    overflow:hidden;
+    background:linear-gradient(160deg, var(--blue-light) 0%, var(--blue) 45%, var(--blue-deep) 100%);
+    isolation:isolate;
+  }
+  .hero::before, .hero::after{
+    content:"";
+    position:absolute;
+    border-radius:50%;
+    z-index:0;
+    pointer-events:none;
+  }
+  .hero::before{
+    width:640px; height:640px;
+    top:-260px; right:-220px;
+    background:var(--mint);
+    opacity:0.85;
+  }
+  .hero::after{
+    width:360px; height:360px;
+    bottom:-160px; left:-120px;
+    background:var(--mint-deep);
+    opacity:0.55;
+  }
+  .hero-content{
+    position:relative; z-index:2;
+    max-width:var(--wrap);
+    margin:0 auto;
+    width:100%;
+  }
+  .hero .eyebrow{
+    display:flex; align-items:center; gap:16px;
+    margin-bottom:30px;
+    flex-wrap:wrap;
+  }
+  .eyebrow .badge{
+    display:inline-block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.7rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--navy);
+    background:rgba(30,42,40,0.12);
+    border:1px solid rgba(30,42,40,0.35);
+    padding:7px 14px;
+    border-radius:20px;
+  }
+  .hero-grid{
+    display:flex;
+    align-items:flex-end;
+    gap:40px;
+  }
+  .hero-text{flex:1; min-width:260px;}
+  .hero h1{
+    font-size:clamp(2.4rem, 6.4vw, 4.1rem);
+    line-height:1.03;
+    font-weight:600;
+    color:var(--navy);
+  }
+  .hero h1 em{
+    font-style:italic;
+    font-weight:450;
+    color:#fdfdfb;
+  }
+  .hero .sub{
+    margin-top:22px;
+    max-width:480px;
+    color:rgba(30,42,40,0.78);
+    font-size:1.05rem;
+  }
+  .hero .meta-row{
+    margin-top:38px;
+    display:flex; flex-wrap:wrap; gap:10px;
+  }
+  .pill{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.7rem;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    border:1px solid rgba(30,42,40,0.3);
+    padding:7px 13px;
+    border-radius:20px;
+    color:rgba(30,42,40,0.85);
+  }
+
+  /* small book cover thumbnail beside the title */
+  .book-thumb{
+    flex-shrink:0;
+    width:150px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:10px;
+  }
+  .book-thumb img{
+    width:100%;
+    display:block;
+    border-radius:3px;
+    box-shadow:
+      0 2px 0 rgba(30,42,40,0.9),
+      0 22px 40px -12px rgba(10,16,15,0.55),
+      0 4px 14px rgba(10,16,15,0.35);
+    transform:rotate(-3deg);
+    transition:transform .35s ease;
+    border:1px solid rgba(30,42,40,0.25);
+  }
+  .book-thumb:hover img{transform:rotate(0deg) translateY(-4px);}
+  .book-thumb .cap{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.62rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:rgba(30,42,40,0.65);
+    text-align:center;
+  }
+  @media (max-width:640px){
+    .hero-grid{flex-direction:column-reverse; align-items:flex-start; gap:26px;}
+    .book-thumb{width:118px; align-self:flex-start;}
+  }
+
+  /* pulse line */
+  .pulse-wrap{
+    margin-top:56px;
+    width:100%;
+    max-width:560px;
+  }
+  .pulse-wrap svg{width:100%; height:auto; display:block;}
+  .pulse-line{
+    fill:none;
+    stroke:var(--navy);
+    stroke-width:1.6;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+    stroke-dasharray:600;
+    stroke-dashoffset:600;
+    animation:draw 3.2s ease-out forwards .3s;
+  }
+  @keyframes draw{ to{stroke-dashoffset:0;} }
+  .scroll-cue{
+    margin-top:18px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.68rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:rgba(30,42,40,0.6);
+  }
+
+  /* ===== intro / sebelum mulai baca ===== */
+  .intro{
+    position:relative; z-index:1;
+    max-width:var(--wrap);
+    margin:0 auto;
+    padding:60px 28px 100px;
+    border-top:1px solid var(--line);
+  }
+  .intro .label{margin-bottom:22px;}
+  .intro p{
+    font-size:1.08rem;
+    color:var(--ink-dim);
+    max-width:640px;
+  }
+  .intro p + p{margin-top:18px;}
+  .intro strong{color:var(--ink); font-weight:600;}
+
+  /* ===== table of contents ===== */
+  .toc{
+    position:relative; z-index:1;
+    background:var(--bg-alt);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    padding:80px 28px;
+  }
+  .toc-inner{max-width:var(--wrap); margin:0 auto;}
+  .toc .label{margin-bottom:8px;}
+  .toc h2{font-size:2rem; margin-bottom:44px; font-weight:600;}
+  .toc-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    border-top:1px solid var(--line);
+  }
+  .toc-item{
+    display:flex; align-items:center; gap:22px;
+    padding:16px 4px;
+    border-bottom:1px solid var(--line);
+    text-decoration:none;
+    transition:padding-left .25s;
+  }
+  .toc-item:hover{padding-left:10px;}
+  .toc-item:hover .toc-title{color:var(--mint);}
+  .toc-item .toc-num{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.8rem;
+    color:var(--amber-dim);
+    width:26px;
+    flex-shrink:0;
+  }
+  .toc-item .toc-title{
+    font-family:'Fraunces', serif;
+    font-size:1.08rem;
+    color:var(--ink);
+    transition:color .2s;
+    flex:1;
+  }
+  .toc-item .toc-page{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.75rem;
+    color:var(--ink-faint);
+  }
+
+  /* ===== chapters ===== */
+  .chapter{
+    position:relative; z-index:1;
+    max-width:var(--wrap);
+    margin:0 auto;
+    padding:110px 28px 40px;
+    scroll-margin-top:80px;
+    opacity:0; transform:translateY(18px);
+    transition:opacity .7s ease, transform .7s ease;
+  }
+  .chapter.in-view{opacity:1; transform:translateY(0);}
+
+  .chapter-head{
+    display:flex; align-items:flex-start; gap:24px;
+    padding-bottom:34px;
+    border-bottom:1px solid var(--line);
+    margin-bottom:40px;
+  }
+  .chapter-head .big-num{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.95rem;
+    color:var(--amber);
+    padding-top:10px;
+    flex-shrink:0;
+  }
+  .chapter-head h2{
+    font-size:clamp(1.8rem, 4vw, 2.5rem);
+    line-height:1.08;
+    font-weight:600;
+  }
+  .chapter-head .chapter-sub{
+    margin-top:12px;
+    font-style:italic;
+    color:var(--blue);
+    font-family:'Fraunces', serif;
+    font-weight:450;
+    font-size:1.05rem;
+  }
+
+  .chapter-body p{
+    margin:0 0 20px;
+    color:var(--ink-dim);
+    font-size:1.03rem;
+  }
+  .chapter-body p.lede{
+    color:var(--ink);
+    font-size:1.15rem;
+  }
+  .chapter-body p.tight{ margin-bottom:4px; }
+
+  .chapter-body blockquote{
+    margin:36px 0;
+    padding:22px 26px;
+    border-left:2px solid var(--amber);
+    background:rgba(227,177,102,0.06);
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:1.15rem;
+    color:var(--ink);
+    line-height:1.5;
+  }
+
+  /* resep card — the signature element */
+  .resep{
+    margin-top:52px;
+    border:1px solid var(--line);
+    background:
+      repeating-linear-gradient(180deg, transparent, transparent 27px, rgba(242,237,225,0.025) 28px),
+      var(--panel);
+    border-radius:3px;
+    padding:0;
+    position:relative;
+    overflow:hidden;
+  }
+  .resep::before{
+    content:"";
+    position:absolute; left:0; top:0; bottom:0; width:4px;
+    background:var(--amber);
+  }
+  .resep-head{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:20px 26px 16px 30px;
+    border-bottom:1px dashed var(--line);
+  }
+  .resep-head .rx{
+    display:flex; align-items:center; gap:10px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.78rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--amber);
+  }
+  .resep-head .rx svg{width:16px; height:16px;}
+  .resep-head .resep-no{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    color:var(--ink-faint);
+  }
+  .resep-body{
+    padding:22px 30px 28px;
+  }
+  .resep-body p{
+    color:var(--ink);
+    font-size:1.02rem;
+    margin:0 0 14px;
+  }
+  .resep-body p:last-child{margin-bottom:0;}
+  .resep-body strong{color:var(--amber);}
+
+  .chapter-close{
+    margin-top:22px;
+    padding-top:22px;
+    text-align:right;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.68rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--ink-faint);
+  }
+
+  /* ===== closing / about ===== */
+  .closing{
+    position:relative; z-index:1;
+    background:var(--bg-alt);
+    border-top:1px solid var(--line);
+    padding:110px 28px 60px;
+    text-align:center;
+  }
+  .closing-inner{max-width:600px; margin:0 auto;}
+  .closing h2{font-size:1.9rem; margin-bottom:22px;}
+  .closing p{color:var(--ink-dim); font-size:1.05rem; margin-bottom:14px;}
+
+  .about{
+    max-width:var(--wrap);
+    margin:0 auto;
+    padding:70px 28px 90px;
+    position:relative; z-index:1;
+  }
+  .about .label{margin-bottom:16px;}
+  .about h3{font-size:1.3rem; margin-bottom:18px; font-weight:600;}
+  .about p{color:var(--ink-dim); margin-bottom:24px; max-width:560px;}
+  .tags{display:flex; flex-wrap:wrap; gap:10px;}
+
+  footer{
+    padding:34px 28px 50px;
+    text-align:center;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.7rem;
+    letter-spacing:0.08em;
+    color:var(--ink-faint);
+    position:relative; z-index:1;
+  }
+
+  @media (max-width:640px){
+    .topbar{padding:14px 18px;}
+    .hero{padding:120px 20px 60px;}
+    .chapter{padding:80px 20px 20px;}
+    .chapter-head{gap:14px;}
+    .toc, .intro, .closing, .about{padding-left:20px; padding-right:20px;}
+    .resep-head, .resep-body{padding-left:20px; padding-right:20px;}
+    .index-panel{width:82%; right:-100%;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .pulse-line{animation:none; stroke-dashoffset:0;}
+    .chapter{opacity:1; transform:none; transition:none;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand">Obat Toxic <span>／</span> Resep Kedua</div>
+  <div class="nav-toggle" id="navToggle">Daftar Isi</div>
+</div>
+
+<div class="index-backdrop" id="indexBackdrop"></div>
+<nav class="index-panel" id="indexPanel">
+  <span class="label">Daftar Isi</span>
+  <ul class="index-list">
+    <li><a href="#ch1"><span class="num">01</span> Toxic Selalu Merasa Kurang</a></li>
+    <li><a href="#ch2"><span class="num">02</span> Toxic Main di Pinggir Jurang</a></li>
+    <li><a href="#ch3"><span class="num">03</span> Toxic Self-Deception</a></li>
+    <li><a href="#ch4"><span class="num">04</span> Toxic Anti Dunia</a></li>
+    <li><a href="#ch5"><span class="num">05</span> Toxic Merasa Hidup Berakhir di Dunia</a></li>
+    <li><a href="#ch6"><span class="num">06</span> Toxic Anti Belajar</a></li>
+    <li><a href="#ch7"><span class="num">07</span> Toxic Terlalu Semangat</a></li>
+    <li><a href="#ch8"><span class="num">08</span> Toxic Ngerasa Aman</a></li>
+    <li><a href="#ch9"><span class="num">09</span> Toxic Salah Paham Jadi Saleh</a></li>
+    <li><a href="#ch10"><span class="num">10</span> Toxic Koleksi Ilmu</a></li>
+    <li><a href="#ch11"><span class="num">11</span> Toxic Jatuh Cinta pada Ciptaan</a></li>
+    <li><a href="#ch12"><span class="num">12</span> Toxic Harus Tahu Semua Jawabannya</a></li>
+    <li><a href="#ch13"><span class="num">13</span> Toxic Nganggap Nafsu Itu Musuh</a></li>
+    <li><a href="#ch14"><span class="num">14</span> Toxic Ngerasa Aman Padahal Dihukum</a></li>
+    <li><a href="#ch15"><span class="num">15</span> Toxic Pencitraan</a></li>
+  </ul>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="eyebrow">
+      <span class="badge">15 Refleksi Anti-Toxic</span>
+      <span class="badge">Gen Zedition</span>
+    </div>
+    <div class="hero-grid">
+      <div class="hero-text">
+        <h1>Obat Toxic<br>dari <em>Ibnul Jauzi</em></h1>
+        <p class="sub">Resep Kedua — 15 racun hati yang lebih halus, dan cara Ibnul Jauzi membedahnya satu per satu. Ditulis untuk anak muda yang sedang capek sama isi kepala sendiri.</p>
+        <div class="meta-row">
+          <span class="pill">Motivasi</span>
+          <span class="pill">Self-Improvement</span>
+          <span class="pill">Renungan Islami</span>
+          <span class="pill">Gen Z</span>
+        </div>
+        <div class="pulse-wrap">
+          <svg viewBox="0 0 560 70" xmlns="http://www.w3.org/2000/svg">
+            <path class="pulse-line" d="M0 35 H190 L212 10 L232 60 L250 35 L262 35 L272 22 L282 48 L292 35 H560" />
+          </svg>
+          <div class="scroll-cue">Diagnosa dimulai di bawah ↓</div>
+        </div>
+      </div>
+      <div class="book-thumb">
+        <img src="data:image/jpeg;base64,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" alt="Sampul buku Obat Toxic dari Ibnul Jauzi — Resep Kedua">
+        <span class="cap">Resep Kedua</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INTRO ============ -->
+<section class="intro">
+  <span class="label">Sebelum Mulai Baca</span>
+  <p>Ini adalah <strong>Resep Kedua</strong> — lanjutan dari 15 racun pikiran sebelumnya, kali ini masuk ke lapisan yang lebih halus: dari cara hati diam-diam "dihukum", salah paham soal zuhud, sampai kebiasaan menipu diri sendiri.</p>
+  <p>Setiap tulisan mencoba menghubungkan keresahan anak muda hari ini dengan renungan-renungan Ibnul Jauzi, seorang ulama yang jauh sebelum ada media sosial pun sudah membahas bagaimana hati dan pikiran manusia bisa tertipu oleh dirinya sendiri.</p>
+  <p>Setiap bab ditutup dengan bagian <strong>"Obatnya?"</strong> — bukan teori panjang, tapi satu langkah kecil yang bisa langsung dicoba hari ini juga.</p>
+  <p>Nggak perlu dibaca urut. Buka aja bab yang paling kerasa related sama apa yang lagi kamu alami sekarang.</p>
+  <p>Selamat membaca, dan selamat pelan-pelan membenahi diri.</p>
+</section>
+
+<!-- ============ TOC ============ -->
+<section class="toc">
+  <div class="toc-inner">
+    <span class="label">Isi Buku</span>
+    <h2>Daftar Isi</h2>
+    <div class="toc-grid">
+      <a class="toc-item" href="#ch1"><span class="toc-num">01</span><span class="toc-title">Toxic Selalu Merasa Kurang</span><span class="toc-page">06</span></a>
+      <a class="toc-item" href="#ch2"><span class="toc-num">02</span><span class="toc-title">Toxic Main di Pinggir Jurang</span><span class="toc-page">11</span></a>
+      <a class="toc-item" href="#ch3"><span class="toc-num">03</span><span class="toc-title">Toxic Self-Deception</span><span class="toc-page">16</span></a>
+      <a class="toc-item" href="#ch4"><span class="toc-num">04</span><span class="toc-title">Toxic Anti Dunia</span><span class="toc-page">21</span></a>
+      <a class="toc-item" href="#ch5"><span class="toc-num">05</span><span class="toc-title">Toxic Merasa Hidup Berakhir di Dunia</span><span class="toc-page">26</span></a>
+      <a class="toc-item" href="#ch6"><span class="toc-num">06</span><span class="toc-title">Toxic Anti Belajar</span><span class="toc-page">31</span></a>
+      <a class="toc-item" href="#ch7"><span class="toc-num">07</span><span class="toc-title">Toxic Terlalu Semangat</span><span class="toc-page">36</span></a>
+      <a class="toc-item" href="#ch8"><span class="toc-num">08</span><span class="toc-title">Toxic Ngerasa Aman</span><span class="toc-page">42</span></a>
+      <a class="toc-item" href="#ch9"><span class="toc-num">09</span><span class="toc-title">Toxic Salah Paham Jadi Saleh</span><span class="toc-page">47</span></a>
+      <a class="toc-item" href="#ch10"><span class="toc-num">10</span><span class="toc-title">Toxic Koleksi Ilmu</span><span class="toc-page">52</span></a>
+      <a class="toc-item" href="#ch11"><span class="toc-num">11</span><span class="toc-title">Toxic Jatuh Cinta pada Ciptaan, Lupa kepada Penciptanya</span><span class="toc-page">58</span></a>
+      <a class="toc-item" href="#ch12"><span class="toc-num">12</span><span class="toc-title">Toxic Harus Tahu Semua Jawabannya</span><span class="toc-page">65</span></a>
+      <a class="toc-item" href="#ch13"><span class="toc-num">13</span><span class="toc-title">Toxic Nganggap Nafsu Itu Musuh</span><span class="toc-page">72</span></a>
+      <a class="toc-item" href="#ch14"><span class="toc-num">14</span><span class="toc-title">Toxic Ngerasa Aman Padahal Hati Lagi Dihukum</span><span class="toc-page">78</span></a>
+      <a class="toc-item" href="#ch15"><span class="toc-num">15</span><span class="toc-title">Toxic Pencitraan</span><span class="toc-page">85</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CH 1 ============ -->
+<article class="chapter" id="ch1">
+  <div class="chapter-head">
+    <span class="big-num">01 / 15</span>
+    <div>
+      <h2>Toxic Selalu Merasa Kurang</h2>
+      <div class="chapter-sub">Padahal Mungkin Allah Sedang Melindunginya</div>
+    </div>
+  </div>
+  <div class="chapter-body">
+    <p class="lede">Ada satu kalimat yang diam-diam bikin banyak orang stres: "Harusnya gue udah dapat itu." Harusnya gue udah nikah. Harusnya gue udah kaya. Harusnya gue udah punya rumah. Harusnya gue udah sukses. Harusnya hidup gue nggak kayak gini.</p>
+    <p>Dan sejak kata "harusnya" itu masuk ke kepala, hidup mulai terasa berat. Karena kita tidak lagi menikmati apa yang ada. Kita sibuk mengejar apa yang belum ada.</p>
+    <p>Dalam hal ini, Ibnul Jauzi mengajak kita melihat hidup dari sudut pandang yang berbeda. Beliau merenungkan sebuah nasihat yang sederhana tetapi mengubah cara pandang terhadap takdir.</p>
+    <blockquote>Anggaplah apa yang Allah tahan darimu sebagai pemberian-Nya. Karena Dia tidak menahannya karena bakhil, tetapi karena kasih sayang-Nya.</blockquote>
+    <p>Apa yang Allah tidak berikan kepadamu, belum tentu karena Allah tidak sayang kepadamu. Bisa jadi justru karena Allah sedang menyayangimu.</p>
+    <p>Jujur saja. Ini sulit diterima. Karena manusia lebih mudah memahami pemberian daripada penolakan. Kalau doa terkabul, kita bilang: "Allah sayang sama gue." Tapi kalau tidak terkabul? Sering kali kita bertanya: "Kenapa Allah nggak kasih?" Padahal siapa bilang semua yang kita inginkan pasti baik untuk kita?</p>
+    <p>Waktu kecil mungkin kita pernah menangis karena tidak dibelikan sesuatu. Hari itu kita merasa orang tua tidak sayang. Tapi setelah dewasa kita sadar: banyak hal yang dulu tidak diberikan ternyata memang tidak baik.</p>
+    <p>Masalahnya, kita sering menganggap diri kita sudah tahu apa yang terbaik untuk hidup kita. Padahal bahkan satu tahun ke depan saja kita tidak tahu. Kita hanya melihat hari ini. Allah melihat seluruh perjalanan. Kita melihat satu bab. Allah melihat seluruh buku.</p>
+    <p>Maka tidak semua penolakan adalah hukuman. Kadang penolakan adalah perlindungan. Tidak diterima di tempat yang kita inginkan. Tidak mendapatkan orang yang kita inginkan. Tidak memperoleh jabatan yang kita inginkan. Tidak meraih sesuatu yang sangat kita kejar. Siapa tahu kalau semua itu diberikan justru akan merusak kita.</p>
+    <p>Tapi karena manusia hanya melihat kehilangan, dia gagal melihat penjagaan. Dan di sinilah toxic yang sering menyerang kita. Kita hidup di zaman ketika setiap hari melihat pencapaian orang lain. Orang pamer rumah. Orang pamer pasangan. Orang pamer bisnis. Orang pamer liburan. Akhirnya kita mulai membuat daftar: "Apa saja yang belum gue punya?"</p>
+    <p>Padahal mungkin Allah sedang membuat daftar lain: "Apa saja yang sudah Aku lindungi darimu?" Masalahnya, daftar kedua itu tidak terlihat. Karena perlindungan sering datang dalam bentuk kehilangan. Dan kehilangan jarang terasa seperti kasih sayang.</p>
+    <p>Ibnul Jauzi mengingatkan bahwa dunia memang tidak diciptakan sebagai tempat kesempurnaan dan pemuasan semua keinginan manusia. Kalau semua keinginan terpenuhi, mungkin kita akan lupa kepada Allah. Kalau semua rencana berjalan sesuai kemauan kita, mungkin kita akan menjadi sombong. Kalau semua pintu terbuka, mungkin kita masuk ke tempat yang justru membinasakan.</p>
+    <p>Maka terkadang kasih sayang Allah tidak datang dalam bentuk "ini yang kamu minta." Tetapi dalam bentuk "bukan ini yang kamu butuhkan." Dan sering kali kita baru memahami itu bertahun-tahun kemudian.</p>
+
+    <div class="resep">
+      <div class="resep-head">
+        <div class="rx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg> Obatnya?</div>
+        <span class="resep-no">Resep 01</span>
+      </div>
+      <div class="resep-body">
+        <p>Setiap kali ada sesuatu yang gagal kamu dapatkan, jangan langsung bertanya: <strong>"Kenapa Allah nggak ngasih?"</strong> Coba tanyakan juga: <strong>"Kalau ini tidak diberikan, kira-kira Allah sedang menjaga gue dari apa?"</strong></p>
+        <p>Karena tidak semua kehilangan adalah kerugian. Tidak semua penolakan adalah hukuman. Dan tidak semua yang kita inginkan akan membuat kita bahagia. Kadang justru hal terbaik yang pernah terjadi dalam hidup kita adalah sesuatu yang tidak pernah Allah izinkan untuk kita miliki — dan kita baru menyadarinya setelah semuanya berlalu.</p>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- ============ CH 2 ============ -->
+<article class="chapter" id="ch2">
+  <div class="chapter-head">
+    <span class="big-num">02 / 15</span>
+    <div>
+      <h2>Toxic Main di Pinggir Jurang</h2>
+      <div class="chapter-sub">Karena Jatuh Itu Jarang Terjadi Seketika</div>
+    </div>
+  </div>
+  <div class="chapter-body">
+    <p class="lede">Pernah nggak sih kamu berkata: "Santai aja, gue cuma lihat-lihat." "Tenang, gue tahu batas kok." "Gue nggak bakal sejauh itu." Lucunya, hampir semua orang yang jatuh pernah berkata kalimat yang mirip.</p>
+    <p>Hampir tidak ada orang yang bangun pagi lalu berkata: "Hari ini gue mau menghancurkan hidup gue." Nggak ada. Orang jarang hancur dalam satu langkah besar. Biasanya dimulai dari langkah kecil yang dianggap aman. Satu chat. Satu klik. Satu pertemuan. Satu kompromi. Lalu satu lagi. Dan satu lagi. Sampai akhirnya batas yang dulu jelas menjadi kabur.</p>
+    <p>Perhatikan apa yang dibahas oleh Ibnul Jauzi dengan mengutip prinsip besar:</p>
+    <blockquote>Barang siapa menggembala di sekitar wilayah terlarang, hampir-hampir ia akan masuk ke dalamnya.</blockquote>
+    <p>Bayangkan ada jurang. Orang bijak akan berjalan jauh dari tepinya. Tapi sebagian orang justru berkata: "Seberapa dekat gue bisa berdiri tanpa jatuh?" Masalahnya, hidup bukan video game. Kita tidak selalu dapat kesempatan kedua.</p>
+    <p>Ibnul Jauzi lalu menjelaskan bahwa orang yang terjatuh ke dalam larangan itu tidak semuanya sama. Ada yang tidak tahu. Ada yang salah memahami. Ada yang keliru dalam penafsiran. Dan ada yang kalah oleh hawa nafsunya sendiri.</p>
+    <p>Artinya apa? Artinya manusia jarang jatuh karena niat jahat. Sering kali manusia jatuh karena merasa aman. Merasa kuat. Merasa bisa mengendalikan keadaan. Padahal masalahnya bukan pada kekuatan kita. Masalahnya adalah kita sering meremehkan kekuatan godaan.</p>
+    <p>Coba lihat sejarah manusia. Berapa banyak orang pintar yang jatuh? Berapa banyak orang berilmu yang tergelincir? Berapa banyak orang baik yang kehilangan arah? Bukan karena mereka bodoh. Tapi karena mereka terlalu percaya diri.</p>
+    <p>Ada yang berkata: "Gue bisa jaga hati." Lalu ternyata hatinya berubah. Ada yang berkata: "Gue cuma bercanda." Lalu bercandanya menjadi kebiasaan. Ada yang berkata: "Cuma sekali." Lalu sekali berubah menjadi berkali-kali.</p>
+    <p>Karena dosa itu jarang mengetuk pintu dengan berkata: "Halo, gue mau menghancurkan hidup lo." Tidak. Dosa biasanya datang dengan wajah yang jauh lebih ramah: "Santai aja." "Nggak apa-apa." "Cuma sedikit." "Semua orang juga begitu."</p>
+    <p>Dan di situlah bahayanya. Ibnul Jauzi seakan mengingatkan bahwa menjaga diri lebih mudah daripada memperbaiki kerusakan. Karena ada luka yang bisa sembuh. Tapi ada juga luka yang meninggalkan bekas seumur hidup.</p>
+    <p>Maka orang bijak tidak bangga karena mampu berdiri dekat godaan. Orang bijak justru bangga karena tahu kapan harus menjauh. Karena tujuan hidup bukan membuktikan bahwa kita kuat. Tujuan hidup adalah sampai ke garis akhir dengan selamat.</p>
+
+    <div class="resep">
+      <div class="resep-head">
+        <div class="rx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg> Obatnya?</div>
+        <span class="resep-no">Resep 02</span>
+      </div>
+      <div class="resep-body">
+        <p>Jangan bertanya: <strong>"Seberapa dekat gue bisa mendekati batas?"</strong> Tapi bertanyalah: <strong>"Apa yang harus gue jauhi agar tetap aman?"</strong></p>
+        <p>Karena sering kali kemenangan terbesar bukan ketika kita berhasil melawan godaan. Tetapi ketika kita cukup bijak untuk tidak memberinya kesempatan masuk sejak awal. Salah satu tanda kedewasaan bukanlah berani mendekati jurang — melainkan cukup rendah hati untuk berkata: "Gue tahu diri. Gue memilih menjauh."</p>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- ============ CH 3 ============ -->
+<article class="chapter" id="ch3">
+  <div class="chapter-head">
+    <span class="big-num">03 / 15</span>
+    <div>
+      <h2>Toxic Self-Deception</h2>
+      <div class="chapter-sub">Ketika Kita Berhasil Menipu Diri Sendiri</div>
+    </div>
+  </div>
+  <div class="chapter-body">
+    <p class="lede">Ada satu jenis kebohongan yang paling berbahaya. Bukan kebohongan kepada orang lain. Bukan juga kebohongan di media sosial. Tapi kebohongan kepada diri sendiri. Karena kalau kita dibohongi orang lain, mungkin kita masih bisa sadar. Tapi kalau kita yang menipu diri sendiri? Siapa yang akan membangunkan kita?</p>
+    <p>Pernah nggak sih kamu berkata: "Nggak apa-apa, nanti gue istighfar." "Yang penting hati gue baik." "Memang gue masih begini, tapi kan gue tetap shalat." "Semua orang juga melakukan ini." Kalimat-kalimat seperti itu terdengar ringan. Bahkan terdengar menenangkan. Tapi hati-hati. Karena kadang yang sedang berbicara bukan hati yang sehat. Kadang yang sedang berbicara adalah ego yang sedang mencari pembenaran.</p>
+    <p>Ibnul Jauzi mengingatkan bahwa salah satu dosa paling buruk adalah ketika seseorang terus-menerus melakukan kesalahan, lalu merasa bahwa ibadah yang ia lakukan akan menutupi semuanya, seolah-olah ia bisa "bernegosiasi" dengan Allah.</p>
+    <p>Perhatikan. Masalahnya bukan pada istighfar. Masalahnya bukan pada shalat. Masalahnya adalah ketika ibadah dijadikan alasan untuk tetap nyaman dengan dosa. Karena istighfar itu seperti obat. Kalau diminum sambil terus memasukkan racun yang sama, bagaimana luka akan sembuh?</p>
+    <p>Bayangkan ada orang berkata: "Gue pengen sehat." Tapi setiap hari dia terus merusak tubuhnya. Lalu berharap vitamin bisa menyelesaikan semuanya. Apakah itu masuk akal? Begitu juga hati. Kita tidak bisa terus memelihara sesuatu yang merusaknya, lalu berharap ketenangan datang dengan sendirinya.</p>
+    <p>Ibnul Jauzi mengatakan bahwa balasan Allah berjalan dengan hukum keadilan. Kadang balasan itu datang cepat, kadang tertunda. Tapi keadilan-Nya tidak pernah salah alamat.</p>
+    <p>Beliau mengutip kisah Muhammad ibn Sirin yang pernah mengejek seseorang dengan berkata: "Wahai orang bangkrut." Empat puluh tahun kemudian, beliau sendiri mengalami kebangkrutan. Empat puluh tahun. Artinya, hidup kadang menyimpan akibat yang tidak langsung terlihat.</p>
+    <p>Maka jangan buru-buru berkata: "Tuh kan, gue baik-baik aja." Karena belum datangnya akibat bukan berarti tidak ada akibat. Kadang Allah menunda. Bukan karena lupa. Tapi karena Dia Maha Adil.</p>
+    <p>Yang lebih menakutkan lagi adalah ini: ada orang yang rajin ibadah, tetap shalat, tetap berdoa, tetap terlihat baik. Tapi diam-diam memelihara dosa yang tidak ingin ditinggalkan. Lalu hatinya berkata: "Tenang, amal gue masih banyak." Padahal mungkin itulah awal dari ketertipuan.</p>
+    <p>Karena masalah terbesar bukan ketika seseorang berdosa. Masalah terbesar adalah ketika ia merasa aman dengan dosanya. Sebab dosa yang disadari masih mungkin ditangisi. Tapi dosa yang dibenarkan sering kali dipelihara.</p>
+
+    <div class="resep">
+      <div class="resep-head">
+        <div class="rx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg> Obatnya?</div>
+        <span class="resep-no">Resep 03</span>
+      </div>
+      <div class="resep-body">
+        <p>Sesekali tanyakan kepada diri sendiri: <strong>"Apakah gue benar-benar sedang bertaubat?"</strong> Atau: <strong>"Jangan-jangan gue cuma sedang mencari alasan agar tetap nyaman?"</strong></p>
+        <p>Karena musuh terbesar manusia tidak selalu setan. Kadang musuh terbesarnya adalah dirinya sendiri, yang sangat pintar membuat alasan. Salah satu tanda hati yang sehat: berani mengakui kesalahan tanpa sibuk mencari pembenaran. Perubahan dimulai saat kita berhenti menipu diri sendiri.</p>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- ============ CH 4 ============ -->
+<article class="chapter" id="ch4">
+  <div class="chapter-head">
+    <span class="big-num">04 / 15</span>
+    <div>
+      <h2>Toxic Anti Dunia</h2>
+      <div class="chapter-sub">Memiliki Dunia Tanpa Dimiliki Dunia</div>
+    </div>
+  </div>
+  <div class="chapter-body">
+    <p class="lede">Pernah nggak sih kamu mendengar kalimat seperti ini? "Nggak usah cari banyak uang, nanti jadi cinta dunia." "Orang kaya susah masuk surga." "Yang penting miskin tapi saleh." "Zuhud itu berarti menjauhi harta." Sekilas terdengar religius. Bahkan terdengar sangat Islami. Tapi tunggu dulu. Bagaimana kalau ternyata sebagian dari cara berpikir itu justru dikritik oleh Ibnul Jauzi?</p>
+    <p>Dalam perenungannya Ibnul Jauzi melihat keadaan sebagian ahli zuhud dan sufi pada zamannya. Beliau melihat bahwa banyak di antara mereka meninggalkan dunia secara berlebihan, bukan karena tuntunan syariat, tetapi karena salah memahami agama. Mereka mengambil dalil tanpa memahami maknanya secara utuh.</p>
+    <p>Ini menarik. Karena ternyata tidak semua orang yang meninggalkan dunia benar-benar sedang mendekat kepada Allah. Kadang yang ditinggalkan bukan dunia. Tapi akal sehat.</p>
+    <p>Ibnul Jauzi mengingatkan bahwa Al-Qur'an memang menyebut dunia sebagai sesuatu yang menipu. Tapi itu tidak berarti semua kenikmatan dunia harus ditinggalkan. Justru Allah berfirman:</p>
+    <blockquote>"Dan janganlah kamu melupakan bagianmu dari dunia."</blockquote>
+    <p>Perhatikan baik-baik. Islam tidak mengajarkan "tinggalkan dunia." Islam mengajarkan "jangan jadikan dunia sebagai tujuan utama." Karena ada perbedaan besar antara memiliki dunia di tangan, dan memiliki dunia di hati. Yang pertama bisa menjadi nikmat. Yang kedua bisa menjadi penyakit.</p>
+    <p>Ibnul Jauzi lalu memberikan contoh yang menarik. Beliau menyebut bahwa Nabi Muhammad SAW memakan makanan yang halal, menyukai madu dan makanan manis, bahkan para sahabat juga menikmati hal-hal yang mubah. Yang tercela bukan menikmati nikmat, tetapi berlebihan dan sombong karenanya.</p>
+    <p>Artinya apa? Artinya menjadi saleh bukan berarti hidup sengsara. Menjadi dekat kepada Allah bukan berarti harus membenci kenikmatan yang halal. Masalahnya bukan pada harta. Masalahnya adalah ketika harta menguasai hati.</p>
+    <p>Bayangkan dua orang. Yang pertama punya banyak harta, tapi hartanya dipakai untuk membantu orang lain. Yang kedua tidak punya harta, tapi sepanjang hari iri kepada orang kaya. Menurutmu siapa yang lebih dekat dengan cinta dunia? Belum tentu yang kaya. Karena cinta dunia itu urusan hati. Bukan urusan saldo rekening.</p>
+    <p>Yang lebih mengejutkan lagi, Ibnul Jauzi mengkritik orang yang membuang seluruh hartanya atas nama zuhud. Ketika akhirnya mereka membutuhkan, mereka justru terpaksa meminta-minta atau bergantung kepada orang lain. Padahal para sahabat bekerja, berdagang, dan menjaga harta mereka. Mereka sabar saat miskin, tetapi tidak menolak mencari rezeki halal ketika ada kesempatan.</p>
+    <p>Karena dunia itu seperti pisau. Di tangan koki, ia menjadi alat memasak. Di tangan penjahat, ia menjadi alat melukai. Pisau yang sama. Masalahnya bukan pada pisaunya. Masalahnya pada siapa yang memegangnya. Begitu juga harta. Di tangan orang baik, ia menjadi jalan sedekah, dakwah, pendidikan, manfaat. Tapi di hati yang salah, ia berubah menjadi kesombongan.</p>
+
+    <div class="resep">
+      <div class="resep-head">
+        <div class="rx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg> Obatnya?</div>
+        <span class="resep-no">Resep 04</span>
+      </div>
+      <div class="resep-body">
+        <p>Jangan bercita-cita menjadi miskin. Jangan juga bercita-cita menjadi kaya semata. Bercita-citalah menjadi manusia yang bermanfaat. Carilah dunia secukupnya, gunakan sebaik-baiknya, dan jangan biarkan dunia masuk terlalu jauh ke dalam hati.</p>
+        <p>Karena zuhud bukan berarti tidak punya apa-apa. Zuhud adalah ketika hatimu tetap tenang, baik saat memiliki maupun saat kehilangan. <strong>Memiliki dunia, tanpa dimiliki dunia.</strong></p>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- ============ CH 5 ============ -->
+<article class="chapter" id="ch5">
+  <div class="chapter-head">
+    <span class="big-num">05 / 15</span>
+    <div>
+      <h2>Toxic Merasa Hidup Berakhir di Dunia</h2>
+      <div class="chapter-sub">Ketika Kematian Terasa Jauh, Padahal Setiap Hari Kita Mendekatinya</div>
+    </div>
+  </div>
+  <div class="chapter-body">
+    <p class="lede">Ada satu hal yang aneh tentang manusia. Kita tahu semua orang akan mati. Tapi entah kenapa, kita hidup seolah-olah kematian hanya terjadi pada orang lain.</p>
+    <p>Kita melihat berita duka. Kita mengantar jenazah. Kita kehilangan orang yang kita sayangi. Tapi hati kita tetap berbisik: "Kalau gue sih masih lama." Dan mungkin, itulah salah satu ilusi terbesar manusia.</p>
+    <p>Ibnul Jauzi membahas sesuatu yang sangat mendasar namun sering dilupakan: nasib ruh setelah kematian. Beliau menjelaskan bahwa para ulama sepakat tentang keberadaan ruh, dan Ahlus Sunnah meyakini bahwa ruh tetap ada setelah kematian; ia dapat merasakan kenikmatan atau azab.</p>
+    <p>Kematian bukanlah tombol "off". Bukan akhir dari segalanya. Kematian hanyalah perpindahan. Seperti seseorang yang berpindah rumah. Tubuh tetap di bumi. Tapi perjalanan belum selesai.</p>
+    <p>Masalahnya, kita sering hidup seolah-olah dunia adalah tujuan akhir. Kita terlalu sibuk membangun hidup, sampai lupa mempersiapkan apa yang terjadi setelah hidup. Kita menyiapkan dana pendidikan, dana pensiun, asuransi, investasi. Semuanya penting. Tapi ada satu pertanyaan yang jarang ditanyakan: "Apa bekal gue untuk kehidupan setelah mati?"</p>
+    <p>Karena jujur saja. Tidak ada manusia yang terlalu sibuk untuk mati. Kematian tidak menunggu jadwal kosong. Ia datang ketika waktunya tiba. Dan ketika itu terjadi, semua yang kita kumpulkan akan tertinggal. Yang ikut hanyalah amal.</p>
+    <p>Ibnul Jauzi menjelaskan bahwa ketidaktahuan manusia tentang hakikat ruh tidak membahayakan selama ia meyakini keberadaannya. Sebab banyak hal memang ada meskipun kita tidak memahami hakikatnya secara penuh. Cinta tidak terlihat. Pikiran tidak terlihat. Kesadaran tidak terlihat. Tapi kita tahu semuanya ada. Begitu juga ruh.</p>
+    <p>Coba pikirkan. Kalau hidup ini benar-benar berakhir saat mati, kenapa manusia begitu takut pada kematian? Kenapa hati kita merasa bahwa ada sesuatu setelahnya? Mungkin karena jauh di dalam diri manusia, ada fitrah yang tahu: perjalanan ini belum selesai.</p>
+    <p>Mungkin inilah sebabnya mengapa banyak orang yang memiliki segalanya — uang, jabatan, popularitas — tetap merasa ada kekosongan. Karena hati manusia tidak diciptakan hanya untuk dunia. Ada bagian dari dirinya yang merindukan sesuatu yang lebih kekal. Dan dunia, seindah apa pun, tidak pernah benar-benar bisa memuaskan kerinduan itu.</p>
+    <p>Ibnul Jauzi seakan mengingatkan: jangan hidup seolah-olah dunia adalah rumah permanen. Karena dunia hanyalah ruang tunggu. Dan kematian bukan akhir cerita. Ia adalah pintu menuju bab berikutnya.</p>
+
+    <div class="resep">
+      <div class="resep-head">
+        <div class="rx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg> Obatnya?</div>
+        <span class="resep-no">Resep 05</span>
+      </div>
+      <div class="resep-body">
+        <p>Sesekali, tanyakan pada diri sendiri: <strong>"Kalau malam ini adalah malam terakhir gue, apa yang paling gue sesali?"</strong> Pertanyaan itu bukan untuk membuat kita takut, tapi untuk membantu kita menentukan prioritas.</p>
+        <p>Orang yang mengingat kematian bukan berarti pesimis — justru sering kali mereka hidup lebih sadar, lebih menghargai waktu, lebih mudah memaafkan. Masalah terbesar bukanlah bahwa kita akan mati. Masalah terbesar adalah hidup seakan-akan kita tidak akan pernah mati.</p>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- ============ CH 6 ============ -->
+<article class="chapter" id="ch6">
+  <div class="chapter-head">
+    <span class="big-num">06 / 15</span>
+    <div>
+      <h2>Toxic Anti Belajar</h2>
+      <div class="chapter-sub">Ketika Semangat Lebih Besar Daripada Pemahaman</div>
+    </div>
+  </div>
+  <div class="chapter-body">
+    <p class="lede">Pernah nggak sih kamu ketemu orang model begini? Dia semangat banget. Rajin. Giat. Sungguh-sungguh. Tapi anehnya... semakin lama, justru semakin jauh dari tujuan. Kenapa? Karena semangat tidak selalu sama dengan arah yang benar.</p>
+    <p>Bayangkan kamu naik motor. Tangki penuh. Mesin sehat. Gas dibuka maksimal. Tapi arahnya salah. Maka semakin cepat kamu melaju, semakin jauh juga kamu tersesat.</p>
+    <p>Itu juga yang menjadi salah satu bahasan Ibnul Jauzi. Beliau menceritakan sebagian orang yang ingin fokus beribadah sampai mengubur buku-buku ilmu mereka. Mereka mengira ilmu adalah gangguan bagi kedekatan dengan Allah. Padahal menurut Ibnul Jauzi, mereka sedang mematikan lentera yang seharusnya menerangi perjalanan mereka.</p>
+    <p>Ini menarik. Karena ternyata niat baik saja tidak cukup. Seseorang bisa salah bukan karena niatnya buruk. Tapi karena pemahamannya kurang. Ada orang yang ingin hijrah tapi tidak mau belajar. Ada yang ingin berdakwah tapi malas membaca. Ada yang ingin mengubah dunia tapi tidak mau memahami dunia. Akhirnya semangatnya besar, tapi dampaknya kecil. Atau bahkan merusak.</p>
+    <p>Ibnul Jauzi sampai mengatakan bahwa sedikitnya ilmu bisa membuat seseorang yang sebenarnya ingin berbuat baik justru terjatuh ke dalam kesalahan. Kalimat ini penting. Karena di zaman media sosial, banyak orang lebih suka potongan video 30 detik daripada belajar mendalam. Lebih suka quote daripada buku. Lebih suka kesimpulan daripada proses berpikir. Padahal ilmu tidak tumbuh dari potongan-potongan. Ilmu tumbuh dari ketekunan.</p>
+    <p>Makanya Ibnul Jauzi menyebut ilmu sebagai cahaya dalam kegelapan, teman dalam kesendirian, dan penolong saat musibah. Coba bayangkan hidup tanpa ilmu. Saat sedih, tidak tahu cara menghadapinya. Saat sukses, tidak tahu cara menyikapinya. Saat gagal, tidak tahu apa yang harus dipelajari. Maka hidup hanya akan dipenuhi reaksi. Bukan kebijaksanaan.</p>
+    <p>Yang lebih berbahaya lagi adalah ketika seseorang merasa: "Gue nggak perlu belajar lagi." Biasanya justru di situlah kemunduran dimulai. Karena orang yang berhenti belajar perlahan akan mulai hidup berdasarkan asumsi. Dan asumsi sering kali lebih berbahaya daripada ketidaktahuan.</p>
+    <p>Ibnul Jauzi seakan ingin berkata: jangan pernah menganggap ilmu sebagai penghalang ibadah. Karena ilmu yang benar justru membuat ibadah menjadi benar. Tanpa ilmu, seseorang mungkin berlari. Tapi tidak tahu ke mana arah larinya.</p>
+
+    <div class="resep">
+      <div class="resep-head">
+        <div class="rx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg> Obatnya?</div>
+        <span class="resep-no">Resep 06</span>
+      </div>
+      <div class="resep-body">
+        <p>Jangan hanya bertanya: <strong>"Apa yang harus gue lakukan?"</strong> Tapi bertanyalah juga: <strong>"Apa yang harus gue pahami?"</strong></p>
+        <p>Perubahan yang bertahan lama hampir selalu dimulai dari pemahaman. Bukan dari emosi sesaat, bukan dari semangat sesaat, bukan dari tren sesaat. Semangat bisa menyalakan mesin, tapi ilmu yang menentukan arah perjalanan.</p>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- ============ CH 7 ============ -->
+<article class="chapter" id="ch7">
+  <div class="chapter-head">
+    <span class="big-num">07 / 15</span>
+    <div>
+      <h2>Toxic Terlalu Semangat</h2>
+      <div class="chapter-sub">Ketika Kita Menuntut Hati Menjadi Mesin</div>
+    </div>
+  </div>
+  <div class="chapter-body">
+    <p class="lede">Pernah nggak sih kamu mengalami ini? Hari Senin semangat banget. Target hidup jelas. Ibadah lagi bagus. Belajar rajin. Motivasi tinggi. Lalu tiga hari kemudian... males, capek, nggak fokus, nggak mood. Dan langsung muncul pikiran: "Kenapa gue begini ya?" "Kenapa iman gue naik turun?" "Kenapa gue nggak bisa konsisten?"</p>
+    <p>Tenang. Bisa jadi masalahnya bukan karena kamu rusak. Masalahnya karena kamu mengira hati manusia itu seperti mesin. Padahal tidak.</p>
+    <p>Ibnul Jauzi menjelaskan bahwa dunia dipenuhi oleh hal-hal yang bisa dilihat, disentuh, dan dirasakan. Sedangkan akhirat dibangun di atas keimanan dan keyakinan. Karena itu, hal-hal duniawi sering kali lebih kuat menarik perhatian manusia daripada hal-hal akhirat.</p>
+    <p>Coba pikirkan. Kenapa notifikasi hp lebih menarik ketimbang apa pun yang sedang dikerjakan? Bahkan kadang ketika kita sedang berzikir notif membuat kita ingin melongok melihat hp. Kenapa pujian manusia terasa lebih nyata daripada pahala yang belum terlihat? Karena dunia bekerja lewat apa yang terlihat. Sedangkan akhirat bekerja lewat keyakinan. Dan yang terlihat hampir selalu lebih kuat menarik hati daripada yang belum terlihat.</p>
+    <p>Ibnul Jauzi lalu menjelaskan bahwa pergaulan, pemandangan yang disukai, dan berbagai kenikmatan yang terus-menerus dilihat akan memperkuat tarikan dunia dalam hati.</p>
+    <p>Nah, ini penting. Karena banyak orang bertanya: "Kenapa hati gue susah khusyuk?" Tapi tidak pernah bertanya: "Apa yang gue masukkan ke hati gue setiap hari?" Bayangkan hati seperti gelas. Kalau setiap hari diisi konten yang membuat lalai, diisi perbandingan, diisi iri, diisi syahwat, diisi hiburan tanpa batas — lalu kita berharap hati langsung tenang saat shalat. Ya sulit. Bukan karena shalatnya kurang kuat. Tapi karena hati sedang penuh oleh hal lain.</p>
+    <p>Dan di sinilah letak kesalahan banyak orang. Mereka ingin hasil tanpa memperhatikan sebab. Ingin hati tenang, tapi terus memberi makan kegelisahan. Ingin fokus, tapi hidup dalam gangguan terus-menerus. Ingin dekat dengan Allah, tapi tidak pernah memberi ruang untuk mendekat.</p>
+    <p>Masalahnya, kita hidup di zaman yang membuat hati hampir tidak pernah istirahat. Scroll. Swipe. Notifikasi. Video pendek. Trending topic. FOMO. Perbandingan sosial. Semuanya berebut perhatian. Akibatnya banyak orang merasa: "Gue capek." Padahal bukan fisiknya yang capek. Kadang yang lelah adalah hatinya. Karena tidak pernah diberi kesempatan untuk diam.</p>
+
+    <div class="resep">
+      <div class="resep-head">
+        <div class="rx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg> Obatnya?</div>
+        <span class="resep-no">Resep 07</span>
+      </div>
+      <div class="resep-body">
+        <p>Jangan hanya menjaga apa yang keluar dari hati. Jaga juga apa yang masuk ke dalamnya. Kalau ingin hati lebih tenang, jangan hanya bertanya <strong>"Kenapa gue nggak semangat?"</strong> — tapi tanyakan juga <strong>"Apa yang selama ini gue beri makan kepada hati gue?"</strong></p>
+        <p>Hati itu seperti taman. Kalau tidak sengaja ditanami kebaikan, ia akan ditumbuhi apa saja. Dan tidak semua yang tumbuh di dalam hati layak untuk dipelihara.</p>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- ============ CH 8 ============ -->
+<article class="chapter" id="ch8">
+  <div class="chapter-head">
+    <span class="big-num">08 / 15</span>
+    <div>
+      <h2>Toxic Ngerasa Aman</h2>
+      <div class="chapter-sub">Ketika Kita Mengira Semua Perbuatan Tidak Akan Punya Akibat</div>
+    </div>
+  </div>
+  <div class="chapter-body">
+    <p class="lede">Mungkin kamu pernah berpikir: "Ah, cuma sekali ini." "Nggak mungkin ada pengaruhnya." "Santai aja, nggak ada yang tahu." Atau sebaliknya: "Ngapain berbuat baik? Toh nggak kelihatan hasilnya."</p>
+    <p>Kalau pernah, berarti kamu sedang berhadapan dengan salah satu ilusi terbesar manusia: mengira bahwa perbuatan tidak selalu punya akibat. Padahal menurut Ibnul Jauzi, salah satu ciri orang berakal adalah selalu menunggu datangnya balasan dari apa yang ia lakukan. Bukan karena paranoid, tetapi karena ia yakin bahwa setiap perbuatan meninggalkan jejak.</p>
+    <p>Ada kisah yang disampaikan Ibnul Jauzi tentang Muhammad bin Sirin. Beliau pernah berkata: "Aku pernah mengejek seseorang dengan mengatakan: 'Wahai orang bangkrut!' Lalu aku bangkrut setelah empat puluh tahun." Empat puluh tahun bro. Bukan empat hari. Bukan empat bulan. Artinya, tidak semua akibat datang dengan cepat. Kadang Allah menyimpan hasil dari sebuah perbuatan sangat lama. Sampai kita sendiri lupa bahwa kita pernah melakukannya.</p>
+    <p>Ibnul Jauzi juga menukil kisah seorang ulama yang pernah ditegur gurunya karena memandang seorang pemuda dengan pandangan yang tidak seharusnya. Sang guru berkata: "Engkau akan melihat akibatnya." Dan bertahun-tahun kemudian, ia mengaku kehilangan hafalan Al-Qur'annya.</p>
+    <p>Ini bukan sekadar cerita. Ini cara Ibnul Jauzi mengajarkan satu prinsip: jangan menilai sebuah perbuatan hanya dari efek jangka pendeknya. Hari ini kita menanam. Besok belum tentu panen. Kadang panennya datang bertahun-tahun kemudian.</p>
+    <p>Masalahnya, kita hidup di zaman yang serba instan. Pesan terkirim dalam hitungan detik. Video selesai dalam satu menit. Belanja datang dalam satu hari. Akibatnya kita terbiasa berpikir: "Kalau nggak langsung kelihatan, berarti nggak ada pengaruhnya." Padahal banyak hal penting dalam hidup bekerja secara perlahan. Tubuh tidak sakit karena satu malam begadang. Karakter tidak rusak karena satu kebohongan. Iman tidak hilang karena satu dosa. Tapi semuanya bertumpuk. Sedikit demi sedikit.</p>
+    <p>Dan ini berlaku juga untuk kebaikan. Kadang kita merasa: "Gue sudah berusaha baik, kok belum ada hasilnya?" Ibnul Jauzi justru mengingatkan: barang siapa berbuat baik dan memperbaiki niatnya, hendaknya menunggu balasan baik meskipun waktunya panjang.</p>
+    <p>Karena itu Ibnul Jauzi menutup fasl ini dengan mengingatkan firman Allah: "Sesungguhnya barang siapa bertakwa dan bersabar, maka Allah tidak menyia-nyiakan pahala orang-orang yang berbuat baik." Beliau juga menyebut hadis bahwa orang yang menjaga pandangannya karena Allah akan diberi manisnya iman dalam hatinya. Bahkan menahan pandangan pun ada balasannya. Mungkin tidak langsung. Mungkin tidak terlihat. Tapi tidak hilang.</p>
+
+    <div class="resep">
+      <div class="resep-head">
+        <div class="rx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg> Obatnya?</div>
+        <span class="resep-no">Resep 08</span>
+      </div>
+      <div class="resep-body">
+        <p>Berhentilah bertanya: <strong>"Apa akibatnya hari ini?"</strong> Mulailah bertanya: <strong>"Kalau kebiasaan ini gue pelihara lima tahun lagi, gue akan jadi siapa?"</strong></p>
+        <p>Hidup dibangun bukan oleh satu keputusan besar, tapi oleh ribuan keputusan kecil yang kita ulang setiap hari. Tidak ada kebaikan yang benar-benar hilang, tidak ada keburukan yang benar-benar lenyap — semua sedang bergerak menuju waktunya masing-masing untuk dipanen.</p>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- ============ CH 9 ============ -->
+<article class="chapter" id="ch9">
+  <div class="chapter-head">
+    <span class="big-num">09 / 15</span>
+    <div>
+      <h2>Toxic Salah Paham Jadi Saleh</h2>
+      <div class="chapter-sub">Ketika Kita Mengira Semua yang Sulit Itu Lebih Mulia</div>
+    </div>
+  </div>
+  <div class="chapter-body">
+    <p class="lede">Pernah nggak sih kamu melihat orang yang merasa: "Kalau mau dekat sama Allah harus hidup susah." "Kalau mau shaleh jangan terlalu menikmati hidup." "Kalau punya banyak uang berarti kurang zuhud." Sekilas terdengar religius. Tapi bisa jadi itu hanya salah paham yang dibungkus dengan bahasa agama.</p>
+    <p>Ibnul Jauzi mengkritik orang-orang yang mencela dunia tanpa memahami hakikat dunia itu sendiri. Beliau mengatakan bahwa sesuatu tidak boleh dipuji atau dicela sebelum dipahami hakikatnya. Nah, ini dalam. Karena banyak orang membenci sesuatu yang sebenarnya tidak mereka pahami. Dunia dicela. Harta dicela. Pekerjaan dicela. Pernikahan dicela. Kenikmatan halal dicela. Padahal masalahnya bukan pada semua itu. Masalahnya ada pada cara manusia menggunakannya.</p>
+    <p>Ibnul Jauzi menjelaskan bahwa bumi, air, tumbuhan, hewan, dan segala fasilitas kehidupan diciptakan untuk kemaslahatan manusia. Bahkan keberlangsungan hidup manusia diperlukan agar ia bisa mengenal Allah, beribadah kepada-Nya, dan menaati-Nya.</p>
+    <p>Coba pikirkan. Kalau dunia benar-benar buruk secara mutlak, kenapa Allah menciptakannya? Kalau harta pasti buruk, kenapa zakat diwajibkan atas harta? Kalau pekerjaan itu tercela, kenapa para nabi bekerja? Kalau menikah itu mengganggu ibadah, kenapa para nabi menikah?</p>
+    <p>Di sinilah letak kesalahpahaman banyak orang. Mereka mengira: semakin susah hidup, semakin shaleh. Padahal tidak selalu begitu. Kadang seseorang sengsara bukan karena zuhud. Tapi karena salah mengambil keputusan.</p>
+    <p>Ibnul Jauzi menegaskan bahwa yang tercela bukan dunia itu sendiri, melainkan perbuatan orang bodoh atau orang yang bermaksiat dalam memanfaatkan dunia. Jika seseorang memiliki harta yang halal dan menunaikan zakatnya, maka ia tidak tercela. Artinya, harta bukan masalah — yang jadi masalah adalah keserakahan. Popularitas bukan masalah — yang jadi masalah adalah riya'. Makanan bukan masalah — yang jadi masalah adalah berlebihan.</p>
+    <p>Dunia itu seperti kendaraan. Kendaraan bisa mengantar seseorang ke tempat maksiat. Tapi kendaraan yang sama juga bisa mengantar seseorang ke masjid. Masalahnya bukan pada kendaraannya. Masalahnya pada pengemudinya.</p>
+    <p>Yang menarik, Ibnul Jauzi lalu menyebut nama-nama besar dalam Islam yang memiliki kekayaan dan usaha — ada sahabat yang meninggalkan harta dalam jumlah besar, ada ulama yang berdagang. Beliau ingin menghancurkan mitos bahwa "orang shaleh harus miskin." Tidak. Orang shaleh harus bersih hatinya. Itu berbeda.</p>
+    <p>Beliau juga menjelaskan bahwa pernikahan adalah bagian dari ibadah. Bahkan para nabi menghabiskan sebagian besar hidup mereka dalam pernikahan dan urusan keluarga. Jadi jangan merasa bersalah ketika ingin menikah. Jangan merasa kurang spiritual karena ingin bekerja. Jangan merasa kurang zuhud karena ingin hidup layak.</p>
+
+    <div class="resep">
+      <div class="resep-head">
+        <div class="rx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg> Obatnya?</div>
+        <span class="resep-no">Resep 09</span>
+      </div>
+      <div class="resep-body">
+        <p>Jangan bertanya: <strong>"Apa yang harus gue tinggalkan agar terlihat saleh?"</strong> Tapi tanyakan: <strong>"Apa yang bisa gue gunakan untuk mendekat kepada Allah?"</strong></p>
+        <p>Rumah bisa menjadi jalan menuju syukur. Pekerjaan bisa menjadi jalan menuju sedekah. Pernikahan bisa menjadi jalan menuju ibadah. Menjadi saleh bukan berarti membenci nikmat Allah — menjadi saleh adalah menggunakan nikmat Allah dengan cara yang Allah ridhai.</p>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- ============ CH 10 ============ -->
+<article class="chapter" id="ch10">
+  <div class="chapter-head">
+    <span class="big-num">10 / 15</span>
+    <div>
+      <h2>Toxic Koleksi Ilmu</h2>
+      <div class="chapter-sub">Ketika Kita Sibuk Tahu Banyak Hal, Tapi Sedikit yang Berubah</div>
+    </div>
+  </div>
+  <div class="chapter-body">
+    <p class="lede">Pernah nggak sih kamu merasa seperti ini? Video kajian sudah banyak ditonton. Podcast sudah puluhan jam didengar. Buku sudah bertumpuk. Catatan sudah penuh. Quote sudah disimpan. Tapi kalau ditanya: "Apa yang berubah dalam hidup lo?" Malah bingung jawabnya.</p>
+    <p>Kalau iya, selamat datang di salah satu penyakit yang sangat halus: mengumpulkan ilmu tanpa mengubah diri.</p>
+    <p>Ibnul Jauzi merenungkan tujuan penciptaan manusia. Setelah berpikir panjang, beliau sampai pada kesimpulan yang mengejutkan: tujuan akhirnya bukan agar manusia merasa hebat, tetapi agar ia sampai pada kerendahan hati, pengakuan akan kekurangan dirinya, dan kesadaran bahwa ia sangat membutuhkan Allah.</p>
+    <p>Artinya, semakin benar ilmu seseorang, seharusnya semakin rendah hatinya. Bukan semakin sombong. Bukan semakin suka menghakimi.</p>
+    <p>Ibnul Jauzi lalu membayangkan sebuah dialog antara kelompok ulama dan kelompok ahli ibadah. Ketika para ahli ibadah bangga dengan ibadahnya, ada suara yang berkata: "Ibadah kalian manfaatnya hanya untuk diri kalian. Sedangkan ilmu para ulama manfaatnya menjangkau banyak manusia." Tapi ketika para ulama mulai bangga dengan ilmunya, datang suara lain: "Bukankah tujuan ilmu itu hanya untuk diamalkan?"</p>
+    <p>Di sini Ibnul Jauzi sedang menghancurkan dua jenis kesombongan sekaligus — kesombongan ahli ibadah, dan kesombongan ahli ilmu. Karena pada akhirnya keduanya akan ditanya hal yang sama: "Apa yang sudah kamu lakukan dengan apa yang Allah berikan?" Bukan: "Berapa banyak yang kamu tahu?"</p>
+    <p>Gen Z hidup di zaman yang unik. Dulu orang susah mencari ilmu. Sekarang orang susah mengamalkan ilmu. Kita tahu pentingnya tidur, tapi tetap begadang. Tahu pentingnya olahraga, tapi tetap rebahan. Tahu pentingnya menjaga lisan, tapi tetap nyinyir. Masalahnya bukan tidak tahu. Masalahnya adalah jurang antara tahu dan melakukan.</p>
+    <p>Makanya Ummu Ad-Darda' pernah bertanya kepada seseorang: "Apakah engkau sudah mengamalkan apa yang engkau ketahui?" Ketika orang itu menjawab belum, beliau berkata: "Lalu kenapa engkau terus menambah hujjah Allah atas dirimu?" Kalimat ini ngeri. Karena setiap ilmu yang kita ketahui sebenarnya adalah tanggung jawab baru. Semakin banyak tahu, semakin besar amanahnya.</p>
+    <p>Abu Ad-Darda' bahkan berkata: "Celakalah orang yang mengetahui lalu tidak mengamalkan." Sedangkan Al-Fudhail berkata: "Tujuh puluh dosa orang bodoh lebih dekat kepada ampunan daripada satu dosa orang alim." Karena orang alim melanggar sesuatu yang ia tahu, sedangkan orang bodoh melanggar sesuatu yang belum ia pahami.</p>
+    <p>Maka jangan heran. Semakin dalam seseorang belajar agama dengan benar, biasanya semakin kecil rasa bangga dirinya. Karena ia mulai sadar: "Ternyata yang belum gue lakukan jauh lebih banyak daripada yang sudah gue lakukan." Makanya Ibnul Jauzi menutup fasl ini dengan kesimpulan: hakikat ilmu adalah melahirkan pengakuan, kerendahan hati, dan penghambaan kepada Allah. Bukan melahirkan kesombongan.</p>
+
+    <div class="resep">
+      <div class="resep-head">
+        <div class="rx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg> Obatnya?</div>
+        <span class="resep-no">Resep 10</span>
+      </div>
+      <div class="resep-body">
+        <p>Setiap kali belajar sesuatu yang baru, jangan langsung bertanya: <strong>"Apa lagi yang harus gue pelajari?"</strong> Tapi tanyakan dulu: <strong>"Apa yang sudah gue amalkan dari yang gue tahu?"</strong></p>
+        <p>Mungkin masalah terbesar kita hari ini bukan kekurangan ilmu, tapi terlalu banyak ilmu yang berhenti di kepala dan tidak pernah sampai ke kehidupan. Ukuran kesuksesan belajar bukanlah berapa banyak yang kita ketahui — melainkan berapa banyak yang membuat kita berubah.</p>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- ============ CH 11 ============ -->
+<article class="chapter" id="ch11">
+  <div class="chapter-head">
+    <span class="big-num">11 / 15</span>
+    <div>
+      <h2>Toxic Jatuh Cinta pada Ciptaan, Lupa kepada Penciptanya</h2>
+      <div class="chapter-sub">Ketika Kita Mengagumi Hadiahnya, Tapi Melupakan Pemberinya</div>
+    </div>
+  </div>
+  <div class="chapter-body">
+    <p class="lede">Pernah nggak sih lo mengalami ini? Lihat matahari terbit, lalu kagum. Lihat pegunungan, lalu takjub. Dengar lagu yang menyentuh, lalu terharu. Jatuh cinta, lalu merasa dunia indah. Tapi ada satu pertanyaan yang jarang kita tanyakan: "Kalau semua ini begitu indah, bagaimana dengan Dzat yang menciptakan keindahan itu?"</p>
+    <p>Ibnul Jauzi mengajak kita merenungkan firman Allah: "Dia mencintai mereka dan mereka mencintai-Nya." Beliau mengakui bahwa pada awalnya jiwa sulit memahami bagaimana mungkin seseorang mencintai Allah. Karena selama ini kita terbiasa mencintai sesuatu yang terlihat, disentuh, dan dirasakan oleh pancaindra.</p>
+    <p>Kita mencintai wajah. Mencintai suara. Mencintai tempat. Mencintai benda. Mencintai pengalaman. Karena semuanya bisa dilihat. Tapi Allah tidak seperti itu. Maka sebagian orang akhirnya menyederhanakan cinta kepada Allah menjadi: "Ya sudah, cinta kepada Allah berarti taat saja." Padahal menurut Ibnul Jauzi, ada sesuatu yang lebih dalam dari sekadar definisi itu.</p>
+    <p>Beliau menjelaskan bahwa manusia sebenarnya sering mencintai sesuatu yang tidak pernah ia lihat. Coba pikirkan. Berapa banyak orang yang mencintai Abu Bakar Ash-Shiddiq? Berapa banyak yang mencintai Ali bin Abi Thalib? Padahal mereka tidak pernah melihat wajah mereka. Lalu kenapa bisa mencintai? Karena yang dicintai bukan fisiknya. Yang dicintai adalah makna di balik dirinya. Keilmuan. Keberanian. Kejujuran. Kesalehan. Keteguhan.</p>
+    <p>Artinya, manusia ternyata mampu mencintai sesuatu yang tidak terlihat oleh mata. Manusia mampu mencintai makna. Dan kalau kita bisa mencintai makhluk karena sifat-sifat baik yang Allah berikan kepada mereka, lalu bagaimana dengan Allah yang menjadi sumber dari semua kebaikan itu?</p>
+    <p>Coba renungkan. Saat lo membaca buku yang bagus, saat lo memahami sesuatu yang sebelumnya tidak lo pahami — siapa yang memberi kemampuan memahami itu? Allah. Saat lo melihat langit malam, siapa yang menciptakan bintang-bintang itu? Allah. Saat lo menemukan orang-orang yang mencintaimu, siapa yang menggerakkan hati mereka? Allah.</p>
+    <p>Masalahnya, kita sering jatuh cinta pada hadiah. Tapi lupa kepada pemberinya. Kita menikmati matahari, tapi lupa kepada yang menerbitkannya. Kita menikmati cinta, tapi lupa kepada yang menciptakan rasa cinta. Dan inilah toxic yang sangat halus. Karena ia tidak terlihat seperti dosa. Tapi perlahan membuat hati berhenti melihat Allah di balik nikmat-nikmat-Nya.</p>
+    <p>Ibnul Jauzi memberikan contoh yang luar biasa. Beliau berkata: kalau kita melihat sebuah ukiran yang sangat menakjubkan, seharusnya kita lebih kagum kepada sang pengukir daripada kepada ukirannya. Kalau ada lukisan yang luar biasa indah, orang akan bertanya "siapa pelukisnya?" — bukan "kanvasnya dari mana?" Kalau ada bangunan yang megah, orang akan mencari arsiteknya. Karena karya selalu menunjuk kepada pembuatnya.</p>
+    <p>Menurut Ibnul Jauzi, ketika seseorang mulai melihat Sang Pencipta di balik ciptaan, maka cinta kepada Allah menjadi sesuatu yang tidak bisa dihindari. Bahkan semakin kuat pengenalannya kepada Allah, semakin besar pula kerinduannya, rasa takutnya, harapannya, dan kecintaannya. Karena cinta lahir dari pengenalan.</p>
+
+    <div class="resep">
+      <div class="resep-head">
+        <div class="rx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg> Obatnya?</div>
+        <span class="resep-no">Resep 11</span>
+      </div>
+      <div class="resep-body">
+        <p>Mulai hari ini, setiap kali menikmati sesuatu yang indah, jangan berhenti pada keindahannya. Lanjutkan satu langkah lagi. Tanyakan: <strong>"Apa yang sedang Allah tunjukkan kepada gue melalui ini?"</strong></p>
+        <p>Saat melihat langit, ingat Penciptanya. Saat menikmati ilmu, ingat yang mengajarinya. Salah satu penyebab hati terasa kosong adalah kita terlalu sibuk mengagumi karya, sampai lupa mengenal Sang Seniman.</p>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- ============ CH 12 ============ -->
+<article class="chapter" id="ch12">
+  <div class="chapter-head">
+    <span class="big-num">12 / 15</span>
+    <div>
+      <h2>Toxic Harus Tahu Semua Jawabannya</h2>
+      <div class="chapter-sub">Ketika Akal Tidak Mau Menerima Bahwa Tidak Semua Hal Bisa Dijelaskan</div>
+    </div>
+  </div>
+  <div class="chapter-body">
+    <p class="lede">Pernah nggak sih loe bertanya: "Kalau Allah itu baik, kenapa ada anak kecil yang meninggal?" "Kenapa orang baik justru hidup susah?" "Kenapa orang jahat malah kaya?" "Kenapa doa gue belum dikabulkan?" Kalau pernah, berarti loe sedang mengalami apa yang juga direnungkan oleh Ibnul Jauzi hampir seribu tahun yang lalu.</p>
+    <p>Beliau memulai masalah ini dengan mengagumi tubuh manusia. Lihat mata, jantung, otak — lihat bagaimana semuanya bekerja begitu sempurna. Akal langsung berkata: "Subhanallah... Allah benar-benar Maha Bijaksana." Tapi kemudian Allah mengambil tubuh itu. Seseorang meninggal. Dan akal mulai bertanya: "Kalau memang sempurna... kenapa dihancurkan?"</p>
+    <p>Di sinilah Ibnul Jauzi mengajak kita naik satu tingkat dalam berpikir. Beliau berkata, tubuh ini memang tidak diciptakan untuk tinggal selamanya di dunia. Ia hanyalah kendaraan, tempat singgah, sarana untuk mengenal Allah dan mengumpulkan bekal sebelum perjalanan berikutnya. Kalau tujuan sebuah kapal adalah mengantarkan penumpang ke seberang, maka kapal itu tidak dibuat untuk terus berada di pelabuhan. Begitu juga tubuh kita.</p>
+    <p>Lalu Ibnul Jauzi memberikan contoh-contoh yang membuat akal benar-benar berhenti. Kenapa ada pemuda baik yang meninggal sebelum cita-citanya tercapai? Kenapa ada bayi yang diambil dari pelukan kedua orang tuanya? Kenapa ada orang beriman yang hidup pas-pasan, sementara orang yang jauh dari Allah justru bergelimang harta? Kalau hanya memakai logika manusia, semua itu terasa tidak adil. Dan memang, akal akan kebingungan.</p>
+    <p>Di sinilah letak pelajaran terbesar dalam masalah ini. Ibnul Jauzi tidak mengatakan "jangan berpikir." Beliau justru berpikir sangat dalam. Tapi setelah berpikir sejauh mungkin, beliau sampai pada satu kesimpulan:</p>
+    <blockquote>Kalau gue sudah yakin bahwa Allah Maha Bijaksana, maka ketika gue tidak memahami sebuah keputusan-Nya, yang salah belum tentu keputusan-Nya. Bisa jadi akal guelah yang memang belum mampu menjangkaunya.</blockquote>
+    <p>Ini beda banget. Karena sekarang banyak orang berpikir begini: "Kalau gue nggak ngerti, berarti pasti salah." Padahal belum tentu. Bayangkan anak TK masuk ke ruang kuliah fisika kuantum. Lalu dia berkata: "Ini nggak masuk akal." Apakah fisikanya yang salah? Atau kemampuan memahami si anak yang memang belum sampai?</p>
+    <p>Masalahnya, kita sering ingin menjadi hakim atas keputusan Allah. Kita ingin semua penderitaan punya penjelasan yang langsung kita mengerti. Padahal hidup bukan soal mengerti semuanya. Hidup adalah belajar percaya kepada Dzat yang mengetahui semuanya.</p>
+    <p>Ibnul Jauzi menulis kalimat yang luar biasa. Beliau menggambarkan seandainya akal diajak berdialog: "Bukankah kamu sudah tahu bahwa Allah Maha Bijaksana?" Akal menjawab: "Iya." Lalu ditanya lagi: "Kalau begitu, kenapa kamu masih curiga pada keputusan-Nya?" Akal akhirnya berkata: "Karena aku sudah tahu melalui bukti bahwa Dia Maha Bijaksana. Maka aku menyerah, mengakui keterbatasanku, dan menerima bahwa tidak semua hikmah mampu aku pahami." Itulah puncak kecerdasan — bukan ketika kita berhasil menjelaskan semua rahasia Allah, tetapi ketika kita tahu batas kemampuan akal kita.</p>
+
+    <div class="resep">
+      <div class="resep-head">
+        <div class="rx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg> Obatnya?</div>
+        <span class="resep-no">Resep 12</span>
+      </div>
+      <div class="resep-body">
+        <p>Kalau suatu hari hidup terasa tidak masuk akal, jangan buru-buru berkata "Allah tidak adil." Coba ubah pertanyaannya menjadi: <strong>"Apa yang belum bisa gue lihat hari ini?"</strong></p>
+        <p>Sering kali yang terbatas bukan hikmah Allah — yang terbatas adalah sudut pandang kita. Kedewasaan iman bukanlah memiliki jawaban untuk semua pertanyaan, melainkan tetap percaya kepada Allah meskipun tidak semua pertanyaan sudah terjawab.</p>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- ============ CH 13 ============ -->
+<article class="chapter" id="ch13">
+  <div class="chapter-head">
+    <span class="big-num">13 / 15</span>
+    <div>
+      <h2>Toxic Nganggap Nafsu Itu Musuh</h2>
+      <div class="chapter-sub">Ketika Kita Membenci Sesuatu yang Sebenarnya Allah Ciptakan dengan Tujuan Mulia</div>
+    </div>
+  </div>
+  <div class="chapter-body">
+    <p class="lede">Kalau dengar kata nafsu, apa yang langsung terlintas di kepala? "Bahaya." "Harus dilawan." "Biang dosa." Akibatnya banyak orang tumbuh dengan pemahaman: semakin tidak punya nafsu, semakin saleh. Padahal Ibnul Jauzi justru mengajak kita melihat syahwat dari sudut yang berbeda.</p>
+    <p>Beliau merenungkan kenapa Allah menciptakan pernikahan. Lalu beliau sampai pada satu kesimpulan: tujuan terbesar pernikahan adalah menjaga keberlangsungan manusia melalui keturunan. Artinya, pernikahan bukan sekadar soal cinta, bukan sekadar soal bahagia, bukan sekadar soal menghindari zina — tetapi bagian dari cara Allah menjaga kehidupan manusia.</p>
+    <p>Lalu muncul pertanyaan. Kalau tujuan itu begitu mulia, kenapa Allah menciptakan syahwat? Kenapa tidak dibuat saja manusia otomatis ingin menikah? Jawaban Ibnul Jauzi sederhana tapi dalam. Beliau menjelaskan bahwa secara naluriah manusia merasa malu membuka aurat dan melakukan hubungan badan. Karena itu Allah menciptakan dorongan syahwat agar manusia mau menjalani proses tersebut sehingga tujuan besar berupa lahirnya keturunan tetap tercapai.</p>
+    <p>Jadi, syahwat bukan cacat. Syahwat adalah mesin penggerak yang Allah pasang. Masalahnya bukan pada mesinnya. Masalahnya pada siapa yang memegang setir.</p>
+    <p>Bayangin api. Api bisa memasak makanan. Tapi api yang sama bisa membakar rumah. Apakah apinya yang salah? Tidak. Yang menentukan adalah bagaimana kita menggunakannya. Begitu juga syahwat. Kalau diarahkan kepada yang halal, ia menjadi jalan lahirnya keluarga, anak-anak, kasih sayang, generasi yang baik. Tapi kalau dilepas tanpa kendali, ia berubah menjadi sumber luka — perselingkuhan, pornografi, eksploitasi, penyesalan.</p>
+    <p>Nah, di sinilah toxic yang sering muncul. Ada yang menganggap: "Ikuti aja semua keinginan." Itu berbahaya. Tapi ada juga yang menganggap: "Semua keinginan harus dibunuh." Ini juga keliru. Islam tidak mengajarkan dua-duanya. Islam mengajarkan mengendalikan, bukan menghilangkan.</p>
+    <p>Kita hidup di zaman yang aneh. Di satu sisi, syahwat dijual di mana-mana — iklan, film, media sosial, konten pendek, semuanya memancing hasrat. Di sisi lain, ketika bicara tentang seksualitas yang sehat dalam Islam, banyak orang malah diam karena merasa tabu. Akibatnya, banyak yang belajar dari internet, bukan dari hikmah agama. Padahal Ibnul Jauzi menunjukkan bahwa syahwat bukan sesuatu yang kotor. Yang kotor adalah ketika syahwat dipisahkan dari tujuan yang Allah tetapkan.</p>
+
+    <div class="resep">
+      <div class="resep-head">
+        <div class="rx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg> Obatnya?</div>
+        <span class="resep-no">Resep 13</span>
+      </div>
+      <div class="resep-body">
+        <p>Jangan benci nafsumu. Kenali. Didik. Arahkan. Allah tidak salah ketika menciptakannya — yang perlu diperbaiki bukan keberadaan syahwat, tetapi cara kita mengelolanya.</p>
+        <p>Syahwat yang dipimpin iman akan melahirkan kehidupan. Syahwat yang dipimpin hawa nafsu akan menghancurkan kehidupan. Kesalehan bukan berarti tidak punya keinginan — kesalehan adalah mampu membawa setiap keinginan menuju jalan yang Allah ridhoi.</p>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- ============ CH 14 ============ -->
+<article class="chapter" id="ch14">
+  <div class="chapter-head">
+    <span class="big-num">14 / 15</span>
+    <div>
+      <h2>Toxic Ngerasa Aman Padahal Hati Lagi Dihukum</h2>
+      <div class="chapter-sub">Ketika Kita Mengira Allah Diam, Padahal Hukuman-Nya Sedang Menyertai Kita</div>
+    </div>
+  </div>
+  <div class="chapter-body">
+    <p class="lede">Pernah nggak kamu berpikir begini? "Gue udah sering maksiat kok, hidup gue baik-baik aja." Sehat. Rezeki masih lancar. Karier jalan. Followers naik. Jadi muncul kesimpulan: "Berarti Allah belum menghukum gue." Nah, di sinilah Ibnul Jauzi bilang: belum tentu.</p>
+    <p>Beliau menjelaskan bahwa dunia adalah gambaran kecil dari akhirat. Allah memberi kita sedikit rasa nikmat agar kita rindu kepada surga. Allah juga memperlihatkan sedikit penderitaan agar kita takut kepada neraka. Jadi dunia bukan tujuan. Dunia adalah "preview" dari kehidupan yang sebenarnya.</p>
+    <p>Lalu Ibnul Jauzi mengatakan sesuatu yang sangat menarik. Beliau menjelaskan bahwa setiap kezaliman dan dosa sebenarnya sudah mulai mendapatkan balasan di dunia, meskipun sering kali kita tidak menyadarinya. Masalahnya, kita mengira hukuman itu harus selalu berbentuk sakit, bangkrut, kecelakaan, kehilangan pekerjaan. Padahal, menurut Ibnul Jauzi, ada hukuman yang jauh lebih halus. Dan justru lebih berbahaya.</p>
+    <p>Beliau mengutip kisah seorang ulama Bani Israil yang berdoa: "Ya Rabb... aku sering bermaksiat kepada-Mu. Kenapa Engkau tidak menghukumku?" Lalu Allah menjawab:</p>
+    <blockquote>Berapa kali Aku sudah menghukummu, tetapi kamu tidak menyadarinya? Bukankah Aku telah mencabut manisnya bermunajat kepada-Ku?</blockquote>
+    <p>Kalimat ini bikin merinding. Karena ternyata hukuman tidak selalu terasa sakit di badan. Kadang yang dicabut adalah rasa nikmat ketika shalat, rasa tenang ketika membaca Al-Qur'an, air mata ketika berdoa, kelembutan hati, kepekaan terhadap dosa. Dan itu sering kali jauh lebih berbahaya daripada kehilangan uang.</p>
+    <p>Ibnul Jauzi kemudian memberi contoh. Ada orang yang membiarkan pandangannya melihat yang haram, lalu Allah mencabut kejernihan mata hatinya. Ada yang menjaga lisannya dari ucapan yang buruk, hatinya menjadi lebih bersih. Ada yang memilih makanan syubhat, lalu perlahan kehilangan semangat shalat malam. Hati yang sering bermaksiat perlahan kehilangan kemampuan menikmati ketaatan.</p>
+    <p>Makanya ketika Wahb bin Al-Ward ditanya: "Apakah orang yang bermaksiat masih bisa merasakan nikmat beribadah?" Beliau menjawab: "Bahkan orang yang baru berniat bermaksiat pun tidak." Ini bukan berarti Allah tidak menerima taubat. Tapi dosa itu meninggalkan bekas. Sama seperti lumpur yang menempel di kaca — semakin banyak lumpurnya, semakin sedikit cahaya yang masuk.</p>
+    <p>Lalu Ibnul Jauzi mengajak kita melihat sisi sebaliknya. Kalau maksiat punya akibat, ketaatan juga punya buah. Beliau mengutip makna sebuah hadits: siapa yang menjaga pandangannya karena Allah, Allah akan memberinya iman yang manis di dalam hati. Setiap perjuangan melawan hawa nafsu tidak pernah sia-sia. Mungkin tidak langsung dibayar dengan uang. Tapi dibayar dengan sesuatu yang lebih mahal: hati yang tenang, iman yang hidup, doa yang terasa dekat.</p>
+    <p>Kemudian Ibnul Jauzi membawa kisah Nabi Yusuf. Dulu beliau dijual murah oleh saudara-saudaranya. Mereka merasa menang. Tetapi bertahun-tahun kemudian, orang-orang yang dulu menjual Yusuf justru berdiri di hadapannya sambil berkata: "Berilah kami sedekah." Sedangkan Yusuf yang dulu difitnah akhirnya dimuliakan Allah. Balasan Allah sering datang. Hanya saja tidak selalu datang secepat yang kita inginkan.</p>
+    <p>Di akhir fasl, Ibnul Jauzi menceritakan kisah seorang ulama muda yang sangat ingin mendatangi budak perempuan yang baru ia beli. Kesempatannya ada, keinginannya besar, tidak ada orang yang melihat. Tapi para ulama menjelaskan bahwa ia harus menunggu sampai syarat syariat terpenuhi. Beliau berkata, hawa nafsunya seperti berkata: iman itu bersabar di atas bara api. Dan ia memilih bersabar. Allah tidak hanya mengganti kesabarannya — Allah memberinya sesuatu yang lebih baik dan lebih mulia daripada yang ia tahan.</p>
+
+    <div class="resep">
+      <div class="resep-head">
+        <div class="rx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg> Obatnya?</div>
+        <span class="resep-no">Resep 14</span>
+      </div>
+      <div class="resep-body">
+        <p>Kalau suatu hari ibadah mulai terasa hambar, jangan buru-buru menyalahkan jadwal yang sibuk atau lingkungan. Coba tanya diri sendiri: <strong>"Apakah ada dosa yang belum gue bereskan?"</strong></p>
+        <p>Bisa jadi yang Allah cabut bukan rezekimu, bukan kesehatanmu, bukan hartamu — tetapi sesuatu yang jauh lebih berharga: nikmatnya dekat dengan-Nya. Tidak ada hukuman yang lebih menyedihkan daripada hati yang tidak lagi rindu kepada Allah. Hukuman itu bukan cuma menunggu di akhirat — sebagian sudah mulai kita rasakan, baik dalam bentuk ketenangan maupun kegelisahan hati.</p>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- ============ CH 15 ============ -->
+<article class="chapter" id="ch15">
+  <div class="chapter-head">
+    <span class="big-num">15 / 15</span>
+    <div>
+      <h2>Toxic Pencitraan</h2>
+      <div class="chapter-sub">Ketika Kita Sibuk Terlihat Baik, Tapi Lupa Menjadi Baik</div>
+    </div>
+  </div>
+  <div class="chapter-body">
+    <p class="lede">Kita hidup di zaman yang aneh. Foto bisa diedit. Video bisa dipotong. Caption bisa dibuat seolah-olah bijaksana. Media sosial membuat kita bisa memilih sisi mana yang ingin ditunjukkan kepada dunia. Akibatnya, kadang kita lebih sibuk mengatur image daripada memperbaiki isi hati.</p>
+    <p>Kita ingin dikenal sebagai orang baik, orang alim, orang yang ramah, orang yang dermawan. Padahal belum tentu Allah melihat kita seperti itu.</p>
+    <p>Ibnul Jauzi mengatakan sesuatu yang sangat menggetarkan. Beliau berkata bahwa salah satu bukti terbesar tentang keberadaan dan kekuasaan Allah adalah: manusia bisa menyembunyikan dosanya dari semua orang. Tetapi tidak akan pernah bisa menyembunyikannya dari Allah. Bahkan Allah mampu membukanya pada waktu yang Dia kehendaki. Mungkin tidak hari ini. Mungkin bertahun-tahun lagi.</p>
+    <p>Pernah nggak kamu melihat seseorang yang selama bertahun-tahun berhasil menutupi keburukannya, lalu dalam satu kejadian, semuanya terbongkar? Kadang bukan karena ada orang yang membocorkannya. Tetapi karena Allah sendiri membuka jalan agar keburukan itu terlihat. Ibnul Jauzi mengatakan, itu terjadi agar manusia tahu: tidak ada tabir yang bisa menghalangi penglihatan Allah.</p>
+    <p>Tapi fasl ini tidak hanya bicara tentang dosa. Beliau juga menyebut sisi yang sangat indah. Kalau seseorang menyembunyikan amal salehnya, Allah juga mampu memperlihatkan kemuliaannya kepada manusia. Lucunya, orang-orang sering memuji dirinya lebih banyak daripada yang sebenarnya mereka ketahui. Kenapa? Karena Allah sendiri yang menanamkan rasa hormat itu di hati manusia.</p>
+    <p>Di sini Ibnul Jauzi mengajarkan satu hukum kehidupan yang sering kita lupakan. Reputasi sejati tidak dibangun oleh pencitraan. Reputasi sejati adalah hadiah dari Allah. Makanya ada orang yang tidak pernah sibuk mencari pengakuan, tapi ke mana pun ia datang, orang merasa nyaman, percaya, menghormatinya. Sebaliknya, ada juga orang yang mati-matian membangun citra — kontennya religius, kata-katanya indah, senyumnya manis — tapi entah kenapa orang tetap merasa ada yang tidak tulus.</p>
+    <p>Kenapa bisa begitu? Karena menurut Ibnul Jauzi, hati manusia sering kali mengenali keadaan seseorang sesuai hubungan orang itu dengan Allah. Ini bukan berarti manusia selalu benar menilai. Tetapi Allah mampu menanamkan rasa cinta atau rasa enggan di hati manusia sesuai kehendak-Nya. Makanya kalau hubungan kita dengan Allah baik, Allah bisa memperbaiki banyak hal yang bahkan tidak mampu kita jelaskan. Sebaliknya, kalau kita hanya sibuk menyenangkan manusia lalu melupakan Allah, hasilnya sering terbalik.</p>
+    <p>Ibnul Jauzi menutup fasl ini dengan kalimat yang sangat tajam:</p>
+    <blockquote>Siapa yang memperbaiki hubungannya dengan manusia tetapi mengabaikan hubungannya dengan Allah, maka tujuan yang ia kejar akan berbalik. Bahkan orang yang dulu memujinya bisa berubah menjadi orang yang mencelanya.</blockquote>
+    <p>Kalimat ini seperti menampar budaya hari ini. Kita mengejar viral, likes, followers. Padahal semua itu bisa berubah dalam semalam. Hari ini dipuji, besok dihujat. Karena pujian manusia memang tidak pernah stabil. Yang stabil hanyalah penilaian Allah.</p>
+
+    <div class="resep">
+      <div class="resep-head">
+        <div class="rx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg> Obatnya?</div>
+        <span class="resep-no">Resep 15</span>
+      </div>
+      <div class="resep-body">
+        <p>Mulai hari ini, sebelum bertanya <strong>"Gimana caranya supaya orang-orang suka sama gue?"</strong> — coba tanya dulu <strong>"Gimana caranya supaya Allah ridha sama gue?"</strong></p>
+        <p>Kalau Allah sudah meridhai seorang hamba, Dia mampu membuka pintu-pintu kebaikan yang tidak pernah disangka. Jangan habiskan hidupmu untuk terlihat baik — habiskan hidupmu untuk benar-benar menjadi baik. Manusia hanya melihat apa yang berhasil kamu tampilkan. Tetapi Allah melihat siapa dirimu ketika tidak ada seorang pun yang sedang melihat.</p>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- ============ CLOSING ============ -->
+<section class="closing">
+  <div class="closing-inner">
+    <span class="label">Terima Kasih Sudah Membaca</span>
+    <h2>Perubahan Nggak Harus Besar dan Instan</h2>
+    <p>Kadang cukup satu kesadaran kecil yang dipegang terus-menerus.</p>
+    <p>Kalau salah satu bab di buku ini kerasa "nampol", coba tulis ulang satu kalimat yang paling nempel, taruh di tempat yang sering kamu lihat — dan mulai hari ini.</p>
+  </div>
+</section>
+
+<section class="about">
+  <span class="label">Tentang Buku Ini</span>
+  <h3>15 Racun Hati yang Lebih Halus &amp; Cara Ibnul Jauzi Membedahnya</h3>
+  <p>15 racun pikiran. 15 cara pandang baru. Ditulis santai, dibahas dalam, biar gampang nempel di kepala — dan mulai dipraktikkan hari ini juga.</p>
+  <div class="tags">
+    <span class="pill">Motivasi</span>
+    <span class="pill">Self-Improvement</span>
+    <span class="pill">Renungan Islami</span>
+    <span class="pill">Gen Z</span>
+  </div>
+</section>
+
+<footer>Obat Toxic dari Ibnul Jauzi — Resep Kedua · GUE · Gen Zedition · 2026</footer>
+
+<script>
+  // side index toggle
+  const toggle = document.getElementById('navToggle');
+  const panel = document.getElementById('indexPanel');
+  const backdrop = document.getElementById('indexBackdrop');
+  function closeIndex(){ panel.classList.remove('open'); backdrop.classList.remove('open'); }
+  toggle.addEventListener('click', () => {
+    panel.classList.toggle('open');
+    backdrop.classList.toggle('open');
+  });
+  backdrop.addEventListener('click', closeIndex);
+  panel.querySelectorAll('a').forEach(a => a.addEventListener('click', closeIndex));
+
+  // chapter reveal on scroll
+  const chapters = document.querySelectorAll('.chapter');
+  if('IntersectionObserver' in window){
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if(e.isIntersecting){ e.target.classList.add('in-view'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -60px 0px' });
+    chapters.forEach(c => io.observe(c));
+  } else {
+    chapters.forEach(c => c.classList.add('in-view'));
+  }
+</script>
+
+</body>
+</html>
