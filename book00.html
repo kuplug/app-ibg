@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Saat Ibnul Jauzi Menulis Tentang Dirinya</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,450;0,9..144,600;0,9..144,700;1,9..144,450;1,9..144,600&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* palette pulled directly from the book cover */
+    --bg: #26282A;
+    --bg-alt: #2E3133;
+    --panel: #383B3E;
+    --line: rgba(242,241,235,0.14);
+    --ink: #F3F3F1;
+    --ink-dim: #C7C9C6;
+    --ink-faint: #8D8F8C;
+    --blue: #7EB2D6;
+    --blue-light: #A9CBE3;
+    --blue-deep: #4A7FA3;
+    --mint: #3B5D45;
+    --mint-deep: #24392B;
+    --amber: #B7C17A;      /* repointed to cover blue for label/accent text */
+    --amber-dim: #7E8A52;  /* repointed to cover blue-deep */
+    --navy: #1E2B23;       /* the dark stamp/title-bar navy from the cover */
+    --radius: 2px;
+    --wrap: 760px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Plus Jakarta Sans', sans-serif;
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--amber); color:#1a1108;}
+
+  h1,h2,h3,.display{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    color:var(--ink);
+    margin:0;
+  }
+
+  .label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--amber);
+  }
+
+  a{color:inherit;}
+  img{max-width:100%;}
+
+  /* ===== background texture ===== */
+  body::before{
+    content:"";
+    position:fixed; inset:0;
+    background:
+      radial-gradient(ellipse 900px 500px at 15% -5%, rgba(93,145,182,0.22), transparent 60%),
+      radial-gradient(ellipse 700px 600px at 100% 20%, rgba(158,203,198,0.12), transparent 55%);
+    pointer-events:none;
+    z-index:0;
+  }
+
+  /* ===== top nav ===== */
+  .topbar{
+    position:fixed; top:0; left:0; right:0;
+    z-index:50;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 28px;
+    background:linear-gradient(180deg, rgba(30,42,40,0.55), rgba(30,42,40,0.28) 70%, transparent);
+    backdrop-filter:blur(6px);
+  }
+  .topbar .brand{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:1rem;
+    letter-spacing:0.02em;
+  }
+  .topbar .brand span{color:var(--amber);}
+  .topbar .nav-toggle{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    border:1px solid var(--line);
+    padding:8px 14px;
+    border-radius:20px;
+    color:var(--ink-dim);
+    cursor:pointer;
+    background:rgba(255,255,255,0.02);
+    transition:border-color .2s, color .2s;
+  }
+  .nav-toggle:hover{border-color:var(--amber); color:var(--amber);}
+
+  /* ===== side index (desktop) ===== */
+  .index-panel{
+    position:fixed;
+    top:0; right:-320px;
+    width:300px; height:100%;
+    background:var(--bg-alt);
+    border-left:1px solid var(--line);
+    z-index:60;
+    padding:90px 26px 40px;
+    overflow-y:auto;
+    transition:right .35s cubic-bezier(.6,0,.2,1);
+  }
+  .index-panel.open{right:0;}
+  .index-panel .label{margin-bottom:18px; display:block;}
+  .index-list{list-style:none; margin:0; padding:0;}
+  .index-list li{border-bottom:1px solid var(--line);}
+  .index-list a{
+    display:flex; gap:12px; align-items:baseline;
+    padding:11px 2px;
+    font-size:0.88rem;
+    color:var(--ink-dim);
+    text-decoration:none;
+    transition:color .2s, padding-left .2s;
+  }
+  .index-list a:hover{color:var(--mint); padding-left:6px;}
+  .index-list .num{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    color:var(--amber-dim);
+    flex-shrink:0;
+  }
+  .index-backdrop{
+    position:fixed; inset:0; background:rgba(0,0,0,0.4);
+    z-index:55; opacity:0; pointer-events:none; transition:opacity .3s;
+  }
+  .index-backdrop.open{opacity:1; pointer-events:auto;}
+
+  /* ===== hero ===== */
+  .hero{
+    position:relative; z-index:1;
+    min-height:96vh;
+    display:flex; flex-direction:column; justify-content:center;
+    padding:150px 28px 90px;
+    overflow:hidden;
+    background:linear-gradient(160deg, var(--blue-light) 0%, var(--blue) 45%, var(--blue-deep) 100%);
+    isolation:isolate;
+  }
+  .hero::before, .hero::after{
+    content:"";
+    position:absolute;
+    border-radius:50%;
+    z-index:0;
+    pointer-events:none;
+  }
+  .hero::before{
+    width:640px; height:640px;
+    top:-260px; right:-220px;
+    background:var(--mint);
+    opacity:0.85;
+  }
+  .hero::after{
+    width:360px; height:360px;
+    bottom:-160px; left:-120px;
+    background:var(--mint-deep);
+    opacity:0.55;
+  }
+  .hero-content{
+    position:relative; z-index:2;
+    max-width:var(--wrap);
+    margin:0 auto;
+    width:100%;
+  }
+  .hero .eyebrow{
+    display:flex; align-items:center; gap:16px;
+    margin-bottom:30px;
+    flex-wrap:wrap;
+  }
+  .eyebrow .badge{
+    display:inline-block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.7rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--navy);
+    background:rgba(30,42,40,0.12);
+    border:1px solid rgba(30,42,40,0.35);
+    padding:7px 14px;
+    border-radius:20px;
+  }
+  .hero-grid{
+    display:flex;
+    align-items:flex-end;
+    gap:40px;
+  }
+  .hero-text{flex:1; min-width:260px;}
+  .hero h1{
+    font-size:clamp(2.4rem, 6.4vw, 4.1rem);
+    line-height:1.03;
+    font-weight:600;
+    color:var(--navy);
+  }
+  .hero h1 em{
+    font-style:italic;
+    font-weight:450;
+    color:#fdfdfb;
+  }
+  .hero .sub{
+    margin-top:22px;
+    max-width:480px;
+    color:rgba(30,42,40,0.78);
+    font-size:1.05rem;
+  }
+  .hero .meta-row{
+    margin-top:38px;
+    display:flex; flex-wrap:wrap; gap:10px;
+  }
+  .pill{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.7rem;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    border:1px solid rgba(30,42,40,0.3);
+    padding:7px 13px;
+    border-radius:20px;
+    color:rgba(30,42,40,0.85);
+  }
+
+  /* small book cover thumbnail beside the title */
+  .book-thumb{
+    flex-shrink:0;
+    width:150px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:10px;
+  }
+  .book-thumb img{
+    width:100%;
+    display:block;
+    border-radius:3px;
+    box-shadow:
+      0 2px 0 rgba(30,42,40,0.9),
+      0 22px 40px -12px rgba(10,16,15,0.55),
+      0 4px 14px rgba(10,16,15,0.35);
+    transform:rotate(-3deg);
+    transition:transform .35s ease;
+    border:1px solid rgba(30,42,40,0.25);
+  }
+  .book-thumb:hover img{transform:rotate(0deg) translateY(-4px);}
+  .book-thumb .cap{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.62rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:rgba(30,42,40,0.65);
+    text-align:center;
+  }
+  @media (max-width:640px){
+    .hero-grid{flex-direction:column-reverse; align-items:flex-start; gap:26px;}
+    .book-thumb{width:118px; align-self:flex-start;}
+  }
+
+  /* pulse line */
+  .pulse-wrap{
+    margin-top:56px;
+    width:100%;
+    max-width:560px;
+  }
+  .pulse-wrap svg{width:100%; height:auto; display:block;}
+  .pulse-line{
+    fill:none;
+    stroke:var(--navy);
+    stroke-width:1.6;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+    stroke-dasharray:600;
+    stroke-dashoffset:600;
+    animation:draw 3.2s ease-out forwards .3s;
+  }
+  @keyframes draw{ to{stroke-dashoffset:0;} }
+  .scroll-cue{
+    margin-top:18px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.68rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:rgba(30,42,40,0.6);
+  }
+
+  /* ===== intro / sebelum mulai baca ===== */
+  .intro{
+    position:relative; z-index:1;
+    max-width:var(--wrap);
+    margin:0 auto;
+    padding:60px 28px 100px;
+    border-top:1px solid var(--line);
+  }
+  .intro .label{margin-bottom:22px;}
+  .intro p{
+    font-size:1.08rem;
+    color:var(--ink-dim);
+    max-width:640px;
+  }
+  .intro p + p{margin-top:18px;}
+  .intro strong{color:var(--ink); font-weight:600;}
+
+  /* ===== table of contents ===== */
+  .toc{
+    position:relative; z-index:1;
+    background:var(--bg-alt);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    padding:80px 28px;
+  }
+  .toc-inner{max-width:var(--wrap); margin:0 auto;}
+  .toc .label{margin-bottom:8px;}
+  .toc h2{font-size:2rem; margin-bottom:44px; font-weight:600;}
+  .toc-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    border-top:1px solid var(--line);
+  }
+  .toc-item{
+    display:flex; align-items:center; gap:22px;
+    padding:16px 4px;
+    border-bottom:1px solid var(--line);
+    text-decoration:none;
+    transition:padding-left .25s;
+  }
+  .toc-item:hover{padding-left:10px;}
+  .toc-item:hover .toc-title{color:var(--mint);}
+  .toc-item .toc-num{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.8rem;
+    color:var(--amber-dim);
+    width:26px;
+    flex-shrink:0;
+  }
+  .toc-item .toc-title{
+    font-family:'Fraunces', serif;
+    font-size:1.08rem;
+    color:var(--ink);
+    transition:color .2s;
+    flex:1;
+  }
+  .toc-item .toc-page{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.75rem;
+    color:var(--ink-faint);
+  }
+
+  /* ===== chapters ===== */
+  .chapter{
+    position:relative; z-index:1;
+    max-width:var(--wrap);
+    margin:0 auto;
+    padding:110px 28px 40px;
+    scroll-margin-top:80px;
+    opacity:0; transform:translateY(18px);
+    transition:opacity .7s ease, transform .7s ease;
+  }
+  .chapter.in-view{opacity:1; transform:translateY(0);}
+
+  .chapter-head{
+    display:flex; align-items:flex-start; gap:24px;
+    padding-bottom:34px;
+    border-bottom:1px solid var(--line);
+    margin-bottom:40px;
+  }
+  .chapter-head .big-num{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.95rem;
+    color:var(--amber);
+    padding-top:10px;
+    flex-shrink:0;
+  }
+  .chapter-head h2{
+    font-size:clamp(1.8rem, 4vw, 2.5rem);
+    line-height:1.08;
+    font-weight:600;
+  }
+  .chapter-head .chapter-sub{
+    margin-top:12px;
+    font-style:italic;
+    color:var(--blue);
+    font-family:'Fraunces', serif;
+    font-weight:450;
+    font-size:1.05rem;
+  }
+
+  .chapter-body p{
+    margin:0 0 20px;
+    color:var(--ink-dim);
+    font-size:1.03rem;
+  }
+  .chapter-body p.lede{
+    color:var(--ink);
+    font-size:1.15rem;
+  }
+  .chapter-body p.tight{ margin-bottom:4px; }
+
+  .chapter-body blockquote{
+    margin:36px 0;
+    padding:22px 26px;
+    border-left:2px solid var(--amber);
+    background:rgba(227,177,102,0.06);
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:1.15rem;
+    color:var(--ink);
+    line-height:1.5;
+  }
+
+  /* resep card — the signature element */
+  .resep{
+    margin-top:52px;
+    border:1px solid var(--line);
+    background:
+      repeating-linear-gradient(180deg, transparent, transparent 27px, rgba(242,237,225,0.025) 28px),
+      var(--panel);
+    border-radius:3px;
+    padding:0;
+    position:relative;
+    overflow:hidden;
+  }
+  .resep::before{
+    content:"";
+    position:absolute; left:0; top:0; bottom:0; width:4px;
+    background:var(--amber);
+  }
+  .resep-head{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:20px 26px 16px 30px;
+    border-bottom:1px dashed var(--line);
+  }
+  .resep-head .rx{
+    display:flex; align-items:center; gap:10px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.78rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--amber);
+  }
+  .resep-head .rx svg{width:16px; height:16px;}
+  .resep-head .resep-no{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    color:var(--ink-faint);
+  }
+  .resep-body{
+    padding:22px 30px 28px;
+  }
+  .resep-body p{
+    color:var(--ink);
+    font-size:1.02rem;
+    margin:0 0 14px;
+  }
+  .resep-body p:last-child{margin-bottom:0;}
+  .resep-body strong{color:var(--amber);}
+
+  .chapter-close{
+    margin-top:22px;
+    padding-top:22px;
+    text-align:right;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.68rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--ink-faint);
+  }
+
+  /* ===== closing / about ===== */
+  .closing{
+    position:relative; z-index:1;
+    background:var(--bg-alt);
+    border-top:1px solid var(--line);
+    padding:110px 28px 60px;
+    text-align:center;
+  }
+  .closing-inner{max-width:600px; margin:0 auto;}
+  .closing h2{font-size:1.9rem; margin-bottom:22px;}
+  .closing p{color:var(--ink-dim); font-size:1.05rem; margin-bottom:14px;}
+
+  .about{
+    max-width:var(--wrap);
+    margin:0 auto;
+    padding:70px 28px 90px;
+    position:relative; z-index:1;
+  }
+  .about .label{margin-bottom:16px;}
+  .about h3{font-size:1.3rem; margin-bottom:18px; font-weight:600;}
+  .about p{color:var(--ink-dim); margin-bottom:24px; max-width:560px;}
+  .tags{display:flex; flex-wrap:wrap; gap:10px;}
+
+  footer{
+    padding:34px 28px 50px;
+    text-align:center;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.7rem;
+    letter-spacing:0.08em;
+    color:var(--ink-faint);
+    position:relative; z-index:1;
+  }
+
+  @media (max-width:640px){
+    .topbar{padding:14px 18px;}
+    .hero{padding:120px 20px 60px;}
+    .chapter{padding:80px 20px 20px;}
+    .chapter-head{gap:14px;}
+    .toc, .intro, .closing, .about{padding-left:20px; padding-right:20px;}
+    .resep-head, .resep-body{padding-left:20px; padding-right:20px;}
+    .index-panel{width:82%; right:-100%;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .pulse-line{animation:none; stroke-dashoffset:0;}
+    .chapter{opacity:1; transform:none; transition:none;}
+  }
+
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand">Saat Ibnul Jauzi <span>／</span> Menulis Tentang Dirinya</div>
+  <div class="nav-toggle" id="navToggle">Daftar Isi</div>
+</div>
+
+<div class="index-backdrop" id="indexBackdrop"></div>
+<nav class="index-panel" id="indexPanel">
+  <span class="label">Daftar Isi</span>
+  <ul class="index-list">
+    <li><a href="#pre0"><span class="num">00</span> Kata Pengantar</a></li>
+    <li><a href="#ch1"><span class="num">01</span> Orang Hebat Tidak Pernah Berawal dari Orang Hebat</a></li>
+    <li><a href="#ch2"><span class="num">02</span> Tidak Ada Orang Hebat yang Lahir Seketika</a></li>
+    <li><a href="#ch3"><span class="num">03</span> Kamu Akan Menjadi Seperti Lima Orang yang Paling Sering Bersamamu</a></li>
+    <li><a href="#ch4"><span class="num">04</span> Investasi yang Tidak Pernah Bangkrut</a></li>
+    <li><a href="#ch5"><span class="num">05</span> Pencuri Terbesar dalam Hidupmu Tidak Pernah Membawa Senjata</a></li>
+    <li><a href="#ch6"><span class="num">06</span> Mengapa Ada Kata-Kata yang Mengubah Hidup?</a></li>
+    <li><a href="#ch7"><span class="num">07</span> Pada Akhirnya, Semua Orang Akan Pergi</a></li>
+  </ul>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="eyebrow">
+      <span class="badge">Kata Pengantar + 7 Tulisan</span>
+      <span class="badge">Gen Zedition</span>
+    </div>
+    <div class="hero-grid">
+      <div class="hero-text">
+        <h1>Saat Ibnul Jauzi<br>Menulis Tentang <em>Dirinya</em></h1>
+        <p class="sub">Tujuh jembatan yang menghubungkan hidup kita hari ini dengan hikmah seorang ulama yang hidup lebih dari sembilan abad lalu &mdash; tentang identitas, kebiasaan, lingkungan, waktu, karya, pengaruh, dan warisan.</p>
+        <div class="meta-row">
+          <span class="pill">Renungan</span>
+          <span class="pill">Muhasabah</span>
+          <span class="pill">Biografi Hikmah</span>
+        </div>
+        <div class="pulse-wrap">
+          <svg viewBox="0 0 560 70" xmlns="http://www.w3.org/2000/svg">
+            <path class="pulse-line" d="M0 35 H190 L212 10 L232 60 L250 35 L262 35 L272 22 L282 48 L292 35 H560" />
+          </svg>
+          <div class="scroll-cue">Mulai baca di bawah ↓</div>
+        </div>
+      </div>
+      <div class="book-thumb">
+        <img src="data:image/jpeg;base64,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" alt="Sampul buku Saat Ibnul Jauzi Menulis Tentang Dirinya">
+        <span class="cap">Ditulis Oleh: GUE</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INTRO ============ -->
+<section class="intro" id="pre0">
+  <span class="label">Kata Pengantar</span>
+  <h2 style="font-size:1.6rem; margin: 6px 0 26px 0; font-style:italic; font-weight:450; color:var(--blue-light);">Buku Ini Mungkin Datang di Waktu yang Tepat</h2>
+  <p>Pernahkah kamu merasa hidupmu berjalan sangat cepat?</p>
+    <p>Bangun pagi, membuka ponsel, bekerja atau kuliah, mengejar deadline, tertawa bersama teman, lalu malam datang begitu saja. Besok semuanya terulang.</p>
+    <p>Hari demi hari berlalu. Bulan berganti. Tahun berubah.</p>
+    <p>Tetapi ada satu pertanyaan yang jarang sekali kita beranikan untuk menjawab dengan jujur.</p>
+    <blockquote>Sebenarnya aku sedang menjadi siapa?</blockquote>
+    <p>Kita hidup di zaman yang mengajarkan cara mendapatkan banyak hal. Bagaimana menjadi sukses. Bagaimana membangun karier. Bagaimana menghasilkan uang. Bagaimana membangun personal branding. Bagaimana menjadi viral.</p>
+    <p>Namun sangat sedikit yang mengajarkan bagaimana membangun diri.</p>
+    <p>Padahal, sebelum mengejar dunia, ada satu pekerjaan yang jauh lebih penting. Membangun manusia yang akan menjalani dunia itu.</p>
+    <p>Buku ini bukan buku motivasi. Buku ini juga bukan buku tentang produktivitas. Dan bukan pula sekadar biografi seorang ulama besar.</p>
+    <p>Buku ini adalah undangan. Undangan untuk berhenti sejenak. Melihat ke dalam diri. Lalu bertanya,</p>
+    <blockquote>Apakah hidup yang sedang aku jalani benar-benar mengarah ke tujuan yang Allah inginkan?</blockquote>
+    <p>Lebih dari sembilan abad yang lalu, hiduplah seorang ulama bernama Imam Ibnu Al-Jauzi. Beliau tidak hidup di zaman internet. Tidak mengenal media sosial. Tidak memiliki teknologi yang kita nikmati hari ini.</p>
+    <p>Namun, hingga sekarang, namanya masih disebut. Pemikirannya masih dipelajari. Nasihatnya masih menguatkan hati banyak orang.</p>
+    <p>Mengapa? Bukan karena beliau memiliki kehidupan yang mudah. Bukan karena beliau mengejar ketenaran. Melainkan karena beliau menghabiskan hidupnya untuk membangun sesuatu yang tidak pernah lekang oleh waktu: ilmu, akhlak, dan manfaat.</p>
+    <p>Tujuh bab pertama dalam buku ini bukanlah ringkasan biografi beliau. Bab-bab itu adalah jembatan. Jembatan yang menghubungkan kehidupan kita hari ini dengan hikmah yang telah beliau tinggalkan berabad-abad lalu.</p>
+    <p>Kita akan berbicara tentang identitas. Tentang kebiasaan. Tentang lingkungan. Tentang waktu. Tentang karya. Tentang pengaruh. Dan akhirnya... tentang warisan hidup.</p>
+    <p>Semuanya adalah pertanyaan yang dihadapi setiap manusia, di setiap zaman. Perbedaannya hanya pada bentuk tantangannya.</p>
+    <p>Kalau dahulu seseorang diuji dengan kesulitan mencari ilmu, hari ini kita diuji dengan melimpahnya distraksi. Kalau dahulu seseorang harus menempuh perjalanan jauh untuk bertemu seorang guru, hari ini kita justru harus belajar memilih suara mana yang layak didengar.</p>
+    <p>Zamannya berubah. Tetapi hati manusia tetap membawa pertanyaan yang sama.</p>
+    <p>Setelah melewati tujuh bab dari buku ini, kita akan merasakan nasihat yang lahir bukan dari teori. Melainkan dari pengalaman hidup seorang ulama yang menghabiskan usianya untuk belajar, mengajar, menulis, dan mendidik manusia.</p>
+    <p>Karena itu, jangan membacanya seperti membaca kumpulan nasihat. Bacalah seperti seorang anak yang sedang duduk di hadapan ayahnya. Dengarkan perlahan. Renungkan setiap kalimat. Dan biarkan setiap nasihat menemukan tempatnya di dalam hatimu.</p>
+    <p>Mungkin setelah menutup buku ini, tidak semua pertanyaanmu akan terjawab. Tetapi saya berharap ada satu hal yang berubah.</p>
+    <p>Bukan pekerjaanmu. Bukan penghasilanmu. Bukan jumlah pengikutmu. Melainkan arah hidupmu.</p>
+    <p>Karena ketika arah sudah benar, setiap langkah kecil akan membawa kita semakin dekat kepada tujuan yang benar.</p>
+    <p>Semoga buku ini bukan sekadar selesai dibaca. Semoga ia menjadi teman perjalanan yang mengingatkan kita bahwa hidup bukan hanya tentang seberapa banyak yang berhasil kita kumpulkan. Tetapi tentang siapa yang kita menjadi, dan manfaat apa yang tetap hidup setelah kita tiada.</p>
+    <p>Selamat memulai perjalanan.</p>
+</section>
+
+<!-- ============ TOC ============ -->
+<section class="toc" id="daftar-isi">
+  <div class="toc-inner">
+    <span class="label">Isi Buku</span>
+    <h2>Daftar Isi</h2>
+    <div class="toc-grid">
+      <a class="toc-item" href="#pre0"><span class="toc-num">00</span><span class="toc-title">Kata Pengantar</span><span class="toc-page"></span></a>
+      <a class="toc-item" href="#ch1"><span class="toc-num">01</span><span class="toc-title">Orang Hebat Tidak Pernah Berawal dari Orang Hebat</span><span class="toc-page"></span></a>
+      <a class="toc-item" href="#ch2"><span class="toc-num">02</span><span class="toc-title">Tidak Ada Orang Hebat yang Lahir Seketika</span><span class="toc-page"></span></a>
+      <a class="toc-item" href="#ch3"><span class="toc-num">03</span><span class="toc-title">Kamu Akan Menjadi Seperti Lima Orang yang Paling Sering Bersamamu</span><span class="toc-page"></span></a>
+      <a class="toc-item" href="#ch4"><span class="toc-num">04</span><span class="toc-title">Investasi yang Tidak Pernah Bangkrut</span><span class="toc-page"></span></a>
+      <a class="toc-item" href="#ch5"><span class="toc-num">05</span><span class="toc-title">Pencuri Terbesar dalam Hidupmu Tidak Pernah Membawa Senjata</span><span class="toc-page"></span></a>
+      <a class="toc-item" href="#ch6"><span class="toc-num">06</span><span class="toc-title">Mengapa Ada Kata-Kata yang Mengubah Hidup?</span><span class="toc-page"></span></a>
+      <a class="toc-item" href="#ch7"><span class="toc-num">07</span><span class="toc-title">Pada Akhirnya, Semua Orang Akan Pergi</span><span class="toc-page"></span></a>
+    </div>
+  </div>
+</section>
+
+
+<article class="chapter" id="ch1">
+  <div class="chapter-head">
+    <span class="big-num">01 / 7</span>
+    <div>
+      <h2>Orang Hebat Tidak Pernah Berawal dari Orang Hebat</h2>
+      
+    </div>
+  </div>
+  <div class="chapter-body">
+    <p>Ada sebuah kesalahpahaman yang hampir semua orang percayai. Kita mengira orang hebat memang terlahir berbeda. Lebih cerdas. Lebih disiplin. Lebih beruntung.</p>
+    <p>Padahal kenyataannya hampir tidak pernah seperti itu.</p>
+    <p>Bayangkan seorang anak berusia tiga tahun. Suatu hari ia kehilangan ayahnya. Ia bahkan belum cukup dewasa untuk memahami arti kematian. Ia hanya tahu bahwa seseorang yang selalu ada kini tidak akan pernah pulang lagi.</p>
+    <p>Anak itu bernama Abdurrahman, yang kelak dikenal dunia sebagai Ibnu Al-Jauzi.</p>
+    <p>Jika kisah ini terjadi hari ini, mungkin banyak orang akan berkata, “Kasihan sekali.” Dan memang benar.</p>
+    <p>Tetapi hidup memiliki satu aturan yang sering kita lupakan. Musibah tidak pernah menentukan masa depan seseorang. Respons terhadap musibahlah yang menentukan.</p>
+    <h3 style="font-family:'Fraunces',serif; font-weight:600; font-size:1.25rem; color:var(--blue-light); margin: 34px 0 14px 0;">Yang Mengubah Hidup Bukan Peristiwa, tetapi Arah</h3>
+    <p>Banyak orang menunggu satu momen besar yang akan mengubah hidup mereka. Lulus kuliah. Mendapat pekerjaan. Menikah. Punya bisnis. Naik jabatan.</p>
+    <p>Padahal hidup hampir tidak pernah berubah karena satu kejadian besar. Hidup berubah karena arah yang dipilih setelah kejadian itu.</p>
+    <p>Ayah Ibnu Al-Jauzi meninggal. Itu bukan pilihannya. Tetapi apa yang ia lakukan setelah itu adalah pilihannya.</p>
+    <p>Sedikit demi sedikit ia mulai mendekati para ulama. Sedikit demi sedikit ia mulai jatuh cinta kepada ilmu. Sedikit demi sedikit ia membangun dirinya.</p>
+    <p>Tidak ada perubahan yang dramatis. Hanya langkah-langkah kecil yang terus diulang. Dan langkah kecil yang dilakukan ribuan kali akhirnya menjadi perjalanan hidup.</p>
+    <h3 style="font-family:'Fraunces',serif; font-weight:600; font-size:1.25rem; color:var(--blue-light); margin: 34px 0 14px 0;">Kita Selalu Sedang Berinvestasi</h3>
+    <p>Banyak orang berpikir investasi hanya soal uang. Padahal setiap hari kita sedang berinvestasi. Pertanyaannya hanyalah: apa yang sedang kita kumpulkan?</p>
+    <p>Ada yang mengumpulkan hiburan. Ada yang mengumpulkan pengikut. Ada yang mengumpulkan pujian. Dan ada yang mengumpulkan ilmu.</p>
+    <p>Semua investasi memiliki bunga. Masalahnya, bunga itu sering baru terlihat bertahun-tahun kemudian.</p>
+    <p>Setiap halaman buku yang kita baca adalah investasi. Setiap guru yang kita datangi adalah investasi. Setiap kebiasaan baik adalah investasi. Begitu pula setiap jam yang habis tanpa arah.</p>
+    <p>Waktu selalu memberikan imbal hasil. Ia tidak pernah lupa menghitung.</p>
+    <h3 style="font-family:'Fraunces',serif; font-weight:600; font-size:1.25rem; color:var(--blue-light); margin: 34px 0 14px 0;">Pikiran Kita Selalu Membentuk Dunia Kita</h3>
+    <p>Mengapa ada orang yang bangkit setelah gagal, sementara yang lain berhenti selamanya? Jawabannya bukan keadaan. Jawabannya adalah cara memandang keadaan.</p>
+    <p>Dua orang bisa kehilangan hal yang sama. Satu orang berkata, “Hidupku sudah selesai.” Yang lain berkata, “Ini awal dari hidupku.”</p>
+    <p>Peristiwanya sama. Maknanya berbeda. Dan makna itulah yang mengubah masa depan.</p>
+    <p>Mungkin inilah salah satu pelajaran terbesar dari kehidupan para ulama. Mereka tidak selalu hidup mudah. Tetapi mereka selalu berusaha memilih cara berpikir yang membuat mereka tetap berjalan.</p>
+    <h3 style="font-family:'Fraunces',serif; font-weight:600; font-size:1.25rem; color:var(--blue-light); margin: 34px 0 14px 0;">Identitas Datang Lebih Dulu daripada Prestasi</h3>
+    <p>Banyak orang berkata, “Kalau nanti aku rajin, aku akan menjadi orang berilmu.” Para ulama justru berpikir sebaliknya. “Aku ingin menjadi penuntut ilmu. Karena itu aku harus rajin hari ini.”</p>
+    <p>Identitas melahirkan kebiasaan. Kebiasaan melahirkan hasil. Hasil menguatkan identitas. Siklus itulah yang membangun kehidupan.</p>
+    <p>Ibnu Al-Jauzi tidak bangun suatu pagi lalu menjadi ulama besar. Ia terlebih dahulu memutuskan, “Aku adalah seorang pencari ilmu.” Sejak saat itu setiap keputusan kecilnya mengikuti identitas tersebut.</p>
+    <h3 style="font-family:'Fraunces',serif; font-weight:600; font-size:1.25rem; color:var(--blue-light); margin: 34px 0 14px 0;">Dunia Selalu Menjual Jalan Pintas</h3>
+    <p>Kita hidup di zaman ketika semua orang ingin hasil yang cepat. Cepat kaya. Cepat terkenal. Cepat sukses. Cepat viral.</p>
+    <p>Tetapi sejarah hampir selalu ditulis oleh orang-orang yang mencintai proses panjang.</p>
+    <p>Ibnu Al-Jauzi tidak pernah mengejar agar namanya dikenang sembilan abad kemudian. Beliau hanya mengejar satu hal: menjadi lebih baik hari ini daripada kemarin.</p>
+    <p>Ironisnya, justru orang-orang seperti itulah yang akhirnya dikenang paling lama.</p>
+    <h3 style="font-family:'Fraunces',serif; font-weight:600; font-size:1.25rem; color:var(--blue-light); margin: 34px 0 14px 0;">Coba Berhenti Sebentar</h3>
+    <p>Sekarang tutup buku ini selama satu menit. Lihat kehidupanmu sendiri. Apa yang sedang kamu ulang setiap hari?</p>
+    <p>Karena hidupmu lima tahun dari sekarang mungkin tidak ditentukan oleh mimpi-mimpimu. Tetapi oleh kebiasaan yang diam-diam sedang kamu pelihara hari ini.</p>
+    <p>Dan mungkin... tanpa sadar, kamu sedang menulis biografimu sendiri.</p>
+    
+  </div>
+</article>
+
+<article class="chapter" id="ch2">
+  <div class="chapter-head">
+    <span class="big-num">02 / 7</span>
+    <div>
+      <h2>Tidak Ada Orang Hebat yang Lahir Seketika</h2>
+      
+    </div>
+  </div>
+  <div class="chapter-body">
+    <p>Pernahkah kamu merasa tertinggal? Temanmu sudah punya bisnis. Ada yang sudah menikah. Ada yang lulus lebih cepat. Ada yang kariernya melesat. Ada pula yang usianya bahkan lebih muda, tetapi pencapaiannya terlihat jauh lebih besar.</p>
+    <p>Tanpa sadar kita mulai bertanya kepada diri sendiri, “Apa aku sudah terlambat?”</p>
+    <p>Pertanyaan itu terdengar sederhana. Tetapi banyak mimpi mati karena satu kalimat itu.</p>
+    <p>Masalahnya bukan karena kita kurang mampu. Masalahnya karena kita selalu membandingkan bab pertama hidup kita dengan bab kedua puluh kehidupan orang lain.</p>
+    <p>Kita melihat hasil. Kita tidak pernah melihat ribuan hari yang membentuk hasil itu.</p>
+    <h3 style="font-family:'Fraunces',serif; font-weight:600; font-size:1.25rem; color:var(--blue-light); margin: 34px 0 14px 0;">Gunung Tidak Muncul dalam Semalam</h3>
+    <p>Bayangkan sebuah gunung. Tidak ada seorang pun yang menyaksikan gunung itu tumbuh. Karena setiap hari perubahan yang terjadi terlalu kecil untuk terlihat. Namun setelah ribuan tahun, semua orang mengaguminya.</p>
+    <p>Karakter manusia bekerja dengan cara yang sama. Hari ini membaca lima halaman buku mungkin terasa tidak berarti. Hari ini menghafal satu ayat mungkin tampak terlalu sedikit. Hari ini menghadiri satu majelis ilmu mungkin tidak langsung mengubah hidup.</p>
+    <p>Tetapi kehidupan tidak bekerja dengan logika “hari ini.” Ia bekerja dengan logika akumulasi. Yang kecil tidak terasa. Yang terus diulang mengubah segalanya.</p>
+    <h3 style="font-family:'Fraunces',serif; font-weight:600; font-size:1.25rem; color:var(--blue-light); margin: 34px 0 14px 0;">Seorang Anak yang Memilih Duduk</h3>
+    <p>Ketika usianya masih sangat muda, Ibnu Al-Jauzi mulai dibawa oleh bibinya ke majelis para ulama. Di sana ia mendengarkan hadits. Belajar Al-Qur'an. Mengenal bahasa Arab. Menyimak sastra.</p>
+    <p>Ia tidak lahir sebagai ulama. Ia hanya terus datang. Hari demi hari.</p>
+    <p>Tidak ada yang bertepuk tangan untuk seorang anak yang memilih duduk mendengarkan gurunya. Tidak ada yang menyangka bahwa kebiasaan sederhana itu sedang membangun salah satu ulama terbesar dalam sejarah Islam.</p>
+    <p>Orang-orang hanya melihat Ibnu Al-Jauzi ketika namanya sudah dikenal. Allah melihatnya sejak hari pertama ia memilih belajar.</p>
+    <h3 style="font-family:'Fraunces',serif; font-weight:600; font-size:1.25rem; color:var(--blue-light); margin: 34px 0 14px 0;">Dunia Mengagumi Ledakan, Padahal Hidup Dibangun oleh Pengulangan</h3>
+    <p>Media sosial membuat kita jatuh cinta pada sesuatu yang viral. Satu video. Satu malam. Satu momen. Lalu semuanya berubah.</p>
+    <p>Padahal hampir semua perubahan besar dalam hidup tidak pernah terlihat ketika sedang terjadi. Seorang atlet menjadi juara karena ribuan latihan yang tidak ditonton siapa pun. Seorang pengusaha sukses karena ribuan keputusan kecil yang tidak pernah masuk berita. Seorang ulama besar lahir dari ribuan jam membaca yang bahkan tidak dikenang sejarah.</p>
+    <p>Kita terlalu sering mencari momen. Padahal hidup dibangun oleh rutinitas.</p>
+    <h3 style="font-family:'Fraunces',serif; font-weight:600; font-size:1.25rem; color:var(--blue-light); margin: 34px 0 14px 0;">Jangan Meremehkan Hari yang Biasa</h3>
+    <p>Hari Senin. Bangun. Belajar. Bekerja. Membaca. Tidur. Lalu Selasa. Lalu Rabu. Lalu Kamis.</p>
+    <p>Sebagian orang menganggap hidup seperti itu membosankan. Padahal justru hari-hari yang tampak biasa itulah yang sedang membangun masa depan.</p>
+    <p>Kehebatan bukan hasil dari satu hari luar biasa. Kehebatan adalah hasil dari ribuan hari biasa yang dijalani dengan luar biasa.</p>
+    <h3 style="font-family:'Fraunces',serif; font-weight:600; font-size:1.25rem; color:var(--blue-light); margin: 34px 0 14px 0;">Mengapa Banyak Orang Berhenti Terlalu Cepat?</h3>
+    <p>Karena mereka ingin melihat hasil sebelum waktunya. Mereka mulai membaca. Seminggu kemudian berhenti. Mereka mulai menghafal. Sebulan kemudian menyerah. Mereka mulai memperbaiki shalat. Beberapa hari kemudian merasa tidak ada perubahan.</p>
+    <p>Padahal akar pohon selalu tumbuh lebih dulu daripada buahnya. Selama akar sedang tumbuh, dari luar seolah tidak terjadi apa-apa.</p>
+    <p>Begitu pula ilmu. Begitu pula iman. Begitu pula karakter. Hal-hal terpenting dalam hidup selalu bertumbuh diam-diam.</p>
+    <h3 style="font-family:'Fraunces',serif; font-weight:600; font-size:1.25rem; color:var(--blue-light); margin: 34px 0 14px 0;">Ibnu Al-Jauzi Tidak Sedang Mengejar Gelar</h3>
+    <p>Beliau tidak belajar agar disebut ulama. Beliau belajar karena ilmu adalah jalan menuju Allah. Mungkin inilah yang membuat perjalanan beliau begitu panjang.</p>
+    <p>Orang yang mengejar pujian akan berhenti ketika pujian tidak datang. Orang yang mengejar Allah akan tetap berjalan meski tidak ada yang melihat.</p>
+    <p>Tujuan menentukan daya tahan.</p>
+    <h3 style="font-family:'Fraunces',serif; font-weight:600; font-size:1.25rem; color:var(--blue-light); margin: 34px 0 14px 0;">Berhenti Mengukur Dirimu dengan Kecepatan Orang Lain</h3>
+    <p>Setiap orang memiliki garis start yang berbeda. Ada yang lahir di keluarga berilmu. Ada yang harus belajar semuanya sendiri. Ada yang dibimbing sejak kecil. Ada yang baru menemukan jalan ketika dewasa.</p>
+    <p>Yang Allah nilai bukan siapa yang paling cepat. Yang Allah lihat adalah siapa yang paling sungguh-sungguh.</p>
+    <p>Karena itu jangan bertanya, “Kenapa aku belum seperti dia?” Tanyakanlah, “Apakah hari ini aku lebih baik daripada diriku kemarin?”</p>
+    <p>Jawaban atas pertanyaan kedua itulah yang perlahan mengubah hidup.</p>
+    <h3 style="font-family:'Fraunces',serif; font-weight:600; font-size:1.25rem; color:var(--blue-light); margin: 34px 0 14px 0;">Berjalanlah Hari Ini</h3>
+    <p>Mungkin kamu belum mampu membaca satu kitab penuh. Mulailah dengan satu halaman. Mungkin kamu belum mampu bangun sebelum Subuh setiap hari. Mulailah dengan lima belas menit lebih awal. Mungkin kamu belum mampu meninggalkan semua kebiasaan buruk. Mulailah dengan mengalahkan satu kebiasaan hari ini.</p>
+    <p>Tidak ada orang hebat yang lahir sekaligus. Termasuk Ibnu Al-Jauzi. Beliau hanya terus datang. Terus belajar. Terus bertumbuh.</p>
+    <p>Dan pada akhirnya, dunia mengenalnya sebagai seorang ulama. Padahal semua itu berawal dari seorang anak kecil yang memutuskan untuk tidak berhenti belajar.</p>
+    
+    <div class="resep">
+      <div class="resep-head">
+        <div class="rx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg> Refleksi Bab Ini</div>
+        <span class="resep-no">Bab 02</span>
+      </div>
+      <div class="resep-body">
+        <p>Jangan iri kepada hasil yang dibangun selama puluhan tahun.</p>
+    <p>Mulailah membangun satu kebiasaan kecil hari ini.</p>
+    <p>Karena suatu hari nanti, orang lain mungkin akan menyebutmu “beruntung”, padahal mereka tidak pernah melihat ribuan langkah kecil yang membawamu ke sana.</p>
+      </div>
+    </div>
+  </div>
+</article>
+
+<article class="chapter" id="ch3">
+  <div class="chapter-head">
+    <span class="big-num">03 / 7</span>
+    <div>
+      <h2>Kamu Akan Menjadi Seperti Lima Orang yang Paling Sering Bersamamu</h2>
+      
+    </div>
+  </div>
+  <div class="chapter-body">
+    <p>Ada sebuah pertanyaan yang jarang kita tanyakan kepada diri sendiri. “Siapa yang sedang membentukku?”</p>
+    <p>Kita sibuk memikirkan ingin menjadi apa. Dokter. Pengusaha. Konten kreator. Programmer. Ulama. Tetapi kita lupa bahwa sebelum menjadi sesuatu, kita selalu sedang dibentuk oleh seseorang.</p>
+    <p>Tidak ada manusia yang tumbuh sendirian. Kita adalah hasil dari percakapan yang kita dengar setiap hari. Dari buku yang kita baca. Dari video yang kita tonton. Dari teman yang kita pilih. Dari guru yang kita hormati.</p>
+    <p>Lingkungan tidak meminta izin untuk membentukmu. Ia melakukannya setiap hari. Perlahan. Diam-diam. Hampir tanpa kamu sadari.</p>
+    <h3 style="font-family:'Fraunces',serif; font-weight:600; font-size:1.25rem; color:var(--blue-light); margin: 34px 0 14px 0;">Air Selalu Mengikuti Bentuk Wadahnya</h3>
+    <p>Bayangkan air yang dituangkan ke dalam gelas. Ia mengikuti bentuk gelas itu. Tuangkan ke dalam botol, bentuknya berubah. Masukkan ke dalam mangkuk, bentuknya berubah lagi.</p>
+    <p>Manusia tidak jauh berbeda. Kita sering mengira keputusan terbesar dalam hidup dibuat oleh logika. Padahal banyak keputusan lahir dari kebiasaan lingkungan.</p>
+    <p>Jika semua temanmu menganggap menunda pekerjaan adalah hal biasa, lama-kelamaan kamu akan menganggapnya biasa. Jika semua temanmu menganggap shalat bisa nanti, kamu mulai merasa tidak apa-apa. Jika semua temanmu mencintai ilmu, kamu akan merasa aneh jika sehari berlalu tanpa belajar.</p>
+    <p>Lingkungan menggeser standar kita sedikit demi sedikit. Dan perubahan kecil yang terus terjadi akan menjadi karakter.</p>
+    <h3 style="font-family:'Fraunces',serif; font-weight:600; font-size:1.25rem; color:var(--blue-light); margin: 34px 0 14px 0;">Seorang Anak yang Duduk di Dekat Orang-Orang Berilmu</h3>
+    <p>Masa kecil Ibnu Al-Jauzi tidak diisi dengan kemewahan. Tetapi beliau memiliki sesuatu yang jauh lebih berharga. Beliau berada di dekat orang-orang yang mencintai ilmu.</p>
+    <p>Beliau mendatangi majelis. Mendengarkan hadits. Belajar Al-Qur'an. Belajar bahasa Arab. Belajar dari para ulama yang menghabiskan hidup mereka untuk mencari kebenaran.</p>
+    <p>Mungkin saat itu beliau belum memahami bahwa setiap majelis sedang membentuk cara berpikirnya. Tetapi bertahun-tahun kemudian, dunia melihat hasilnya.</p>
+    <p>Karakter jarang dibentuk oleh satu nasihat. Karakter dibentuk oleh suasana yang kita hirup setiap hari.</p>
+    <h3 style="font-family:'Fraunces',serif; font-weight:600; font-size:1.25rem; color:var(--blue-light); margin: 34px 0 14px 0;">Algoritma Juga Temanmu</h3>
+    <p>Dulu, lingkungan dibatasi oleh kampung tempat seseorang tinggal. Hari ini, lingkunganmu ada di dalam genggaman tangan.</p>
+    <p>Algoritma media sosial mengenalmu lebih cepat daripada sebagian temanmu. Semakin lama kamu menonton satu jenis konten, semakin banyak konten serupa yang akan disajikan.</p>
+    <p>Tanpa sadar, layar ponselmu berubah menjadi ruang belajar... atau ruang yang menghabiskan waktumu. Setiap kali membuka aplikasi, sebenarnya kamu sedang memilih siapa yang akan berbicara ke dalam pikiranmu.</p>
+    <p>Pertanyaannya bukan berapa lama kamu bermain media sosial. Pertanyaannya adalah: siapa yang setiap hari kamu izinkan membentuk cara berpikirmu?</p>
+    <h3 style="font-family:'Fraunces',serif; font-weight:600; font-size:1.25rem; color:var(--blue-light); margin: 34px 0 14px 0;">Tidak Semua Pertemanan Membawa Pertumbuhan</h3>
+    <p>Ada teman yang membuatmu tertawa. Ada teman yang membuatmu lupa waktu. Ada teman yang membuatmu lupa salat. Ada teman yang membuatmu semakin dekat kepada Allah.</p>
+    <p>Semuanya sama-sama disebut teman. Tetapi tidak semuanya membawa ke arah yang sama.</p>
+    <p>Memilih teman bukan berarti merasa lebih suci. Memilih teman berarti menyadari bahwa masa depanmu terlalu berharga untuk diserahkan kepada pengaruh yang salah.</p>
+    <h3 style="font-family:'Fraunces',serif; font-weight:600; font-size:1.25rem; color:var(--blue-light); margin: 34px 0 14px 0;">Guru Tidak Selalu Berdiri di Depan Kelas</h3>
+    <p>Ketika mendengar kata “guru”, mungkin yang terbayang adalah seseorang yang mengajar di sekolah. Padahal guru bisa hadir dalam banyak bentuk.</p>
+    <p>Penulis yang bukunya kamu baca. Ulama yang ceramahnya kamu dengarkan. Mentor yang membimbingmu. Bahkan seseorang yang tidak pernah bertemu denganmu, tetapi pemikirannya mengubah hidupmu.</p>
+    <p>Ibnu Al-Jauzi tumbuh karena memilih guru-guru terbaik yang bisa ia datangi. Hari ini, akses kepada ilmu jauh lebih mudah. Tetapi kemudahan tidak selalu membuat kita lebih bijak. Semakin banyak pilihan, semakin penting kemampuan memilih.</p>
+    <h3 style="font-family:'Fraunces',serif; font-weight:600; font-size:1.25rem; color:var(--blue-light); margin: 34px 0 14px 0;">Pilih Lingkungan yang Menantangmu Bertumbuh</h3>
+    <p>Lingkungan terbaik bukan yang membuatmu selalu nyaman. Lingkungan terbaik adalah yang membuatmu malu jika bermalas-malasan.</p>
+    <p>Tempat di mana membaca adalah kebiasaan. Tempat di mana saling mengingatkan adalah bentuk kasih sayang. Tempat di mana keberhasilan orang lain menjadi inspirasi, bukan ancaman.</p>
+    <p>Orang-orang seperti itu tidak akan membiarkanmu berhenti bertumbuh.</p>
+    <h3 style="font-family:'Fraunces',serif; font-weight:600; font-size:1.25rem; color:var(--blue-light); margin: 34px 0 14px 0;">Coba Lihat Daftar Chat-mu</h3>
+    <p>Buka ponselmu. Lihat lima percakapan yang paling sering muncul. Lihat lima akun yang paling sering kamu tonton. Lihat lima orang yang paling banyak mempengaruhi keputusanmu.</p>
+    <p>Mungkin... itulah gambaran dirimu lima tahun mendatang.</p>
+    <p>Karena hidup jarang berubah dalam satu malam. Hidup berubah melalui orang-orang yang setiap hari kita dengarkan.</p>
+    
+    <div class="resep">
+      <div class="resep-head">
+        <div class="rx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg> Refleksi Bab Ini</div>
+        <span class="resep-no">Bab 03</span>
+      </div>
+      <div class="resep-body">
+        <p>Kamu tidak bisa memilih semua keadaan.</p>
+    <p>Tetapi kamu selalu bisa memilih siapa yang boleh memengaruhi hidupmu.</p>
+    <p>Dan sering kali, keputusan terbesar dalam hidup dimulai dari keputusan sederhana: duduk di dekat orang yang tepat.</p>
+      </div>
+    </div>
+  </div>
+</article>
+
+<article class="chapter" id="ch4">
+  <div class="chapter-head">
+    <span class="big-num">04 / 7</span>
+    <div>
+      <h2>Investasi yang Tidak Pernah Bangkrut</h2>
+      <div class="chapter-sub">Bagian ke-4 dari 7 Tulisan</div>
+    </div>
+  </div>
+  <div class="chapter-body">
+    <p>Bayangkan kamu diberi dua pilihan.</p>
+    <p>Pilihan pertama, seseorang menawarkan uang satu miliar rupiah.</p>
+    <p>Pilihan kedua, seseorang menawarkan kemampuan yang membuatmu mampu menghasilkan manfaat selama lima puluh tahun.</p>
+    <p>Kebanyakan orang mungkin memilih yang pertama.</p>
+    <p>Karena uang terlihat.</p>
+    <p>Manfaat tidak.</p>
+    <p>Kita hidup di zaman ketika hampir semua orang ingin cepat memperoleh hasil.</p>
+    <p>Cepat kaya. Cepat dikenal. Cepat berhasil.</p>
+    <p>Semuanya serba cepat.</p>
+    <p>Tetapi ada satu hal yang selalu membutuhkan waktu: menjadi seseorang yang bernilai.</p>
+    <h3 style="font-family:'Fraunces',serif; font-weight:600; font-size:1.25rem; color:var(--blue-light); margin: 34px 0 14px 0;">Nilai Selalu Datang Sebelum Imbalan</h3>
+    <p>Ada sebuah hukum kehidupan yang sering kita abaikan.</p>
+    <p>Orang dibayar bukan karena ia membutuhkan uang.</p>
+    <p>Orang dibayar karena ia membawa nilai.</p>
+    <p>Seorang dokter dibayar karena ilmunya menyembuhkan.</p>
+    <p>Seorang guru dihormati karena ilmunya mendidik.</p>
+    <p>Seorang pengusaha berhasil karena ia menyelesaikan masalah banyak orang.</p>
+    <p>Nilai selalu mendahului hasil.</p>
+    <p>Dan sumber nilai terbesar adalah ilmu.</p>
+    <h3 style="font-family:'Fraunces',serif; font-weight:600; font-size:1.25rem; color:var(--blue-light); margin: 34px 0 14px 0;">Ilmu Adalah Investasi yang Unik</h3>
+    <p>Semua investasi memiliki risiko.</p>
+    <p>Rumah bisa rusak. Emas bisa turun nilainya. Bisnis bisa gagal. Saham bisa anjlok.</p>
+    <p>Tetapi ada satu investasi yang semakin dibagikan justru semakin bertambah.</p>
+    <p>Ilmu.</p>
+    <p>Semakin seseorang mengajarkan ilmunya, semakin dalam ia memahaminya.</p>
+    <p>Semakin ia menulis, semakin tajam pikirannya.</p>
+    <p>Semakin ia berbagi, semakin luas manfaatnya.</p>
+    <p>Ilmu tidak berkurang ketika diberikan. Ia justru berkembang.</p>
+    <h3 style="font-family:'Fraunces',serif; font-weight:600; font-size:1.25rem; color:var(--blue-light); margin: 34px 0 14px 0;">Mengapa Ibnu Al-Jauzi Menulis Begitu Banyak?</h3>
+    <p>Bayangkan hidup tanpa internet. Tanpa komputer. Tanpa mesin cetak modern.</p>
+    <p>Semua ditulis dengan tangan. Satu demi satu. Halaman demi halaman.</p>
+    <p>Namun para ulama mencatat bahwa Ibnu Al-Jauzi menghasilkan karya dalam begitu banyak bidang ilmu. Bahkan jumlahnya disebut mencapai lebih dari seribu judul.</p>
+    <p>Pertanyaannya bukan, “Bagaimana beliau punya waktu?”</p>
+    <p>Pertanyaan yang lebih tepat adalah, “Apa yang membuat beliau merasa menulis itu begitu penting?”</p>
+    <p>Jawabannya sederhana.</p>
+    <p>Beliau memahami bahwa umur manusia terbatas.</p>
+    <p>Tetapi manfaat tidak harus berhenti ketika umur berakhir.</p>
+    <h3 style="font-family:'Fraunces',serif; font-weight:600; font-size:1.25rem; color:var(--blue-light); margin: 34px 0 14px 0;">Orang Kaya Mewariskan Harta, Orang Berilmu Mewariskan Cara Berpikir</h3>
+    <p>Harta dapat diwariskan kepada anak.</p>
+    <p>Tetapi ilmu dapat diwariskan kepada manusia yang bahkan belum lahir.</p>
+    <p>Hari ini kita masih membaca karya orang yang telah wafat ratusan tahun lalu.</p>
+    <p>Mereka tidak lagi hidup. Tetapi pikiran mereka masih berbicara.</p>
+    <p>Kalimat-kalimat mereka masih mengubah kehidupan.</p>
+    <p>Itulah kekuatan ilmu. Ia mampu melampaui umur pemiliknya.</p>
+    <h3 style="font-family:'Fraunces',serif; font-weight:600; font-size:1.25rem; color:var(--blue-light); margin: 34px 0 14px 0;">Jangan Hanya Mengonsumsi, Mulailah Mencipta</h3>
+    <p>Sebagian besar dari kita menghabiskan hari untuk mengonsumsi.</p>
+    <p>Membaca. Menonton. Mendengar. Menggulir layar.</p>
+    <p>Tidak ada yang salah dengan belajar.</p>
+    <p>Tetapi suatu hari kita perlu bertanya, “Apa yang sedang aku ciptakan?”</p>
+    <p>Tidak harus buku. Mungkin catatan. Mungkin jurnal. Mungkin tulisan. Mungkin video yang bermanfaat. Mungkin kelas kecil.</p>
+    <p>Ilmu yang hanya berhenti di kepala belum selesai menjalankan tugasnya.</p>
+    <p>Ilmu menemukan maknanya ketika berubah menjadi manfaat.</p>
+    <h3 style="font-family:'Fraunces',serif; font-weight:600; font-size:1.25rem; color:var(--blue-light); margin: 34px 0 14px 0;">Produktivitas Bukan Tentang Sibuk</h3>
+    <p>Hari ini kita mudah sekali merasa sibuk.</p>
+    <p>Notifikasi datang tanpa henti. Rapat. Pesan. Email. Media sosial.</p>
+    <p>Lalu malam tiba. Kita lelah.</p>
+    <p>Tetapi ketika ditanya, “Apa yang benar-benar kamu hasilkan hari ini?”</p>
+    <p>Sering kali kita terdiam.</p>
+    <p>Ibnu Al-Jauzi mengajarkan bahwa produktivitas bukan tentang memenuhi jadwal.</p>
+    <p>Produktivitas adalah memastikan bahwa waktu berubah menjadi karya. Bukan sekadar aktivitas.</p>
+    <h3 style="font-family:'Fraunces',serif; font-weight:600; font-size:1.25rem; color:var(--blue-light); margin: 34px 0 14px 0;">Bayangkan Seratus Tahun Lagi</h3>
+    <p>Coba bayangkan. Seratus tahun dari sekarang.</p>
+    <p>Tidak ada lagi yang mengenal wajahmu.</p>
+    <p>Tidak ada lagi yang mengingat nomor teleponmu.</p>
+    <p>Tidak ada lagi yang tahu akun media sosialmu.</p>
+    <p>Lalu apa yang masih tersisa?</p>
+    <p>Mungkin seorang murid yang mengajarkan ilmu yang dulu kamu berikan.</p>
+    <p>Mungkin sebuah tulisan yang menguatkan seseorang.</p>
+    <p>Mungkin sebuah ide yang terus hidup. Mungkin seorang anak yang meneladani akhlakmu.</p>
+    <p>Warisan terbaik bukan yang disimpan di lemari.</p>
+    <p>Warisan terbaik adalah yang tetap bekerja ketika pemiliknya telah tiada.</p>
+    <h3 style="font-family:'Fraunces',serif; font-weight:600; font-size:1.25rem; color:var(--blue-light); margin: 34px 0 14px 0;">Pertanyaan Terakhir</h3>
+    <p>Jika hari ini seluruh aktivitasmu dihentikan, apa yang benar-benar hilang dari dunia?</p>
+    <p>Pertanyaan itu mungkin terasa berat.</p>
+    <p>Tetapi justru pertanyaan seperti itulah yang membantu kita hidup dengan lebih sadar.</p>
+    <p>Karena tujuan hidup bukan hanya menghabiskan waktu.</p>
+    <p>Tujuan hidup adalah mengubah waktu menjadi manfaat.</p>
+    <p>Dan mungkin, itulah sebabnya nama Ibnu Al-Jauzi masih disebut hingga hari ini.</p>
+    <p>Bukan karena beliau hidup lebih lama daripada kita.</p>
+    <p>Tetapi karena beliau membuat setiap harinya memiliki makna.</p>
+    
+    <div class="resep">
+      <div class="resep-head">
+        <div class="rx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg> Refleksi Bab Ini</div>
+        <span class="resep-no">Bab 04</span>
+      </div>
+      <div class="resep-body">
+        <p>Harta dapat habis.</p>
+    <p>Jabatan dapat berakhir.</p>
+    <p>Popularitas dapat dilupakan.</p>
+    <p>Tetapi ilmu yang melahirkan manfaat akan terus hidup bahkan ketika pemiliknya telah kembali kepada Allah.</p>
+    <p>Maka jangan hanya bertanya, “Apa yang bisa aku dapatkan?”</p>
+    <p>Mulailah bertanya, “Apa yang bisa aku tinggalkan?”</p>
+      </div>
+    </div>
+  </div>
+</article>
+
+<article class="chapter" id="ch5">
+  <div class="chapter-head">
+    <span class="big-num">05 / 7</span>
+    <div>
+      <h2>Pencuri Terbesar dalam Hidupmu Tidak Pernah Membawa Senjata</h2>
+      <div class="chapter-sub">Bagian ke-5 dari 7 Tulisan tentang Ibnul Jauzi</div>
+    </div>
+  </div>
+  <div class="chapter-body">
+    <p>Bayangkan seseorang masuk ke rumahmu malam ini.</p>
+    <p>Ia tidak mengambil uangmu. Tidak mengambil laptopmu. Tidak mengambil motormu.</p>
+    <p>Ia hanya mengambil satu jam dari hidupmu.</p>
+    <p>Besok malam ia datang lagi. Mengambil satu jam lagi.</p>
+    <p>Lalu malam berikutnya. Dan berikutnya. Selama bertahun-tahun.</p>
+    <p>Apakah kamu akan diam?</p>
+    <p>Tentu tidak.</p>
+    <p>Kamu akan memasang kamera. Mengganti kunci. Melapor kepada polisi.</p>
+    <p>Karena kamu tahu ada sesuatu yang sedang dicuri.</p>
+    <p>Ironisnya, setiap hari ada pencuri yang benar-benar melakukan itu.</p>
+    <p>Dan kita membiarkannya.</p>
+    <p>Namanya adalah distraksi.</p>
+    <h3 style="font-family:'Fraunces',serif; font-weight:600; font-size:1.25rem; color:var(--blue-light); margin: 34px 0 14px 0;">Waktu Adalah Mata Uang Kehidupan</h3>
+    <p>Semua orang kaya memiliki uang yang berbeda.</p>
+    <p>Semua orang pintar memiliki kemampuan yang berbeda.</p>
+    <p>Semua orang lahir dengan kesempatan yang berbeda.</p>
+    <p>Tetapi setiap manusia diberi satu modal yang sama.</p>
+    <p>Dua puluh empat jam. Tidak lebih. Tidak kurang.</p>
+    <p>Kita sering berkata, “Aku tidak punya waktu.”</p>
+    <p>Padahal yang sebenarnya terjadi adalah, kita sudah menghabiskan waktu untuk sesuatu yang lain.</p>
+    <p>Waktu tidak pernah hilang. Ia selalu berpindah.</p>
+    <p>Pertanyaannya hanya satu: pindah ke mana?</p>
+    <h3 style="font-family:'Fraunces',serif; font-weight:600; font-size:1.25rem; color:var(--blue-light); margin: 34px 0 14px 0;">Hidup Tidak Hancur Sekaligus</h3>
+    <p>Jarang ada orang yang kehilangan masa depannya dalam satu hari.</p>
+    <p>Hidup lebih sering bocor sedikit demi sedikit.</p>
+    <p>Lima belas menit untuk membuka media sosial. Sepuluh menit melihat notifikasi. Dua puluh menit menonton video yang sebenarnya tidak ingin ditonton.</p>
+    <p>Satu jam berlalu. Besok terulang lagi. Tidak terasa.</p>
+    <p>Sebulan. Setahun. Sepuluh tahun.</p>
+    <p>Yang mencuri masa depan kita sering kali bukan dosa besar.</p>
+    <p>Tetapi kebiasaan kecil yang tidak pernah kita hentikan.</p>
+    <h3 style="font-family:'Fraunces',serif; font-weight:600; font-size:1.25rem; color:var(--blue-light); margin: 34px 0 14px 0;">Mengapa Orang Hebat Terlihat Memiliki Waktu Lebih Banyak?</h3>
+    <p>Padahal mereka juga hidup dua puluh empat jam.</p>
+    <p>Rahasianya bukan pada jumlah waktunya. Tetapi pada jumlah gangguan yang mereka izinkan masuk.</p>
+    <p>Ibnu Al-Jauzi hidup di Baghdad, salah satu kota paling sibuk pada zamannya.</p>
+    <p>Beliau mengajar. Menulis. Memberi nasihat. Menjawab pertanyaan. Menghadiri majelis.</p>
+    <p>Namun beliau tetap menghasilkan karya dalam jumlah yang membuat para ulama sesudahnya kagum.</p>
+    <p>Apakah beliau memiliki waktu lebih banyak?</p>
+    <p>Tidak. Beliau hanya menjaga waktunya lebih baik.</p>
+    <h3 style="font-family:'Fraunces',serif; font-weight:600; font-size:1.25rem; color:var(--blue-light); margin: 34px 0 14px 0;">Setiap “Ya” Adalah Seribu “Tidak”</h3>
+    <p>Setiap kali kamu berkata, “Ya, aku akan menonton satu episode lagi,”</p>
+    <p>sebenarnya kamu sedang berkata:</p>
+    <blockquote>Tidak untuk membaca.” “Tidak untuk olahraga.” “Tidak untuk keluargaku.” “Tidak untuk mimpiku.</blockquote>
+    <p>Kita sering berpikir keputusan dibuat ketika memilih.</p>
+    <p>Padahal keputusan sebenarnya dibuat ketika mengorbankan pilihan lain.</p>
+    <p>Karena setiap “ya” selalu memiliki harga.</p>
+    <h3 style="font-family:'Fraunces',serif; font-weight:600; font-size:1.25rem; color:var(--blue-light); margin: 34px 0 14px 0;">Kesibukan Bisa Menjadi Bentuk Kemalasan</h3>
+    <p>Kalimat ini terdengar aneh. Bagaimana mungkin orang sibuk disebut malas?</p>
+    <p>Karena kesibukan tidak selalu berarti kemajuan.</p>
+    <p>Ada orang yang sepanjang hari berpindah dari satu aplikasi ke aplikasi lain. Dari satu rapat ke rapat lain. Dari satu percakapan ke percakapan lain.</p>
+    <p>Malam tiba. Ia lelah.</p>
+    <p>Tetapi tidak benar-benar bergerak menuju tujuan hidupnya.</p>
+    <p>Kesibukan sering kali memberi ilusi bahwa kita sedang bertumbuh.</p>
+    <p>Padahal kita hanya bergerak tanpa arah.</p>
+    <h3 style="font-family:'Fraunces',serif; font-weight:600; font-size:1.25rem; color:var(--blue-light); margin: 34px 0 14px 0;">Fokus Adalah Bentuk Ibadah</h3>
+    <p>Ketika membaca Al-Qur'an, hadir sepenuhnya.</p>
+    <p>Ketika belajar, belajar sepenuhnya.</p>
+    <p>Ketika berbicara dengan orang tua, hadir sepenuhnya.</p>
+    <p>Ketika shalat, shalat sepenuhnya.</p>
+    <p>Dunia modern mengajarkan multitasking.</p>
+    <p>Padahal hati manusia diciptakan untuk memberi perhatian.</p>
+    <p>Semakin terpecah perhatianmu, semakin tipis kualitas hidupmu.</p>
+    <h3 style="font-family:'Fraunces',serif; font-weight:600; font-size:1.25rem; color:var(--blue-light); margin: 34px 0 14px 0;">Coba Hitung dengan Jujur</h3>
+    <p>Misalkan kamu kehilangan dua jam setiap hari.</p>
+    <p>Dua jam terdengar kecil.</p>
+    <p>Tetapi dalam setahun jumlahnya lebih dari tujuh ratus jam. Itu setara dengan hampir satu bulan penuh.</p>
+    <p>Satu bulan. Cukup untuk membaca belasan buku. Menghafal beberapa juz Al-Qur'an. Belajar satu bahasa baru. Membangun sebuah usaha kecil.</p>
+    <p>Atau, menghabiskannya dengan menggulir layar tanpa ingat apa yang ditonton kemarin.</p>
+    <p>Masalahnya bukan dua jam. Masalahnya adalah dua jam yang terus diulang.</p>
+    <h3 style="font-family:'Fraunces',serif; font-weight:600; font-size:1.25rem; color:var(--blue-light); margin: 34px 0 14px 0;">Orang Bijak Tidak Bertanya “Apa yang Harus Kulakukan?”</h3>
+    <p>Ia bertanya, “Apa yang harus kuhentikan?”</p>
+    <p>Sering kali hidup tidak berubah karena kita menambah sesuatu.</p>
+    <p>Hidup berubah ketika kita berhenti melakukan sesuatu.</p>
+    <p>Berhenti menunda. Berhenti membandingkan diri. Berhenti mengejar validasi. Berhenti membuka ponsel setiap lima menit.</p>
+    <p>Ruang kosong itulah yang nanti akan diisi oleh hal-hal yang benar-benar penting.</p>
+    <h3 style="font-family:'Fraunces',serif; font-weight:600; font-size:1.25rem; color:var(--blue-light); margin: 34px 0 14px 0;">Sebelum Tidur Malam Ini</h3>
+    <p>Jangan bertanya, “Apa yang sudah aku kerjakan hari ini?”</p>
+    <p>Tanyakan, “Siapa yang mendapatkan waktuku hari ini?”</p>
+    <p>Karena waktu adalah hidupmu dalam bentuk yang paling nyata.</p>
+    <p>Ketika kamu memberikan waktu kepada sesuatu, sesungguhnya kamu sedang memberikan sebagian dari hidupmu.</p>
+    <p>Maka berhati-hatilah memilih ke mana hidupmu akan pergi.</p>
+    
+    <div class="resep">
+      <div class="resep-head">
+        <div class="rx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg> Refleksi Bab Ini</div>
+        <span class="resep-no">Bab 05</span>
+      </div>
+      <div class="resep-body">
+        <p>Musuh terbesar produktivitas bukan kemalasan.</p>
+    <p>Musuh terbesar produktivitas adalah perhatian yang terus-menerus terpecah.</p>
+    <p>Jagalah waktumu.</p>
+    <p>Karena umur bukan dihitung dari berapa lama kita hidup.</p>
+    <p>Tetapi dari kepada siapa dan kepada apa kita memberikan hidup itu.</p>
+      </div>
+    </div>
+  </div>
+</article>
+
+<article class="chapter" id="ch6">
+  <div class="chapter-head">
+    <span class="big-num">06 / 7</span>
+    <div>
+      <h2>Mengapa Ada Kata-Kata yang Mengubah Hidup?</h2>
+      <div class="chapter-sub">Tulisan 6 dari 7 Tulisan tentang Ibnul Jauzi</div>
+    </div>
+  </div>
+  <div class="chapter-body">
+    <p>Setiap hari kita dibanjiri kata-kata. Podcast. Video. Motivasi. Ceramah. Reels. Threads. Tweet. Nasihat. Belum lagi percakapan dengan teman, keluarga, dan rekan kerja.</p>
+    <p>Kita mendengar ribuan kalimat. Tetapi... mengapa hanya beberapa yang benar-benar tinggal di hati?</p>
+    <p>Mengapa ada satu nasihat yang kita ingat seumur hidup, sementara ratusan nasihat lain menghilang bahkan sebelum hari berganti?</p>
+    <p>Mungkin jawabannya bukan pada kata-katanya. Mungkin jawabannya ada pada orang yang mengucapkannya.</p>
+    <h3 style="font-family:'Fraunces',serif; font-weight:600; font-size:1.25rem; color:var(--blue-light); margin: 34px 0 14px 0;">Kata-Kata Memiliki Berat</h3>
+    <p>Bayangkan dua orang mengucapkan kalimat yang sama. “Jangan menyerah.”</p>
+    <p>Yang pertama adalah seseorang yang mudah menyerah pada setiap kesulitan. Yang kedua adalah seseorang yang bertahan melewati puluhan ujian hidup.</p>
+    <p>Kalimatnya sama. Tetapi rasanya berbeda. Mengapa? Karena manusia tidak hanya mendengar suara. Manusia juga membaca kehidupan.</p>
+    <p>Karakter memberi berat pada setiap ucapan. Semakin selaras antara hidup dan lisan, semakin dalam pengaruhnya.</p>
+    <h3 style="font-family:'Fraunces',serif; font-weight:600; font-size:1.25rem; color:var(--blue-light); margin: 34px 0 14px 0;">Ketika Ilmu Menjadi Cahaya</h3>
+    <p>Ibnu Al-Jauzi dikenal sebagai salah satu penceramah terbesar pada zamannya. Ribuan orang menghadiri majelisnya. Bukan karena panggungnya megah. Bukan karena beliau pandai membuat sensasi.</p>
+    <p>Para ulama justru mencatat sesuatu yang jauh lebih menarik. Orang yang lalai menjadi ingat. Orang yang tidak tahu menjadi mengerti. Orang yang bergelimang dosa memilih bertobat. Bahkan ada yang menemukan hidayah menuju Islam.</p>
+    <p>Apa yang sebenarnya terjadi? Mungkin yang berbicara bukan hanya lisannya. Tetapi seluruh hidupnya.</p>
+    <h3 style="font-family:'Fraunces',serif; font-weight:600; font-size:1.25rem; color:var(--blue-light); margin: 34px 0 14px 0;">Dunia Modern Mengajarkan Cara Berbicara, Islam Mengajarkan Cara Menjadi</h3>
+    <p>Hari ini kita bisa belajar public speaking dalam hitungan jam. Belajar membuat presentasi yang menarik. Belajar memilih intonasi. Belajar bahasa tubuh. Semua itu penting.</p>
+    <p>Tetapi ada sesuatu yang tidak bisa diajarkan oleh teknik. Kejujuran. Keikhlasan. Akhlak. Keteladanan.</p>
+    <p>Karena pengaruh terbesar seseorang lahir ketika ucapannya didukung oleh kehidupannya.</p>
+    <h3 style="font-family:'Fraunces',serif; font-weight:600; font-size:1.25rem; color:var(--blue-light); margin: 34px 0 14px 0;">Orang Tidak Selalu Mengingat Isi Pembicaraanmu, Tetapi Mereka Mengingat Siapa Dirimu</h3>
+    <p>Coba ingat seseorang yang pernah sangat mempengaruhi hidupmu. Mungkin seorang guru. Mungkin orang tua. Mungkin seorang ustaz. Mungkin seorang sahabat.</p>
+    <p>Sekarang coba pikirkan. Apakah yang paling kamu ingat adalah kalimatnya? Atau caranya hidup?</p>
+    <p>Sering kali kita berubah bukan karena satu teori. Kita berubah karena melihat teori itu hidup dalam diri seseorang. Keteladanan adalah argumen yang tidak membutuhkan mikrofon.</p>
+    <h3 style="font-family:'Fraunces',serif; font-weight:600; font-size:1.25rem; color:var(--blue-light); margin: 34px 0 14px 0;">Jangan Terburu-buru Ingin Didengar</h3>
+    <p>Di media sosial, semua orang ingin berbicara. Sedikit yang ingin mendengar. Semua ingin memberi nasihat. Sedikit yang sibuk memperbaiki dirinya.</p>
+    <p>Padahal mungkin urutannya terbalik. Hidupilah nasihat itu terlebih dahulu.</p>
+    <p>Jika ia benar-benar mengubahmu, suatu hari orang akan bertanya, “Bagaimana caramu hidup seperti itu?” Dan saat itulah nasihatmu memiliki rumah. Karena ia lahir dari pengalaman, bukan sekadar hafalan.</p>
+    <h3 style="font-family:'Fraunces',serif; font-weight:600; font-size:1.25rem; color:var(--blue-light); margin: 34px 0 14px 0;">Pengaruh Tidak Selalu Berasal dari Panggung</h3>
+    <p>Kita sering mengira hanya orang terkenal yang bisa mengubah dunia. Padahal seorang ibu yang sabar sedang mengubah dunia. Seorang ayah yang jujur sedang mengubah dunia. Seorang guru yang datang tepat waktu sedang mengubah dunia. Seorang teman yang mengingatkan salat sedang mengubah dunia.</p>
+    <p>Pengaruh bukan soal jumlah pengikut. Pengaruh adalah jumlah hati yang menjadi lebih baik karena kehadiranmu.</p>
+    <h3 style="font-family:'Fraunces',serif; font-weight:600; font-size:1.25rem; color:var(--blue-light); margin: 34px 0 14px 0;">Sebelum Ingin Mengubah Orang Lain</h3>
+    <p>Ada pertanyaan yang lebih penting. Apakah hidupku sudah cukup jujur untuk mendukung kata-kataku?</p>
+    <p>Pertanyaan itu menyakitkan. Tetapi justru karena itu ia penting. Karena dunia tidak kekurangan pembicara. Dunia kekurangan teladan.</p>
+    <h3 style="font-family:'Fraunces',serif; font-weight:600; font-size:1.25rem; color:var(--blue-light); margin: 34px 0 14px 0;">Jika Hari Ini Kamu Tidak Punya Panggung</h3>
+    <p>Tidak apa-apa. Bangunlah karakter. Jika hari ini belum ada yang mendengarkanmu. Tidak apa-apa. Bangunlah integritas.</p>
+    <p>Karena ketika ilmu bertemu dengan akhlak, dan pengetahuan bertemu dengan keikhlasan, maka kata-kata sederhana pun mampu mengubah kehidupan seseorang.</p>
+    <p>Bukan karena kalimat itu luar biasa. Tetapi karena Allah memberi keberkahan pada lisan yang lahir dari hati yang bersih.</p>
+    
+    <div class="resep">
+      <div class="resep-head">
+        <div class="rx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg> Refleksi Bab Ini</div>
+        <span class="resep-no">Bab 06</span>
+      </div>
+      <div class="resep-body">
+        <p>Jangan sibuk mencari suara yang lebih keras.</p>
+    <p>Bangunlah kehidupan yang lebih jujur.</p>
+    <p>Sebab pada akhirnya, manusia mungkin mendengar apa yang kamu katakan, tetapi mereka akan percaya kepada cara kamu menjalani hidup.</p>
+      </div>
+    </div>
+  </div>
+</article>
+
+<article class="chapter" id="ch7">
+  <div class="chapter-head">
+    <span class="big-num">07 / 7</span>
+    <div>
+      <h2>Pada Akhirnya, Semua Orang Akan Pergi</h2>
+      
+    </div>
+  </div>
+  <div class="chapter-body">
+    <p>Ada satu kenyataan yang tidak pernah gagal. Tidak peduli seberapa kaya. Seberapa terkenal. Seberapa kuat. Seberapa muda.</p>
+    <p>Suatu hari... semua orang akan pergi.</p>
+    <p>Kita sering hidup seolah-olah kematian adalah sesuatu yang terjadi kepada orang lain. Padahal setiap hari, hidup sedang membawa kita ke arah yang sama.</p>
+    <p>Bukan untuk ditakuti. Tetapi untuk diingat. Karena orang yang mengingat akhir perjalanan akan lebih berhati-hati memilih jalan.</p>
+    <h3 style="font-family:'Fraunces',serif; font-weight:600; font-size:1.25rem; color:var(--blue-light); margin: 34px 0 14px 0;">Ada Dua Cara Menghilang</h3>
+    <p>Cara pertama adalah meninggal. Cara kedua adalah dilupakan.</p>
+    <p>Tidak semua orang yang meninggal benar-benar hilang. Dan tidak semua orang yang masih hidup benar-benar berarti.</p>
+    <p>Sebagian manusia selesai ketika napas terakhirnya berhenti. Sebagian yang lain baru mulai berbicara setelah mereka tiada. Melalui buku. Melalui murid. Melalui ilmu. Melalui akhlak. Melalui doa-doa yang terus dipanjatkan untuknya.</p>
+    <h3 style="font-family:'Fraunces',serif; font-weight:600; font-size:1.25rem; color:var(--blue-light); margin: 34px 0 14px 0;">Mengapa Kita Masih Mengenal Ibnu Al-Jauzi?</h3>
+    <p>Bayangkan. Lebih dari sembilan abad telah berlalu. Kota berubah. Kerajaan runtuh. Bahasa berkembang. Teknologi melesat. Generasi berganti.</p>
+    <p>Tetapi nama Ibnu Al-Jauzi masih disebut. Bukan karena beliau membangun istana. Bukan karena beliau mengumpulkan kekayaan. Bukan karena beliau mengejar ketenaran.</p>
+    <p>Beliau dikenang karena sesuatu yang tidak bisa dimakan usia: manfaat.</p>
+    <h3 style="font-family:'Fraunces',serif; font-weight:600; font-size:1.25rem; color:var(--blue-light); margin: 34px 0 14px 0;">Hidup yang Bernilai Selalu Berumur Panjang</h3>
+    <p>Setiap kali seseorang membaca salah satu karya beliau... beliau kembali mengajar. Setiap kali seorang guru mengutip nasihatnya... beliau kembali berbicara. Setiap kali seorang anak berubah karena hikmah yang beliau tulis... beliau kembali menanam kebaikan.</p>
+    <p>Tubuhnya telah lama kembali ke tanah. Tetapi manfaatnya masih berjalan.</p>
+    <p>Mungkin... inilah bentuk kehidupan yang paling panjang.</p>
+    <h3 style="font-family:'Fraunces',serif; font-weight:600; font-size:1.25rem; color:var(--blue-light); margin: 34px 0 14px 0;">Jangan Sibuk Membangun Citra, Bangunlah Warisan</h3>
+    <p>Media sosial membuat kita mudah membangun citra. Memilih foto terbaik. Menulis kata-kata terbaik. Menampilkan kehidupan terbaik.</p>
+    <p>Tetapi warisan tidak dibangun oleh apa yang kita tampilkan. Warisan dibangun oleh apa yang kita lakukan ketika tidak ada yang melihat.</p>
+    <p>Integritas. Kejujuran. Kesabaran. Ilmu. Akhlak. Semuanya tumbuh dalam kesunyian. Dan justru karena itu, buahnya bertahan lama.</p>
+    <h3 style="font-family:'Fraunces',serif; font-weight:600; font-size:1.25rem; color:var(--blue-light); margin: 34px 0 14px 0;">Bayangkan Pemakamanmu</h3>
+    <p>Bukan untuk menakutimu. Tetapi untuk membantumu melihat hidup dengan jernih.</p>
+    <p>Orang-orang berkumpul. Mereka mengenangmu. Lalu seseorang bertanya, “Apa yang paling ia tinggalkan?”</p>
+    <p>Apa jawabannya? Apakah hanya daftar pencapaian? Ataukah ada manusia yang hidupnya menjadi lebih baik karena pernah mengenalmu?</p>
+    <p>Pertanyaan itu mungkin lebih penting daripada semua target yang sedang kita kejar hari ini.</p>
+    <h3 style="font-family:'Fraunces',serif; font-weight:600; font-size:1.25rem; color:var(--blue-light); margin: 34px 0 14px 0;">Kita Tidak Bisa Membawa Apa Pun</h3>
+    <p>Suatu hari nanti... ponselmu akan menjadi milik orang lain. Rumahmu akan dihuni orang lain. Rekeningmu akan digunakan ahli warismu. Namamu perlahan akan semakin jarang disebut.</p>
+    <p>Yang tetap tinggal hanyalah akibat dari hidup yang pernah kamu jalani. Setiap kebaikan. Setiap ilmu. Setiap doa. Setiap hati yang pernah kamu kuatkan. Semuanya terus berjalan.</p>
+    <p>Karena hidup selalu meninggalkan jejak. Pertanyaannya hanyalah, jejak seperti apa?</p>
+    <h3 style="font-family:'Fraunces',serif; font-weight:600; font-size:1.25rem; color:var(--blue-light); margin: 34px 0 14px 0;">Buku Ini Bukan Tentang Ibnu Al-Jauzi</h3>
+    <p>Mungkin sejak awal kamu mengira buku ini adalah kisah seorang ulama. Sebenarnya bukan.</p>
+    <p>Buku ini adalah cermin. Ibnu Al-Jauzi hanyalah seseorang yang berdiri di depan cermin itu lebih dahulu. Beliau menunjukkan bahwa manusia biasa dapat meninggalkan manfaat yang luar biasa.</p>
+    <p>Sekarang giliranmu berdiri di depan cermin yang sama. Karena sejarah tidak membutuhkan salinan Ibnu Al-Jauzi. Sejarah membutuhkan dirimu... dalam versi terbaik yang Allah kehendaki.</p>
+    <h3 style="font-family:'Fraunces',serif; font-weight:600; font-size:1.25rem; color:var(--blue-light); margin: 34px 0 14px 0;">Ketika Buku Ini Ditutup</h3>
+    <p>Jangan mulai dengan mimpi yang terlalu besar. Mulailah dengan satu keputusan.</p>
+    <p>Hari ini aku akan menjaga waktuku. Hari ini aku akan memilih lingkungan yang lebih baik. Hari ini aku akan membaca beberapa halaman. Hari ini aku akan memperbaiki salatku. Hari ini aku akan meminta maaf. Hari ini aku akan menjadi sedikit lebih baik daripada kemarin.</p>
+    <p>Karena tidak ada warisan besar yang lahir dalam satu hari. Warisan selalu dibangun... hari ini. Lalu besok. Lalu lusa. Dan diulang seumur hidup.</p>
+    
+    <div class="resep">
+      <div class="resep-head">
+        <div class="rx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg> Refleksi Terakhir</div>
+        <span class="resep-no">Bab 07</span>
+      </div>
+      <div class="resep-body">
+        <p>Suatu hari, namamu mungkin tidak lagi disebut. Tetapi manfaatmu masih bisa hidup.</p>
+    <p>Maka jangan hanya bertanya, “Berapa lama aku hidup?”</p>
+    <p>Bertanyalah, “Berapa lama kebaikanku akan terus hidup setelah aku tiada?”</p>
+    <p>Sebab pada akhirnya, hidup yang paling panjang bukanlah hidup yang paling lama. Hidup yang paling panjang adalah hidup yang paling banyak meninggalkan manfaat.</p>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- ============ CLOSING ============ -->
+<section class="closing">
+  <div class="closing-inner">
+    <span class="label">Penutup</span>
+    <h2>Sejarah Tidak Membutuhkan Salinan Ibnu Al-Jauzi</h2>
+    <p>Sejarah membutuhkan dirimu, dalam versi terbaik yang Allah kehendaki.</p>
+    <p>Selamat memulai perjalanan.</p>
+  </div>
+</section>
+
+<section class="about">
+  <span class="label">Tentang Buku Ini</span>
+  <h3>Tujuh tulisan tentang identitas, kebiasaan, lingkungan, waktu, karya, pengaruh, dan warisan</h3>
+  <p>Ditulis santai, dibahas dalam, mengambil hikmah dari kehidupan Imam Ibnu Al-Jauzi dan menghubungkannya dengan keresahan anak muda hari ini.</p>
+  <div class="tags">
+    <span class="pill">Renungan</span>
+    <span class="pill">Muhasabah</span>
+    <span class="pill">Biografi Hikmah</span>
+    <span class="pill">Gen Z</span>
+  </div>
+</section>
+
+<footer>Saat Ibnul Jauzi Menulis Tentang Dirinya · Ditulis oleh GUE · 2026</footer>
+
+<script>
+  // side index toggle
+  const toggle = document.getElementById('navToggle');
+  const panel = document.getElementById('indexPanel');
+  const backdrop = document.getElementById('indexBackdrop');
+  function closeIndex(){ panel.classList.remove('open'); backdrop.classList.remove('open'); }
+  toggle.addEventListener('click', () => {
+    panel.classList.toggle('open');
+    backdrop.classList.toggle('open');
+  });
+  backdrop.addEventListener('click', closeIndex);
+  panel.querySelectorAll('a').forEach(a => a.addEventListener('click', closeIndex));
+
+  // chapter reveal on scroll
+  const chapters = document.querySelectorAll('.chapter');
+  if('IntersectionObserver' in window){
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if(e.isIntersecting){ e.target.classList.add('in-view'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -60px 0px' });
+    chapters.forEach(c => io.observe(c));
+  } else {
+    chapters.forEach(c => c.classList.add('in-view'));
+  }
+
+</script>
+
+</body>
+</html>
