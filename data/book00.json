@@ -1,0 +1,370 @@
+{
+
+"meta": {
+    "lang": "id",
+    "title": "Nasehat Buat Gue"
+  },
+  "brand": {
+    "main": "Nasehat Buat Gue",
+    "accent": "／"
+  },
+  "navToggleLabel": "Daftar Isi",
+  "hero": {
+    "badges": [
+      "19 Catatan Hati",
+      "Gue Edition"
+    ],
+    "titleHtml": "Nasehat<br/>Buat <em>Gue</em>",
+    "subtitle": "Bukan buku ceramah. Ini catatan jujur satu orang yang lagi belajar iman — ditulis buat diri sendiri, dibaca berulang-ulang biar nggak lupa arah.",
+    "pills": [
+      "Renungan",
+      "Iman",
+      "Catatan Pribadi"
+    ],
+    "pulsePath": "M0 35 H190 L212 10 L232 60 L250 35 L262 35 L272 22 L282 48 L292 35 H560",
+    "scrollCue": "Mulai baca di bawah ↓",
+    "thumb": {
+      "src": "assets/cover/book00.jpeg",
+      "alt": "Sampul buku Nasehat Buat Gue",
+      "caption": "Ditulis Oleh: Gue"
+    }
+  },
+  "intro": {
+    "label": "Sekapur Keju",
+    "paragraphsHtml": [
+      "Dengan nama Allah Gue buat tulisan ini. Dengan bahasa Gue yang sederhana tapi berharap Gue bisa dapat cinta-Nya dan Gue ngarepin banget Dia ridhoin Gue.",
+      "Buku ini Gue beri judul Nasehat Buat Gue, karena beneran ini memang nasehat buat Gue, yang bisa Gue baca berulang-ulang buat nasehatin diri Gue.",
+      "Kalau elo ikutan baca dan berasa ada manfaatnya ya Alhamdulillah, semoga jadi pahala buat Gue juga dan buat bapak ibu Gue yang jadi penyebab Gue bisa nulis begini.",
+      "Semoga buku ini ada manfaatnya buat Gue karena memang Gue tulis buat diri Gue sendiri. Dan buat elo pade yang mau baca, makasih."
+    ]
+  },
+  "toc": {
+    "label": "Isi Buku",
+    "title": "Daftar Isi"
+  },
+  "chapters": [
+    {
+      "id": "s1",
+      "num": "01",
+      "total": "19",
+      "title": "Bukan Sekedar Ngaku Beriman",
+      "sub": "",
+      "page": "",
+      "bodyHtml": "<p>Gue belajar satu hal... iman itu bukan cuma soal apa yang kita omongin, tapi apa yang kita pegang waktu hidup lagi nggak ramah.</p>\n<p>Cinta sama Allah dan Rasul-Nya itu bukan sekadar kata manis di lisan, tapi tentang pilihan. Tentang apa yang gue tinggalin, dan apa yang gue pertahanin meski berat.</p>\n<p>Gue usaha. Capek. Jatuh. Tapi gue belajar buat tawakal. Karena hidup bukan tentang siapa yang paling kuat, tapi siapa yang paling percaya bahwa Allah nggak pernah salah ngatur cerita.</p>\n<p>Gue nggak pengen ibadah cuma buat dilihat. Nggak pengen shalih cuma buat dipuji. Gue pengen lurus. Bersih. Ibadah yang nggak ribut, tapi nyampe ke langit.</p>\n<p>Dan saat nikmat datang, gue belajar buat bersyukur, bukan karena hidup selalu enak, tapi karena Allah selalu cukup.</p>\n<p>Kalau rencana gue runtuh, kalau doa gue belum dijawab, gue belajar sabar. Bukan karena gue lemah, tapi karena gue percaya Allah tahu kapan dan bagaimana.</p>\n<blockquote>Karena iman itu... tentang cinta, percaya, ikhlas, syukur, dan sabar.</blockquote>\n<p>Dan gue masih belajar. Setiap hari. Pelan-pelan. Tapi jalan ke arah yang benar.</p>",
+      "resep": {
+        "no": "",
+        "bodyHtml": ""
+      }
+    },
+    {
+      "id": "s2",
+      "num": "02",
+      "total": "19",
+      "title": "Takut yang Menjaga, Harap yang Menguatkan",
+      "sub": "",
+      "page": "",
+      "bodyHtml": "<p>Dan gue sadar... iman itu juga soal takut. Bukan takut yang bikin lari, tapi takut yang bikin gue mikir dua kali sebelum nyakitin hati yang diciptakan Allah.</p>\n<p>Takut kehilangan ridha-Nya. Takut dosa yang kelihatan sepele tapi berat di sisi-Nya.</p>\n<p>Tapi iman juga bukan hidup dalam ketakutan doang. Ada harap. Harap yang bikin gue bangkit lagi setelah jatuh. Harap yang bilang: “Allah Maha Pengampun, selama gue mau balik.”</p>\n<p>Gue jalan di tengah-tengah. Antara takut dan harap. Takut yang jaga langkah gue, dan harap yang jaga napas gue biar nggak nyerah.</p>\n<p>Dan dari situ, lahir hal-hal lain. Hati yang lebih hati-hati. Sikap yang lebih lembut. Doa yang lebih jujur. Hidup yang nggak asal jalan, tapi punya arah.</p>\n<p>Karena iman itu bukan ekstrem. Bukan sok suci, bukan juga cuek sama dosa. Iman itu seimbang.</p>\n<p>Takut pada Allah, berharap pada rahmat-Nya, dan hidup sesuai dengan itu semua. Dan gue masih belajar. Masih jatuh. Masih bangkit.</p>\n<blockquote>Tapi sekarang gue tahu: selama takut dan harap gue masih ke Allah, gue masih di jalan yang benar.</blockquote>",
+      "resep": {
+        "no": "",
+        "bodyHtml": ""
+      }
+    },
+    {
+      "id": "s3",
+      "num": "03",
+      "total": "19",
+      "title": "Iman yang Nggak Egois",
+      "sub": "",
+      "page": "",
+      "bodyHtml": "<p>Dan di titik ini gue mulai ngerti, iman itu nggak berhenti di diri gue sendiri. Karena kalau lo benar-benar takut sama Allah, benar-benar berharap sama rahmat-Nya, itu pasti ada konsekuensinya.</p>\n<p>Allah nggak cuma minta hati gue lurus tapi juga sikap gue ke sesama. Ada hak-hak orang beriman yang Allah wajibkan buat dijaga. Hak buat dihormati, hak buat ditolong, hak buat nggak disakiti baik sama lisan apalagi sama perbuatan.</p>\n<p>Iman yang bener nggak bikin gue merasa paling benar. Justru bikin gue lebih hati-hati karena tiap orang punya hak yang Allah catat dan nggak boleh gue remehin.</p>\n<p>Semua dicatat. Semua ada rekam jejaknya. Semua ada pertanggungjawabannya. Karena iman itu bukan cuma hubungan vertikal gue dan Tuhan gue. Tapi juga horizontal gue dan manusia lain.</p>\n<p>Dan di situlah iman diuji. Bukan saat gue sendirian di sajadah, tapi saat gue berhadapan dengan manusia yang beda, yang nyebelin, yang kadang bikin gue capek.</p>\n<p>Dan gue masih belajar. Belajar adil. Belajar jaga hak orang lain.</p>\n<blockquote>Belajar jadi orang beriman yang nggak cuma saleh di dalam tapi juga aman buat sekitar</blockquote>",
+      "resep": {
+        "no": "",
+        "bodyHtml": ""
+      }
+    },
+    {
+      "id": "s4",
+      "num": "04",
+      "total": "19",
+      "title": "Ngga Ada Lagi Alasan",
+      "sub": "",
+      "page": "",
+      "bodyHtml": "<p>Dan jujur aja... kita semua itu terburu-buru. Maunya cepat paham, cepat kelihatan baik, cepat dapat hasil tapi sering lupa proses.</p>\n<p>Padahal gue harus bilang jujur: semua yang gue omongin tadi cinta ke Allah, tawakkal, ikhlas, syukur, sabar, takut dan harap, itu bukan opsi. Itu wajib.</p>\n<p>Bukan buat orang alim doang. Bukan buat ustaz doang. Bukan buat yang hidupnya udah rapi. Tapi buat semua manusia yang Allah perintah dari awal.</p>\n<p>Dan ini bukan pendapat random. Ini bukan opini netizen. Ini kesepakatan para imam agama. Para ulama besar. Orang-orang yang hidupnya habis buat ngejaga agama ini.</p>\n<p>Jadi nggak ada alasan: “gue masih muda”, “gue belum siap”, “nanti aja kalau udah hijrah full”. Karena iman itu bukan nunggu sempurna, tapi jalan sambil diperbaiki.</p>\n<p>Dan iya, gue juga termasuk. Gue juga kena. Gue juga dituntut. Karena iman itu tanggung jawab. Dan setiap tanggung jawab pasti bakal ditanya.</p>\n<p>Pelan-pelan. Satu demi satu. Tapi jangan berhenti.</p>\n<blockquote>Karena semua ini bukan pilihan tapi panggilan.</blockquote>",
+      "resep": {
+        "no": "",
+        "bodyHtml": ""
+      }
+    },
+    {
+      "id": "s5",
+      "num": "05",
+      "total": "19",
+      "title": "Lo di Level Yang Mana?",
+      "sub": "",
+      "page": "",
+      "bodyHtml": "<p>Dan faktanya... nggak semua orang jalan di level yang sama. Manusia itu kebagi tiga. Bukan soal kaya atau miskin. Bukan soal followers atau status. Tapi soal respon ke perintah Allah.</p>\n<p>Ada yang zalim ke dirinya sendiri. Dia tahu kebenaran, tapi milih ngabaikan. Ngerusak dirinya pelan-pelan, sambil bilang, “nanti juga berubah.”</p>\n<p>Ada yang pertengahan. Nggak parah, tapi juga nggak total. Jalan, tapi pelan. Ibadah ada, maksiat masih disimpen. Hidup di zona aman.</p>\n<p>Dan ada yang berlomba dalam kebaikan. Bukan karena dia paling suci, tapi karena dia sadar: waktu nggak nunggu. Dia bukan tanpa dosa, tapi dia cepat balik. Dia bukan tanpa salah, tapi dia nggak betah jauh dari Allah.</p>\n<p>Dan pertanyaannya sekarang bukan, “kita pengen jadi yang mana?” Tapi... kita lagi di posisi yang mana hari ini?</p>\n<p>Karena iman itu dinamis. Naik. Turun. Geser. Dan Allah masih buka pintu. Masih kasih waktu. Masih kasih kesempatan buat naik level.</p>\n<p>Dan gue juga masih milih. Setiap hari. Setiap keputusan.</p>\n<blockquote>Mau diam di tempat, atau lari ke arah kebaikan</blockquote>",
+      "resep": {
+        "no": "",
+        "bodyHtml": ""
+      }
+    },
+    {
+      "id": "s6",
+      "num": "06",
+      "total": "19",
+      "title": "Dzalim ke Diri Sendiri",
+      "sub": "",
+      "page": "",
+      "bodyHtml": "<p>Ini bukan tentang nyakitin orang lain dulu. Tapi tentang ngelanggar diri sendiri.</p>\n<p>Dia tahu ada yang Allah perintahkan, tapi ditinggalin. Shalat ditunda, doa disepelein, hati dibiarkan kering.</p>\n<p>Dan dia tahu ada yang Allah larang, tapi tetap dijalanin. Dengan alasan klasik: “cuma sekali”, “semua orang juga gitu”, “nanti gue tobat”.</p>\n<p>Padahal tiap penundaan itu bukan cuma dosa, tapi luka buat diri sendiri.</p>\n<p>Zalim itu bukan selalu keras. Kadang bentuknya halus. Pelan. Konsisten. Meninggalkan yang wajib, melakukan yang dilarang, sambil tetap merasa “gue masih orang baik”.</p>\n<p>Dan yang paling bahaya... bukan dosanya, tapi saat hati mulai kebal. Karena dzalim ke diri sendiri itu kayak racun pelan-pelan. Nggak langsung mati, tapi pelan-pelan hilang rasa.</p>\n<p>Dan ini bukan ngomongin orang lain. Gue juga pernah di situ. Masih kadang jatuh di situ. Makanya iman itu perlu sadar. Perlu jujur. Perlu berani bilang: “iya, gue salah... dan gue harus balik.”</p>\n<blockquote>Karena selama masih sadar, masih nyesel, masih pengen berubah pintu itu belum ketutup.</blockquote>",
+      "resep": {
+        "no": "",
+        "bodyHtml": ""
+      }
+    },
+    {
+      "id": "s7",
+      "num": "07",
+      "total": "19",
+      "title": "Level Aman",
+      "sub": "",
+      "page": "",
+      "bodyHtml": "<p>Yang kedua... Orang yang ada di level aman. Dia ngerjain yang wajib. Salat jalan. Puasa jalan. Yang haram ditinggalin. Secara hukum? Aman. Secara syariat? Lolos.</p>\n<p>Tapi dia juga nggak terlalu ngegas. Nggak nyari lebih. Nggak nanya: “apa lagi yang bisa gue kasih buat Allah?”</p>\n<p>Hidupnya rapi. Nggak rusak. Tapi juga nggak meledak. Dan ini bukan level buruk. Ini level selamat. Level stabil.</p>\n<p>Masalahnya.. kadang kita betah di sini. Karena di level ini, nggak terlalu capek, nggak terlalu dituntut, nggak terlalu disorot.</p>\n<p>Padahal iman itu hidup. Dan yang hidup itu kalau nggak maju, pelan-pelan mundur. Level aman itu baik. Tapi bukan tujuan akhir. Dia jaga diri dari dosa, tapi belum tentu berlomba dalam pahala.</p>\n<p>Dan di sinilah pertanyaannya mulai muncul: “apakah gue mau sekadar selamat.. atau mau lebih dekat?”</p>\n<p>Dan gue masih di perjalanan. Nggak mau berhenti di aman. Pengen naik level.</p>\n<blockquote>Karena Allah buka pintu lebih lebar buat mereka yang mau melangkah lebih jauh.</blockquote>",
+      "resep": {
+        "no": "",
+        "bodyHtml": ""
+      }
+    },
+    {
+      "id": "s8",
+      "num": "08",
+      "total": "19",
+      "title": "Ngebut ke Kebaikan",
+      "sub": "",
+      "page": "",
+      "bodyHtml": "<p>Dan yang ketiga... Racer kebaikan. Yang nggak cuma jalan, tapi lari ke arah kebaikan. Bukan karena dia paling kuat, tapi karena dia nggak nunda.</p>\n<p>Dia kerjain yang wajib jelas. Tapi dia juga nambah yang sunnah, sebatas yang dia mampu. Nggak maksa, tapi konsisten.</p>\n<p>Dia bukan cuma ninggalin yang haram, tapi juga yang makruh. Bukan karena itu dosa besar, tapi karena dia nggak mau hubungannya sama Allah terganggu meski sedikit.</p>\n<p>Dia hidup dengan satu prinsip: “Kalau bisa lebih dekat, kenapa puas di jarak aman?”</p>\n<p>Ini bukan soal banyak-banyakan amal. Tapi soal cinta. Orang yang cinta nggak pernah hitung-hitungan. Yang penting Allah ridha.</p>\n<p>Dan orang kayak gini... bukan malaikat. Dia juga capek. Dia juga jatuh. Tapi bedanya, dia cepat bangkit dan nggak betah lama-lama jauh.</p>\n<p>Dan mungkin hari ini gue belum di level itu. Tapi gue pengen ke sana. Pelan. Jujur. Konsisten.</p>\n<blockquote>Karena hidup ini singkat. Dan kesempatan buat berlomba nggak selamanya ada.</blockquote>\n<p>Dan kalau harus milih... gue nggak mau cuma selamat. Gue pengen dekat.</p>",
+      "resep": {
+        "no": "",
+        "bodyHtml": ""
+      }
+    },
+    {
+      "id": "s9",
+      "num": "09",
+      "total": "19",
+      "title": "Jauh Boleh, Nyerah Jangan",
+      "sub": "",
+      "page": "",
+      "bodyHtml": "<p>Dan satu hal penting... bahkan yang pertengahan, bahkan yang ngebut ke kebaikan mereka juga bisa salah.</p>\n<p>Mereka juga bisa jatuh. Mereka juga punya dosa. Tapi dosanya nggak harus nempel selamanya.</p>\n<p>Karena Allah buka jalan buat bersih. Namanya taubat. Bukan taubat yang ribut. Bukan yang dramatis. Tapi yang jujur.</p>\n<p>Balik. Ngaku salah. Berhenti. Dan nggak bangga sama dosa lama.</p>\n<p>Dan yang bikin hati tenang... Allah suka sama orang yang mau balik. Bukan cuma nerima tapi cinta. Allah cinta orang yang taubat. Allah cinta orang yang mau bersih.</p>\n<p>Jadi kalau hari ini lo jatuh, itu bukan akhir cerita. Itu undangan buat pulang.</p>\n<p>Nggak peduli lo di level aman, atau lagi ngebut ke depan selama lo mau balik, Allah masih nunggu. Dan iman itu bukan soal siapa yang nggak pernah jatuh. Tapi siapa yang selalu balik.</p>\n<p>Dan gue... masih belajar balik. Lagi dan lagi.</p>\n<blockquote>Karena harapan gue satu: bukan jadi sempurna, tapi jadi dicintai Allah.</blockquote>",
+      "resep": {
+        "no": "",
+        "bodyHtml": ""
+      }
+    },
+    {
+      "id": "s10",
+      "num": "10",
+      "total": "19",
+      "title": "Cara Allah Membersihkan",
+      "sub": "",
+      "page": "",
+      "bodyHtml": "<p>Dan Allah... punya banyak cara buat membersihkan hamba-Nya.</p>\n<p>Kadang lewat kebaikan. Amal-amal kecil yang kita remehin, tapi Allah pakai buat ngapus dosa.</p>\n<p>Sedekah yang ikhlas. Doa di sepertiga malam. Nolong orang tanpa kamera. Itu semua bisa jadi penghapus jejak gelap.</p>\n<p>Kadang lewat musibah. Yang nggak kita minta, tapi kita terima. Sakit. Kehilangan. Kecewa. Hancur rencana. Bukan buat nyakitin tapi buat membersihkan.</p>\n<p>Dan ini yang berat diterima: nggak semua luka itu hukuman. Sebagian justru pengampunan yang nyamar. Dan kadang... Allah bersihin dosa kita dengan cara lain yang cuma Dia yang tahu.</p>\n<p>Yang jelas satu: Allah nggak pernah zalim. Nggak pernah salah. Nggak pernah kejam. Kalau Dia bersihin, itu karena Dia peduli. Kalau Dia uji, itu karena Dia sayang.</p>\n<p>Dan gue belajar satu hal: selama hati gue masih dibawa lebih dekat ke Allah apa pun jalannya, itu bukan keburukan. Karena yang paling berbahaya bukan diuji, tapi dibiarkan.</p>\n<p>Dan gue masih di perjalanan. Menerima. Belajar ikhlas. Belajar husnuzan.</p>\n<blockquote>Karena bersih itu proses. Dan Allah tahu cara terbaik buat tiap hamba.</blockquote>",
+      "resep": {
+        "no": "",
+        "bodyHtml": ""
+      }
+    },
+    {
+      "id": "s11",
+      "num": "11",
+      "total": "19",
+      "title": "Tenang, Ini Tentang Kita Juga",
+      "sub": "",
+      "page": "",
+      "bodyHtml": "<p>Dan di sini... gue nemu kabar baik. Ternyata, yang pertengahan, dan yang berlomba dalam kebaikan dua-duanya bisa jadi wali-wali Allah.</p>\n<p>Bukan wali yang pakai jubah khusus. Bukan yang namanya ditulis di spanduk. Tapi wali yang Allah sebut langsung di dalam kitab-Nya. Orang-orang yang beriman, dan menjaga diri.</p>\n<p>Dan tentang mereka, Allah bilang satu hal yang bikin dada lega: nggak ada rasa takut, dan nggak ada penyesalan yang ngerusak hati.</p>\n<p>Bukan berarti hidup mereka bebas masalah. Bukan berarti nggak pernah sedih. Tapi hati mereka... punya pegangan.</p>\n<p>Saat dunia goyah, mereka tetap tenang. Saat hidup nyakitin, mereka tetap yakin. Karena mereka tahu siapa yang mereka percaya.</p>\n<p>Dan ini penting: jadi wali Allah bukan soal level sempurna. Tapi soal iman yang dijaga, dan takwa yang diusahakan.</p>\n<p>Jadi jangan minder. Jangan ngerasa terlalu biasa. Selama lo beriman dan lo jaga diri dari dosa, lo lagi jalan ke arah itu.</p>\n<p>Dan gue.. juga lagi berjuang di jalan yang sama.</p>\n<blockquote>Tenang. Harapan masih ada. Dan Allah nggak jauh.</blockquote>",
+      "resep": {
+        "no": "",
+        "bodyHtml": ""
+      }
+    },
+    {
+      "id": "s12",
+      "num": "12",
+      "total": "19",
+      "title": "Wali Allah Itu Dekat, Bukan Jauh",
+      "sub": "",
+      "page": "",
+      "bodyHtml": "<p>Dan sekarang, biar nggak salah paham... Siapa sebenarnya wali Allah itu?</p>\n<p>Batasnya jelas. Bukan yang mistis. Bukan yang eksklusif. Wali Allah itu orang beriman yang menjaga takwa.</p>\n<p>Sesederhana itu. Sekaligus sedalam itu. Tapi di dalamnya, ada tingkatan.</p>\n<p>Ada yang umum. Itu mereka yang pertengahan. Yang jaga kewajiban, ninggalin yang haram. Hidupnya lurus, meski belum ngegas.</p>\n<p>Dan ada yang khusus. Mereka yang berlomba. Yang nggak puas cuma aman. Yang ngejar dekat. Yang pengen lebih dicintai. Bukan karena Allah pilih kasih. Tapi karena usaha tiap orang nggak sama.</p>\n<p>Dan ini bikin satu hal jelas: jadi wali Allah bukan mimpi yang jauh. Ini bukan cerita orang lain. Ini jalur hidup yang lagi kita injak sekarang.</p>\n<p>Setiap pilihan kecil, setiap dosa yang ditinggalin, setiap amal yang ditambah itu semua lagi nentuin kita di level yang mana.</p>\n<p>Dan gue... nggak pengen cuma numpang lewat. Gue pengen naik. Pelan boleh. Asal konsisten.</p>\n<blockquote>Karena ternyata, jalan ke Allah itu terbuka. Dan wali-wali-Nya bisa lahir dari siapa aja termasuk dari kita.</blockquote>",
+      "resep": {
+        "no": "",
+        "bodyHtml": ""
+      }
+    },
+    {
+      "id": "s13",
+      "num": "13",
+      "total": "19",
+      "title": "Arah Paling Tinggi",
+      "sub": "",
+      "page": "",
+      "bodyHtml": "<p>Dan iya... kalau kita ngomongin level tertinggi, yang paling depan, yang paling dekat mereka adalah orang-orang yang berlomba. Para sabiqun. Yaitu para pelopor atau orang-orang yang menjadi pendahulu dalam melakukan sebuah amal.</p>\n<p>Mereka ada di derajat paling tinggi. Satu barisan dengan para nabi dan orang-orang yang benar imannya.</p>\n<p>Bukan karena mereka tanpa salah. Bukan karena hidup mereka ringan. Tapi karena mereka total. Total cinta. Total usaha. Total jujur sama Allah.</p>\n<p>Dan ini penting: Allah nggak nyuruh kita langsung sampai ke sana. Tapi Allah ngasih arah. Supaya hidup kita nggak muter-muter. Nggak asal aman. Nggak puas di tengah.</p>\n<p>Arah itu jelas: naik. Mendekat. Lebih baik dari kemarin.</p>\n<p>Dan walaupun jarak kita jauh, niat buat ke sana itu udah bernilai. Karena di sisi Allah, yang dihitung bukan cuma hasil, tapi arah langkah.</p>\n<p>Dan gue... nggak tahu sejauh apa bisa sampai. Tapi gue tahu ke mana mau jalan.</p>\n<blockquote>Dan selama arah gue menuju Allah, gue nggak salah jalan.</blockquote>",
+      "resep": {
+        "no": "",
+        "bodyHtml": ""
+      }
+    },
+    {
+      "id": "s14",
+      "num": "14",
+      "total": "19",
+      "title": "Bukan Kata Kita, Ini Kata Nabi",
+      "sub": "",
+      "page": "",
+      "bodyHtml": "<p>Dan semua yang gue ceritain ini... bukan hasil mikir sendiri. Bukan teori motivasi. Bukan juga quote random. Ini udah disebut langsung sama Nabi Muhammad ⁩ﷺ.</p>\n<p>Nabi pernah jelasin tentang dua golongan ini. Dan ceritanya diriwayatin oleh Abu Hurairah. Dicatat rapi di kitab paling valid Shahih Bukhari.</p>\n<p>Artinya apa? Ini bukan wacana. Ini bukan perasaan. Ini panduan hidup yang udah diuji zaman.</p>\n<p>Dan pas Nabi bicara, beliau nggak cuma ngajarin hukum. Beliau lagi ngarahin kita. Supaya kita tahu: di jalan iman ini, ada level. Ada arah. Ada pilihan.</p>\n<p>Dan sekarang, kita tinggal satu langkah lagi dengerin langsung apa yang Nabi sampaikan.</p>\n<blockquote>Bukan buat sekadar tahu, tapi buat nentuin: kita mau berdiri di barisan yang mana.</blockquote>",
+      "resep": {
+        "no": "",
+        "bodyHtml": ""
+      }
+    },
+    {
+      "id": "s15",
+      "num": "15",
+      "total": "19",
+      "title": "Ini Serius, Jangan Anggap Remeh",
+      "sub": "",
+      "page": "",
+      "bodyHtml": "<p>Dan sekarang... dengerin baik-baik. Ini bukan kata ustadz. Bukan kata motivator. Ini firman Allah, disampaikan lewat Nabi.</p>\n<p>Allah berfirman: Kalau ada yang memusuhi wali-Ku, itu sama saja dia menantang Aku langsung. Bukan main-main. Bukan urusan kecil.</p>\n<p>Artinya apa? Jangan pernah ngeremehin orang yang hidupnya dekat sama Allah. Jangan rendahkan iman orang lain. Jangan sakiti orang yang lagi jaga diri. Karena urusannya bukan cuma sama manusia tapi sama Allah.</p>\n<p>Lalu Allah bilang satu hal penting: nggak ada cara paling dicintai Allah selain ngerjain yang Dia wajibkan. Bukan yang ribet dulu. Bukan yang viral dulu. Tapi yang wajib.</p>\n<p>Salat. Jujur. Amanah. Ninggalin yang haram.</p>\n<p>Dan di sini gue keinget sesuatu: kedekatan sama Allah itu bukan dibangun dari hal besar yang jarang, tapi dari kewajiban kecil yang konsisten.</p>\n<p>Dan kalimat hadits itu berhenti di situ.. Seolah Allah ngasih jeda. Biar kita mikir. Udah sejauh mana gue ngerjain yang wajib?</p>\n<p>Karena sebelum mimpi tinggi jadi hamba spesial, Allah nanya satu hal sederhana: “Yang Aku wajibkan, udah lo jaga belum?”</p>\n<p>Dan di titik itu, gue diam.</p>\n<blockquote>Karena ternyata, jalan ke Allah itu jelas. Dekat. Tapi serius.</blockquote>",
+      "resep": {
+        "no": "",
+        "bodyHtml": ""
+      }
+    },
+    {
+      "id": "s16",
+      "num": "16",
+      "total": "19",
+      "title": "Sampai Aku Mencintainya",
+      "sub": "",
+      "page": "",
+      "bodyHtml": "<p>Dan Allah lanjutkan... “Hamba-Ku terus mendekat kepada-Ku dengan amalan-amalan tambahan... sampai Aku mencintainya.” Pelan. Dalem. Nggak pakai teriak.</p>\n<p>Allah nggak bilang: “langsung jadi orang hebat.” Allah bilang: terus mendekat. Lewat yang sunnah. Yang kecil. Yang sering diremehin.</p>\n<p>Salat sunnah saat sepi. Doa tanpa penonton. Sedekah tanpa upload. Niat baik yang nggak kelihatan.</p>\n<p>Dan ternyata... itu bukan cuma nambah pahala. Itu nambah cinta. Sampai titik tertentu, bukan kita lagi yang ngejar Allah tapi Allah yang bilang: “Aku cinta dia.”</p>\n<p>Dan jujur aja... di dunia yang penuh validasi palsu, apa lagi yang lebih berharga selain dicintai Pencipta langit dan bumi?</p>\n<p>Bukan dicintai karena pencitraan. Tapi karena ketulusan. Karena konsistensi. Karena terus datang, meski sering jatuh.</p>\n<p>Dan gue sadar: jadi dekat sama Allah itu bukan lonjakan besar, tapi langkah kecil yang setia.</p>\n<p>Dan mungkin hari ini gue belum sejauh itu. Tapi sekarang gue tahu arahnya. Dari wajib.. ke sunnah. dari usaha.. ke cinta.</p>\n<blockquote>Dan kalau Allah sudah cinta... apa lagi yang perlu gue takutkan?</blockquote>",
+      "resep": {
+        "no": "",
+        "bodyHtml": ""
+      }
+    },
+    {
+      "id": "s17",
+      "num": "17",
+      "total": "19",
+      "title": "Saat Allah Menggenggam Hidupmu",
+      "sub": "",
+      "page": "",
+      "bodyHtml": "<p>Dan Allah berfirman... “Kalau Aku sudah mencintainya, Aku jadi pendengarannya cara dia mendengar dunia. Aku jadi penglihatannya cara dia memandang hidup. Aku jadi tangannya apa yang dia sentuh, apa yang dia lakukan. Aku jadi langkahnya ke mana dia berjalan, dan ke mana dia nggak mau pergi.”</p>\n<p>Bukan berarti dia jadi Tuhan. Bukan berarti dia nggak salah. Tapi artinya satu: hidupnya dijaga.</p>\n<p>Yang dia dengar nggak lagi sembarangan. Yang dia lihat nggak lagi serampangan. Yang dia lakukan lebih hati-hati. Yang dia datangi lebih terarah. Karena Allah membimbingnya dari dalam.</p>\n<p>Dan di titik itu gue ngerti.. kedekatan sama Allah bukan bikin hidup bebas masalah, tapi bikin hidup punya kompas. Bukan jadi manusia sempurna, tapi jadi manusia yang dijaga.</p>\n<p>Dan jujur.. di dunia yang segalanya abu-abu, apa lagi yang lebih kita butuhin selain hidup yang diarahkan oleh Allah sendiri? Bukan karena kita layak. Tapi karena kita mau terus mendekat.</p>\n<p>Dan gue berharap pelan-pelan, jatuh-bangun, dengan segala kekurangan.. suatu hari, Allah juga jaga pendengaran gue, pandangan gue, langkah gue.</p>\n<blockquote>Bukan supaya gue hebat, tapi supaya gue selamat.</blockquote>",
+      "resep": {
+        "no": "",
+        "bodyHtml": ""
+      }
+    },
+    {
+      "id": "s18",
+      "num": "18",
+      "total": "19",
+      "title": "Kalau Dia Minta",
+      "sub": "",
+      "page": "",
+      "bodyHtml": "<p>Dan Allah tutup dengan janji yang bikin hati gemetar.. “Kalau dia meminta kepada-Ku, pasti Aku beri. Dan kalau dia minta perlindungan kepada-Ku, pasti Aku lindungi.”</p>\n<p>Bukan janji manusia. Bukan janji yang pakai syarat ribet. Ini janji Allah.</p>\n<p>Saat hamba sudah dekat, doanya bukan lagi teriak tapi sampai. Bukan karena kata-katanya indah, tapi karena hubungannya jujur.</p>\n<p>Dan di titik ini, gue sadar satu hal: doa itu bukan soal seberapa keras kita minta, tapi seberapa dekat kita datang.</p>\n<p>Kalau hidup lagi sempit, kalau hati lagi rapuh, kalau dunia lagi terasa berat tempat lari kita jelas. Minta sama Allah. Lindung ke Allah.</p>\n<p>Karena Dia bukan cuma dengar, tapi menjawab. Bukan cuma tahu, tapi menjaga.</p>\n<p>Dan gue... nggak butuh janji lain. Selama masih boleh minta. Selama masih boleh berlindung. Selama pintu itu belum ditutup.</p>\n<p>Karena ternyata, ujung dari semua perjalanan iman ini bukan popularitas, bukan kesempurnaan. Tapi kedekatan.</p>\n<blockquote>Dan kalau Allah sudah sedekat itu, apa lagi yang perlu ditakutkan?</blockquote>",
+      "resep": {
+        "no": "",
+        "bodyHtml": ""
+      }
+    },
+    {
+      "id": "s19",
+      "num": "19",
+      "total": "19",
+      "title": "Bersama Allah",
+      "sub": "",
+      "page": "",
+      "bodyHtml": "<p>Dan Allah menegaskan lagi... Dengan-Ku dia mendengar. Dengan-Ku dia melihat. Dengan-Ku dia bertindak. Dengan-Ku dia melangkah.</p>\n<p>Artinya sekarang jelas. Bukan dia yang hebat. Bukan dia yang kuat. Tapi karena Allah yang menyertainya.</p>\n<p>Dia tetap manusia. Masih bisa capek. Masih bisa salah. Masih bisa jatuh. Tapi dia nggak sendirian.</p>\n<p>Saat dia dengar sesuatu, Allah jaga hatinya. Saat dia lihat dunia, Allah jaga pandangannya. Saat dia bertindak, Allah jaga tangannya. Saat dia melangkah, Allah jaga arahnya.</p>\n<p>Dan di titik ini, gue berhenti ngejar pengakuan manusia. Karena apa lagi yang mau dikejar, kalau Allah sudah bersama?</p>\n<p>Bukan hidup tanpa masalah. Tapi hidup dengan penjagaan. Bukan bebas dari luka. Tapi luka yang nggak nyeret ke jurang.</p>\n<p>Dan gue sadar... ini bukan tentang jadi siapa di mata manusia, tapi siapa kita di hadapan Allah. Dan kalau Allah sudah bersama langkah kita, kita mungkin lambat... tapi kita aman.</p>\n<blockquote>“Ya Allah, biarin hidup gue sederhana, asal Engkau membersamai.”</blockquote>\n<p>Karena dengan-Mu.. itu sudah cukup.</p>",
+      "resep": {
+        "no": "",
+        "bodyHtml": ""
+      }
+    }
+  ],
+  "closing": {
+    "label": "Penutup",
+    "title": "Ini Nasehat Buat Gue",
+    "paragraphsHtml": [
+      "Dan buat elo pade yang mau baca, makasih.",
+      "Semoga jadi pengingat — buat gue yang nulis, dan buat siapa pun yang lagi butuh dibaca ulang."
+    ]
+  },
+  "about": {
+    "label": "Tentang Tulisan Ini",
+    "title": "Catatan tentang level iman, takut dan harap, sampai kedekatan sama Allah",
+    "paragraph": "Ditulis santai, buat dibaca berulang-ulang. Bukan nasehat buat orang lain — ini nasehat buat diri sendiri, yang kebetulan boleh elo baca juga.",
+    "tags": [
+      "Renungan",
+      "Iman",
+      "Tawakal",
+      "Muhasabah"
+    ]
+  },
+  "downloadCta": {
+    "label": "Bawa Pulang",
+    "title": "Simpan Versi PDF-nya",
+    "paragraph": "Biar bisa dibaca ulang kapan aja tanpa buka tab ini — offline, di HP atau laptop kamu.",
+    "buttonText": "Download PDF"
+  },
+  "modal": {
+    "step1Label": "Langkah 1 · Scan & Bayar",
+    "title": "Download PDF — Nasehat Buat Gue",
+    "desc": "Scan QRIS di bawah ini, lalu isi form konfirmasi supaya file PDF langsung terunduh.",
+    "qris": {
+      "src": "assets/qr.png",
+      "amount": "Rp ",
+      "note": "QRIS · GUE Gen Zedition"
+    },
+    "form": {
+      "nameLabel": "Nama",
+      "namePlaceholder": "Nama kamu",
+      "contactLabel": "No. WhatsApp / Email",
+      "contactPlaceholder": "08xx atau email",
+      "noteLabel": "Catatan",
+      "noteOptional": "(opsional)",
+      "notePlaceholder": "Contoh: an. rekening pengirim",
+      "checkLabel": "Saya sudah melakukan pembayaran sesuai QRIS di atas.",
+      "errorText": "Lengkapi nama, kontak, dan centang konfirmasi pembayaran dulu ya.",
+      "submitText": "Konfirmasi & Download PDF"
+    },
+    "success": {
+      "title": "Konfirmasi Diterima",
+      "text": "Terima kasih! PDF-nya sedang diunduh otomatis.",
+      "manualBefore": "Kalau download tidak mulai, ",
+      "manualLinkText": "klik di sini",
+      "manualAfter": "."
+    },
+    "pdf": {
+      "url": "https://github.com/kuplug/pdf-bukugue/raw/main/Nasehat_Buat_Gue.pdf",
+      "filename": "Nasehat Buat Gue.pdf"
+    }
+  },
+  "footer": "Nasehat Buat Gue · Ditulis oleh Gue · 2026",
+  "theme": {
+    "bg": "#101B24",
+    "bgAlt": "#16232D",
+    "panel": "#1C2E3A",
+    "line": "rgba(242,241,235,0.14)",
+    "ink": "#F2F4F5",
+    "inkDim": "#B9C6CD",
+    "inkFaint": "#77909F",
+    "blue": "#7E9AB0",
+    "blueLight": "#9FB7C8",
+    "blueDeep": "#4A6E88",
+    "mint": "#12273C",
+    "mintDeep": "#0A1A28",
+    "amber": "#9FB7C8",
+    "amberDim": "#4A6E88",
+    "navy": "#0F1B24"
+  }
+}

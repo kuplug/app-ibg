@@ -1,0 +1,5 @@
+{
+  "rewrites": [
+    { "source": "/buku/:slug", "destination": "/book.html?slug=:slug" }
+  ]
+}

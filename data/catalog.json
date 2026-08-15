@@ -1,0 +1,90 @@
+{
+  "siteName": "GUE — Gen Zedition",
+  "siteTagline": "Renungan Islami buat anak muda, dibahas santai tapi dalam.",
+  "books": [
+    {
+      "slug": "obat-toxic-dari-ibnul-jauzi-resep-pertama",
+      "dataPath": "data/book01.json",
+      "title": "Obat Toxic dari Ibnul Jauzi — Resep Pertama",
+      "tagline": "15 racun pikiran anak muda, dan cara Ibnul Jauzi membedahnya satu per satu.",
+      "cover": "assets/cover/book01.jpeg",
+      "tags": [
+        "Motivasi",
+        "Self-Improvement",
+        "Renungan Islami",
+        "Gen Z"
+      ],
+      "publishedAt": "2026"
+    },
+    {
+      "slug": "obat-toxic-dari-ibnul-jauzi-resep-kedua",
+      "dataPath": "data/book02.json",
+      "title": "Obat Toxic dari Ibnul Jauzi — Resep Kedua",
+      "tagline": "15 racun hati yang lebih halus, dan cara Ibnul Jauzi membedahnya satu per satu.",
+      "cover": "assets/cover/book02.jpg",
+      "tags": [
+        "Motivasi",
+        "Self-Improvement",
+        "Renungan Islami",
+        "Gen Z"
+      ],
+      "publishedAt": "2026"
+    },
+    {
+      "slug": "obat-toxic-dari-ibnul-jauzi-resep-ketiga",
+      "dataPath": "data/book03.json",
+      "title": "Obat Toxic dari Ibnul Jauzi — Resep Ketiga",
+      "tagline": "15 racun pikiran yang lebih personal, dan cara Ibnul Jauzi membedahnya satu per satu.",
+      "cover": "assets/cover/book03.jpeg",
+      "tags": [
+        "Motivasi",
+        "Self-Improvement",
+        "Renungan Islami",
+        "Gen Z"
+      ],
+      "publishedAt": "2026"
+    },
+    {
+      "slug": "obat-toxic-dari-ibnul-jauzi-resep-keempat",
+      "dataPath": "data/book04.json",
+      "title": "Obat Toxic dari Ibnul Jauzi — Resep Keempat",
+      "tagline": "15 racun hati yang menyamar jadi kebaikan, dan cara Ibnul Jauzi membongkarnya satu per satu.",
+      "cover": "assets/cover/book04.jpeg",
+      "tags": [
+        "Motivasi",
+        "Self-Improvement",
+        "Renungan Islami",
+        "Gen Z"
+      ],
+      "publishedAt": "2026"
+    },
+    {
+      "slug": "nasehat-buat-gue",
+      "dataPath": "data/book00.json",
+      "title": "Nasehat Buat Gue",
+      "tagline": "Bukan buku ceramah. Catatan jujur satu orang yang lagi belajar iman — ditulis buat diri sendiri, dibaca berulang-ulang biar nggak lupa arah.",
+      "cover": "assets/cover/book00.jpeg",
+      "tags": [
+        "Renungan",
+        "Iman",
+        "Tawakal",
+        "Muhasabah"
+      ],
+      "publishedAt": "2026"
+    },
+    {
+      "slug": "saat-ibnul-jauzi-menulis-tentang-dirinya",
+      "dataPath": "data/book-pengantar.json",
+      "title": "Saat Ibnul Jauzi Menulis Tentang Dirinya",
+      "tagline": "Tujuh jembatan yang menghubungkan hidup kita hari ini dengan hikmah seorang ulama yang hidup lebih dari sembilan abad lalu — tentang identitas, kebiasaan, lingkungan, waktu, karya, pengaruh, dan warisan.",
+      "cover": "assets/cover/book-pengantar.jpeg",
+      "tags": [
+        "Renungan",
+        "Muhasabah",
+        "Biografi Hikmah",
+        "Gen Z"
+      ],
+      "publishedAt": "2026"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+# Opsional — hanya berlaku kalau kamu hosting di Netlify.
+# Membuat URL path asli /buku/<slug> (lebih SEO-friendly daripada
+# query string) tanpa perlu menduplikasi file HTML per buku.
+#
+# Contoh: /buku/obat-toxic-dari-ibnul-jauzi-resep-kedua
+#         -> otomatis diarahkan (rewrite, bukan redirect) ke
+#            book.html?slug=obat-toxic-dari-ibnul-jauzi-resep-kedua
+#         URL di address bar TETAP /buku/<slug> (status 200, bukan 301).
+
+/buku/:slug  /book.html?slug=:slug  200

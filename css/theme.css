@@ -1,0 +1,94 @@
+:root{
+    /* palette pulled directly from the book cover */
+    --bg: #182722;
+    --bg-alt: #1f342d;
+    --panel: #24413a;
+    --line: rgba(242,241,235,0.14);
+    --ink: #f4f3ee;
+    --ink-dim: #b7c7c0;
+    --ink-faint: #76897f;
+    --blue: #5d91b6;
+    --blue-light: #79aecf;
+    --blue-deep: #3d6482;
+    --mint: #9ecbc6;
+    --mint-deep: #7fb09f;
+    --amber: #79aecf;      /* repointed to cover blue for label/accent text */
+    --amber-dim: #4c7692;  /* repointed to cover blue-deep */
+    --navy: #1e2a28;       /* the dark stamp/title-bar navy from the cover */
+    --radius: 2px;
+    --wrap: 760px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Plus Jakarta Sans', sans-serif;
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--amber); color:#1a1108;}
+
+  h1,h2,h3,.display{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    color:var(--ink);
+    margin:0;
+  }
+
+  .label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--amber);
+  }
+
+  a{color:inherit;}
+  img{max-width:100%;}
+
+  /* ===== background texture ===== */
+  body::before{
+    content:"";
+    position:fixed; inset:0;
+    background:
+      radial-gradient(ellipse 900px 500px at 15% -5%, rgba(93,145,182,0.22), transparent 60%),
+      radial-gradient(ellipse 700px 600px at 100% 20%, rgba(158,203,198,0.12), transparent 55%);
+    pointer-events:none;
+    z-index:0;
+  }
+
+  /* ===== shared top nav + footer (dipakai index.html & book.html) ===== */
+  .topbar{
+    position:fixed; top:0; left:0; right:0;
+    z-index:50;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 28px;
+    background:linear-gradient(180deg, rgba(30,42,40,0.55), rgba(30,42,40,0.28) 70%, transparent);
+    backdrop-filter:blur(6px);
+  }
+  .topbar .brand{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:1rem;
+    letter-spacing:0.02em;
+  }
+  .topbar .brand span{color:var(--amber);}
+
+  footer{
+    padding:34px 28px 50px;
+    text-align:center;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.7rem;
+    letter-spacing:0.08em;
+    color:var(--ink-faint);
+    position:relative; z-index:1;
+  }
+
+  @media (max-width:640px){
+    .topbar{padding:14px 18px;}
+  }
+
